@@ -52,6 +52,18 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
         }
+        .custom-checkbox:checked + div {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        /* Custom scrollbar for mobile tab bar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
         @media print {
             .no-print { display: none !important; }
             .print-full { width: 100% !important; margin: 0 !important; }
@@ -67,13 +79,13 @@
             <div class="flex flex-wrap items-center justify-between gap-4">
                 <div>
                     <span class="inline-block px-3 py-1 bg-amber-400 text-maple-900 rounded-full text-xs font-bold tracking-wide uppercase mb-2 shadow-sm">
-                        <i class="fa-solid fa-leaf mr-1"></i> 秋季賞楓 5 日包車奢華漫遊
+                        <i class="fa-solid fa-leaf mr-1"></i> 秋季賞楓 5 日包車深度客製遊
                     </span>
                     <h1 class="text-3xl md:text-5xl font-extrabold font-serif tracking-tight leading-tight">
                         大阪泉州・堺市・京都賞楓 5 日遊
                     </h1>
                     <p class="mt-2 text-maple-100 text-sm md:text-base max-w-2xl font-light">
-                        專屬包車專車服務 ‧ 全程星野 OMO7 關西機場連泊 ‧ 友善飲食與親子慢遊
+                        專屬包車專車服務 ‧ OMO7 關西機場連泊 ‧ 友善飲食全規劃 ‧ 親子長輩慢遊
                     </p>
                 </div>
                 <!-- Action Buttons -->
@@ -87,7 +99,6 @@
                 </div>
             </div>
 
-            <!-- Key Trip Stats Bar -->
             <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 border-t border-white/20 pt-6">
                 <div class="bg-white/10 rounded-xl p-3 backdrop-blur-sm border border-white/10">
                     <div class="text-xs text-maple-100"><i class="fa-regular fa-calendar mr-1"></i> 旅遊日期</div>
@@ -103,13 +114,12 @@
                 </div>
                 <div class="bg-white/10 rounded-xl p-3 backdrop-blur-sm border border-white/10">
                     <div class="text-xs text-maple-100"><i class="fa-solid fa-utensils mr-1"></i> 飲食友善</div>
-                    <div class="text-sm md:text-base font-bold mt-1">避牛羊/鰻魚多元方案</div>
+                    <div class="text-sm md:text-base font-bold mt-1">不吃牛羊/鰻魚替換方案</div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Info Overview Banner (Flight & Accommodation Detail Card) -->
     <section class="max-w-6xl mx-auto px-4 -mt-4 relative z-20">
         <div class="bg-white rounded-2xl shadow-lg border border-amber-100 p-4 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Flight Info -->
@@ -133,8 +143,8 @@
                 </div>
                 <div class="text-xs text-gray-600 space-y-1">
                     <h4 class="font-bold text-gray-900 text-sm mb-1">OMO7 關西機場 by 星野集團</h4>
-                    <p>4 晚連續入住，無需頻繁搬運大行李與嬰兒車。</p>
-                    <p class="text-amber-700 font-medium">舒適大浴場、鄰近臨空城與關西機場。</p>
+                    <p>4 晚連續入住，無需頻繁搬運大行李與嬰兒推車。</p>
+                    <p class="text-amber-700 font-medium">專屬車輛接送、大浴場放鬆、鄰近臨空城 Outlet。</p>
                 </div>
             </div>
 
@@ -144,7 +154,7 @@
                     <i class="fa-solid fa-heart-pulse"></i>
                 </div>
                 <div class="text-xs text-gray-600 space-y-1">
-                    <h4 class="font-bold text-gray-900 text-sm mb-1">團員飲食照顧規劃</h4>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">團員特殊飲食貼心規劃</h4>
                     <p><span class="inline-block bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-medium">不吃牛羊</span> 備妥豚肉/若雞/天婦羅/海鮮/湯豆腐。</p>
                     <p><span class="inline-block bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">不吃鰻魚</span> 備有海鮮御膳/釜飯/刺身/壽司替代。</p>
                 </div>
@@ -152,25 +162,31 @@
         </div>
     </section>
 
-    <!-- Navigation Tabs -->
-    <nav class="max-w-6xl mx-auto px-4 mt-8 no-print">
-        <div class="flex border-b border-gray-200 overflow-x-auto space-x-2 md:space-x-4 pb-1 scrollbar-none" id="tabContainer">
-            <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn active px-4 py-3 rounded-t-xl font-bold text-sm md:text-base border-b-2 border-maple-600 text-maple-700 bg-white shadow-xs whitespace-nowrap flex items-center gap-2">
+    <!-- Navigation Bar with Mobile Horizontal Scrolling -->
+    <nav class="max-w-6xl mx-auto px-4 mt-8 no-print relative">
+        <div class="flex items-center justify-between mb-1 text-xs text-gray-400 md:hidden">
+            <span><i class="fa-solid fa-hand-pointer mr-1"></i> 左右滑動切換分頁</span>
+            <span class="text-maple-600 font-medium"><i class="fa-solid fa-arrow-right-long animate-pulse"></i></span>
+        </div>
+        <div class="flex border-b border-gray-200 overflow-x-auto space-x-2 md:space-x-4 pb-1 no-scrollbar flex-nowrap scroll-smooth snap-x" id="tabContainer">
+            <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn active shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base border-b-2 border-maple-600 text-maple-700 bg-white shadow-xs whitespace-nowrap flex items-center gap-2">
                 <i class="fa-regular fa-calendar-check"></i> 每日行程與全餐廳規劃
             </button>
-            <button onclick="switchTab('dietary')" id="tab-dietary" class="tab-btn px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
+            <button onclick="switchTab('dietary')" id="tab-dietary" class="tab-btn shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
                 <i class="fa-solid fa-utensils"></i> 餐廳美食與飲食指南
             </button>
-            <button onclick="switchTab('souvenir')" id="tab-souvenir" class="tab-btn px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
+            <button onclick="switchTab('souvenir')" id="tab-souvenir" class="tab-btn shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
                 <i class="fa-solid fa-bag-shopping"></i> 必買伴手禮 Check List
             </button>
-            <button onclick="switchTab('tips')" id="tab-tips" class="tab-btn px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
+            <button onclick="switchTab('tips')" id="tab-tips" class="tab-btn shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
                 <i class="fa-solid fa-baby-carriage"></i> 親子與包車注意事項
+            </button>
+            <button onclick="switchTab('prep')" id="tab-prep" class="tab-btn shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
+                <i class="fa-solid fa-clipboard-check"></i> 出國準備與登機確認清單
             </button>
         </div>
     </nav>
 
-    <!-- Main Content Area -->
     <main class="max-w-6xl mx-auto px-4 my-6 flex-1">
 
         <!-- TAB 1: DAILY ITINERARY -->
@@ -200,7 +216,7 @@
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 15:30 - 16:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">專車接機 & OMO7 關西機場 Check-in</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">包車司機關西機場接機，行李與嬰兒車直接上車，輕鬆前往 OMO7 關西機場辦理入住。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">包車司機關西機場接機，行李與嬰兒推車直接上車，輕鬆前往 OMO7 關西機場辦理入住。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
@@ -212,7 +228,6 @@
                             </div>
                         </div>
 
-                        <!-- Meals & Hotel Column -->
                         <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-100 space-y-3">
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
@@ -237,7 +252,6 @@
                 </div>
             </div>
 
-            <!-- Day 2 Card -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-maple-700 to-amberGlow text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -280,7 +294,6 @@
                             </div>
                         </div>
 
-                        <!-- Meals & Hotel Column -->
                         <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-100 space-y-3">
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
@@ -294,7 +307,8 @@
                                 </div>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
                                     <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>推薦：</b>はや 魚太郎 泉州の鄉 (海鮮/黑豚鍋物)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>はや 魚太郎 泉州の鄉 (海鮮/黑豚鍋物)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>犬鳴山溫泉料亭 (山海會席/黑豚/海鮮)</p>
                                     <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：主打泉州新鮮海鮮與鹿兒島黑豚涮涮鍋，不含牛羊鰻魚爭議。</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
@@ -308,7 +322,6 @@
                 </div>
             </div>
 
-            <!-- Day 3 Card -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-emerald-800 to-teal-700 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -351,7 +364,6 @@
                             </div>
                         </div>
 
-                        <!-- Meals & Hotel Column -->
                         <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-100 space-y-3">
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
@@ -365,7 +377,8 @@
                                 </div>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
                                     <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>推薦：</b>海鮮處 椿 (Tsubaki) (特上握壽司/烤魚/天婦羅)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>海鮮處 椿 (Tsubaki) (特上握壽司/烤魚/天婦羅)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>堺市老街 割烹和食 (時令海鮮/海老/炊飯)</p>
                                     <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：美々卯湯頭極鮮無牛羊；海鮮處椿嚴選產地直送鮮魚，無鰻魚負擔。</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
@@ -379,7 +392,6 @@
                 </div>
             </div>
 
-            <!-- Day 4 Card -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-maple-800 via-maple-600 to-amber-600 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -422,7 +434,6 @@
                             </div>
                         </div>
 
-                        <!-- Meals & Hotel Column -->
                         <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-100 space-y-3">
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
@@ -431,12 +442,14 @@
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內早餐</p>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
                                     <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>推薦：</b>清水 順正 (湯豆腐/胡麻豆腐/時令炊飯)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>清水 順正 (湯豆腐/胡麻豆腐/時令炊飯)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>奧丹 清水 (百年老店湯豆腐/胡麻豆腐)</p>
                                 </div>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
                                     <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
                                     <p class="text-gray-800 font-medium"><b>選項 A：</b>がんこ Ganko 祇園店 (和食御膳/黑豚/刺身)</p>
                                     <p class="text-gray-800 font-medium"><b>選項 B：</b>和食さと (Washoku Sato) (鍋物/天婦羅/和食)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 C：</b>祇園天婦羅八坂 (時令海鮮野菜天婦羅)</p>
                                     <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：菜單選項超豐富，想吃鰻魚者可單點，不吃鰻魚者有黑豚/刺身/天婦羅配套。</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
@@ -450,7 +463,6 @@
                 </div>
             </div>
 
-            <!-- Day 5 Card -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -493,7 +505,6 @@
                             </div>
                         </div>
 
-                        <!-- Meals & Hotel Column -->
                         <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-100 space-y-3">
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
@@ -529,7 +540,7 @@
                         <i class="fa-solid fa-utensils"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold text-gray-900">全程各餐推薦餐廳與飲食配套清單</h2>
+                        <h2 class="text-xl font-bold text-gray-900">全程各餐推薦餐廳與飲食配套指南</h2>
                         <p class="text-xs text-gray-500">完美照顧 1 位不吃牛羊、1 位不吃鰻魚的團員需求，每餐皆有彈性且美味的替代方案！</p>
                     </div>
                 </div>
@@ -544,11 +555,11 @@
                         </div>
                         <div class="space-y-2 text-xs">
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 A：鳥貴族 (泉佐野站前店)</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 A：鳥貴族 (泉佐野站前店)</div>
                                 <p class="text-gray-600 mt-1">均一價串燒名店。主打烤雞肉串、烤豬肉串、起司雞肉丸、金牌釜飯、高麗菜（可免費續）。</p>
                             </div>
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 B：泉佐野站前海鮮居酒屋</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 B：泉佐野站前海鮮居酒屋</div>
                                 <p class="text-gray-600 mt-1">享用大阪灣港口直送地場鮮魚刺身、海鮮天婦羅御膳與烤地魚。</p>
                             </div>
                             <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
@@ -565,11 +576,11 @@
                         </div>
                         <div class="space-y-2 text-xs">
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 A：手打ち蕎麥 仙太郎</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 A：手打ち蕎麥 仙太郎</div>
                                 <p class="text-gray-600 mt-1">石磨手工蕎麥麵配特製鰹魚醬汁，搭配現炸時令野菜與大蝦天婦羅。</p>
                             </div>
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 B：五風莊 庭園料亭</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 B：五風莊 庭園料亭</div>
                                 <p class="text-gray-600 mt-1">於迴遊式歷史庭園內欣賞美景，享用精緻日式會席御膳與和食定食。</p>
                             </div>
                             <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
@@ -581,13 +592,17 @@
                     <!-- Day 2 Dinner Card -->
                     <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
                         <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 2 晚餐推薦 (泉州地區)</h3>
+                            <h3 class="font-bold text-maple-900 text-base">Day 2 晚餐推薦 (泉州/犬鳴山地區)</h3>
                             <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">泉州名物</span>
                         </div>
                         <div class="space-y-2 text-xs">
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">推薦：はや 魚太郎 泉州の鄉</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 A：はや 魚太郎 泉州の鄉</div>
                                 <p class="text-gray-600 mt-1">專營泉州地場海鮮鍋物與鹿兒島黑豚涮涮鍋，桌位可分鍋或選擇海鮮/豚肉昆布湯底。</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-amber-800 text-sm">選項 B：犬鳴山溫泉料亭 (不動口館/周邊)</div>
+                                <p class="text-gray-600 mt-1">享用犬鳴山溪谷時令山海會席料理、黑豚寶樂燒與鮮魚刺身。</p>
                             </div>
                             <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
                                 <strong>💡 飲食友善說明：</strong>主打海鮮與黑豚，可完全排除牛肉與鰻魚品項。
@@ -603,11 +618,11 @@
                         </div>
                         <div class="space-y-2 text-xs">
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 A：美々卯 (堺本店)</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 A：美々卯 (堺本店)</div>
                                 <p class="text-gray-600 mt-1">烏龍麵壽喜燒 (うどんすき) 發源地！採用特製柴魚高湯、活蝦、土雞肉與百合根，極度鮮美。</p>
                             </div>
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 B：燒肉 全 (Yakiniku Zen)</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 B：燒肉 全 (Yakiniku Zen)</div>
                                 <p class="text-gray-600 mt-1">除牛肉外，備有特選黑豚肉盤、若雞肉盤與大蝦干貝燒烤，不吃牛羊者亦能盡情享用燒烤。</p>
                             </div>
                             <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
@@ -624,8 +639,12 @@
                         </div>
                         <div class="space-y-2 text-xs">
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">推薦：海鮮處 椿 (Tsubaki)</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 A：海鮮處 椿 (Tsubaki)</div>
                                 <p class="text-gray-600 mt-1">嚴選產地直送新鮮刺身拼盤、特上握壽司、天婦羅御膳與烤時令鮮魚定食。</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-amber-800 text-sm">選項 B：堺市老街割烹和食</div>
+                                <p class="text-gray-600 mt-1">精緻季節旬味和食，提供豐富海老天婦羅、季節炊飯與蒸蛋。</p>
                             </div>
                             <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
                                 <strong>💡 飲食友善說明：</strong>純海鮮與和食料理，完全避開牛羊與鰻魚。
@@ -641,8 +660,12 @@
                         </div>
                         <div class="space-y-2 text-xs">
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">推薦：清水 順正 (Junsei) 湯豆腐</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 A：清水 順正 (Junsei) 湯豆腐</div>
                                 <p class="text-gray-600 mt-1">百年迴遊庭園內享用手工胡麻豆腐、熱氣騰騰湯豆腐、蔬菜天婦羅與時令炊飯。</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-amber-800 text-sm">選項 B：奧丹 清水 (Okutan)</div>
+                                <p class="text-gray-600 mt-1">京都最悠久湯豆腐名店之一，滑嫩豆腐搭配特製醬汁與季節小菜。</p>
                             </div>
                             <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
                                 <strong>💡 飲食友善說明：</strong>傳統京都和食，清淡滋養，全體團員（含長輩與嬰幼兒）皆極合適。
@@ -658,12 +681,16 @@
                         </div>
                         <div class="space-y-2 text-xs">
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 A：がんこ (Ganko 祇園店)</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 A：がんこ (Ganko 祇園店)</div>
                                 <p class="text-gray-600 mt-1">菜單極廣！有黑豚定食、海鮮天婦羅御膳、握壽司；想吃鰻魚者可單點鰻魚重，不吃的團員選擇非常豐富。</p>
                             </div>
                             <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 B：和食さと (Washoku Sato)</div>
+                                <div class="font-bold text-amber-800 text-sm">選項 B：和食さと (Washoku Sato)</div>
                                 <p class="text-gray-600 mt-1">連鎖和食家庭餐廳，提供黑豚涮涮鍋、天婦羅、烏龍麵與各式刺身御膳。</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-amber-800 text-sm">選項 C：祇園天婦羅 八坂 (Yasaka)</div>
+                                <p class="text-gray-600 mt-1">嚴選新鮮海老、穴子與時令京都野菜酥炸天婦羅定食。</p>
                             </div>
                             <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
                                 <strong>💡 飲食友善說明：</strong>點餐自由度最高，可靈活單點或選擇特定主餐。
@@ -703,19 +730,22 @@
                             <i class="fa-solid fa-gift"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-gray-900">必買伴手禮與採買景點對照表</h2>
+                            <h2 class="text-xl font-bold text-gray-900">必買伴手禮與採買景點 Check List</h2>
                             <p class="text-xs text-gray-500">勾選核取方塊可記錄採買進度，隨行程輕鬆順手採買！</p>
                         </div>
                     </div>
-                    <span class="text-xs bg-maple-50 text-maple-700 border border-maple-200 px-3 py-1.5 rounded-full font-semibold">
-                        <i class="fa-solid fa-check-double mr-1"></i> 行程融入採買點
-                    </span>
+                    <div class="flex items-center gap-2">
+                        <span id="boughtCount" class="text-xs bg-maple-50 text-maple-700 border border-maple-200 px-3 py-1.5 rounded-full font-semibold">
+                            已完成 0 / 10 項
+                        </span>
+                        <button onclick="resetChecklist()" class="text-xs text-gray-400 hover:text-gray-600 underline">重置</button>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="souvenirList">
                     <!-- Item 1 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">泉州水茄子漬物 (水なす)</div>
                             <p class="text-gray-500">泉州地區獨特名物，多汁甘甜如水果般鮮爽口感。</p>
@@ -725,7 +755,7 @@
 
                     <!-- Item 2 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">岸和田 Danjiri 村雨饅頭</div>
                             <p class="text-gray-500">傳統紅豆蒸豆沙糕點，入口即化，甜而不膩。</p>
@@ -735,7 +765,7 @@
 
                     <!-- Item 3 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">泉州後曬毛巾 (Senshu Towel)</div>
                             <p class="text-gray-500">日本毛巾發源地，吸水性極佳、無化學殘留，最適合嬰幼兒使用。</p>
@@ -745,7 +775,7 @@
 
                     <!-- Item 4 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">堺市手工料理刀具 / 指甲剪</div>
                             <p class="text-gray-500">享譽全日本的傳統鍛造工藝，三德刀與精緻指甲剪極實用且具紀念價值。</p>
@@ -755,7 +785,7 @@
 
                     <!-- Item 5 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">八角堂生仙貝 & 千利休抹茶餅</div>
                             <p class="text-gray-500">堺市茶道文化衍生甜點，抹茶濃香誘人。</p>
@@ -765,7 +795,7 @@
 
                     <!-- Item 6 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">京都生八橋 (おたべ / 聖護院)</div>
                             <p class="text-gray-500">秋季限定栗子、肉桂與抹茶風味，經典古都伴手禮。</p>
@@ -775,7 +805,7 @@
 
                     <!-- Item 7 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">七味家本舖 唐辛子與山椒粉</div>
                             <p class="text-gray-500">清水寺前百年老店，搭配烏龍麵與燒肉的頂級調味。</p>
@@ -785,7 +815,7 @@
 
                     <!-- Item 8 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">寶玉堂 狐狸造型煎餅</div>
                             <p class="text-gray-500">伏見稻荷大社特色煎餅，香脆微甜、造型討喜。</p>
@@ -795,7 +825,7 @@
 
                     <!-- Item 9 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">母嬰服飾用品 (西松屋 / Mikihouse)</div>
                             <p class="text-gray-500">臨空城商場內齊全的嬰幼兒童裝、鞋履與生活雜貨。</p>
@@ -805,7 +835,7 @@
 
                     <!-- Item 10 -->
                     <label class="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-amber-50/50 cursor-pointer transition">
-                        <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
+                        <input type="checkbox" onchange="updateProgress()" class="custom-checkbox mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">關西機場免稅零食 (白色戀人/Royce/Bâton d'or)</div>
                             <p class="text-gray-500">登機前免稅採買生巧克力、奢華 Pocky、薯條三兄弟與堂島蛋糕捲。</p>
@@ -860,6 +890,174 @@
             </div>
         </div>
 
+        <!-- TAB 5: PRE-DEPARTURE PRECAUTIONS & BOARDING CHECKLIST -->
+        <div id="view-prep" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100">
+                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-900">出國注意事項與登機前 Check List</h2>
+                            <p class="text-xs text-gray-500">出發前請逐一確認以下重要文件、行李規定與嬰幼兒隨身物品。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="prepCount" class="text-xs bg-indigo-50 text-indigo-700 border border-indigo-200 px-3 py-1.5 rounded-full font-semibold">
+                            已完成 0 / 12 項
+                        </span>
+                        <button onclick="resetPrepChecklist()" class="text-xs text-gray-400 hover:text-gray-600 underline">重置清單</button>
+                    </div>
+                </div>
+
+                <!-- Crucial Precautions Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-rose-50 border border-rose-200 rounded-xl p-4 space-y-2">
+                        <h4 class="font-bold text-rose-900 text-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-battery-full text-rose-600"></i> 行動電源 / 電池規定
+                        </h4>
+                        <p class="text-xs text-rose-800 leading-relaxed">
+                            <b>嚴禁放入託運行李！</b>行動電源與鋰電池必須隨身攜帶登機。容量需明確標示（單顆不超過 100Wh，介於 100Wh-160Wh 限帶 2 顆）。
+                        </p>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 space-y-2">
+                        <h4 class="font-bold text-amber-900 text-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-bottle-droplet text-amber-600"></i> 隨身液體 & 嬰兒奶水
+                        </h4>
+                        <p class="text-xs text-amber-800 leading-relaxed">
+                            隨身液體每瓶不得超過 100ml。<b>放行特例：</b>隨行有嬰幼兒時，沖泡奶粉用溫水、母乳/嬰兒副食品可於安檢時向海關申報特別攜帶。
+                        </p>
+                    </div>
+
+                    <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 space-y-2">
+                        <h4 class="font-bold text-indigo-900 text-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-scissors text-indigo-600"></i> 刀具/金屬品託運
+                        </h4>
+                        <p class="text-xs text-indigo-800 leading-relaxed">
+                            指甲剪、水果刀、修眉刀及 Day 3 在堺市採買的<b>手工料理刀具</b>，登機前<b>一律必須放入託運行李</b>，切勿放在隨身背包！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interactive Departure Checklist -->
+                <h3 class="font-bold text-gray-800 text-sm mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-indigo-600"></i> 出發前必備物品與手續確認表
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="prepList">
+                    <!-- Item 1 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">護照（效期滿 6 個月以上）</div>
+                            <p class="text-gray-500">確認全團 10 人（包含嬰幼兒）護照正本均已帶齊且未過期。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 2 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">Visit Japan Web 入境預先填寫</div>
+                            <p class="text-gray-500">完成檢疫、入境審查與海關申報，截圖全員入境 QR Code 以加速出關。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 3 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">日幣現金與信用卡/IC 交通卡</div>
+                            <p class="text-gray-500">準備足量日幣現金（老街小店/神社參拜用）與海外高回饋信用卡/Suica/ICOCA。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 4 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">漫遊 / eSIM / 網路 Wi-Fi 分享器</div>
+                            <p class="text-gray-500">確認手機 eSIM 開通或已拿到實體 SIM 卡/漫遊設定開啓。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 5 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">旅遊平安險與海外突發醫療險</div>
+                            <p class="text-xs text-gray-500">投保包含海外突發疾病與不便險，全家安心出遊。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 6 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">寶寶奶粉 / 奶瓶 / 保溫瓶 / 副食品</div>
+                            <p class="text-gray-500">準備 5 日足量奶粉分裝盒、奶瓶清潔洗劑、攜帶式保溫瓶與寶寶副食品餐包。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 7 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">寶寶尿布 / 濕紙巾 / 圍兜餐具</div>
+                            <p class="text-gray-500">預估每日 5-8 片尿布量，隨身包準備 1 天份量（不足可於第一天藥妝補貨）。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 8 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">嬰兒推車（含防雨罩）與背巾</div>
+                            <p class="text-gray-500">可推至登機口託運，建議攜帶輕便摺疊推車，清水坂等石板路搭配背巾使用。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 9 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">常備藥品與個人慢性病藥物</div>
+                            <p class="text-gray-500">大人與嬰幼兒退燒藥、止瀉藥、感冒藥、暈車藥、OK 繃與個人處方藥品。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 10 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">隨身衣物備品（隨身多備 2 套）</div>
+                            <p class="text-gray-500">避免寶寶旅途中溢奶或尿濕，隨身背包務必備有替換衣物與保暖毛毯。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 11 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">國泰航空機票電子憑證與包車資訊</div>
+                            <p class="text-gray-500">預先儲存國泰航空登機證、包車司機聯絡方式與 OMO7 飯店預約確認單。</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 12 -->
+                    <label class="flex items-start gap-3 p-3 border border-gray-100 rounded-xl hover:bg-indigo-50/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                        <div class="text-xs space-y-0.5">
+                            <div class="font-bold text-gray-800 text-sm">變壓器與多孔充電器 / 行動電源</div>
+                            <p class="text-gray-500">日本電壓為 100V（雙平腳插頭），多相機與手機充電請攜帶多孔 USB 充電頭。</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Footer -->
@@ -870,32 +1068,82 @@
         </div>
     </footer>
 
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl text-xs flex items-center gap-2 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none z-50">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+        <span id="toastMsg">提示訊息</span>
+    </div>
+
     <script>
         // Tab switching function
         function switchTab(tabName) {
-            // Hide all tab contents
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(el => el.classList.add('hidden'));
 
-            // Remove active style from all tab buttons
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => {
                 btn.classList.remove('active', 'border-b-2', 'border-maple-600', 'text-maple-700', 'bg-white', 'shadow-xs');
                 btn.classList.add('text-gray-500');
             });
 
-            // Show target content
             const targetContent = document.getElementById('view-' + tabName);
             if (targetContent) {
                 targetContent.classList.remove('hidden');
             }
 
-            // Set active button style
             const targetBtn = document.getElementById('tab-' + tabName);
             if (targetBtn) {
                 targetBtn.classList.add('active', 'border-b-2', 'border-maple-600', 'text-maple-700', 'bg-white', 'shadow-xs');
                 targetBtn.classList.remove('text-gray-500');
+                
+                // Smooth scroll tab button into view on mobile
+                targetBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
+        }
+
+        // Show Toast Function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Checklist progress tracker - Souvenir
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('#souvenirList input[type="checkbox"]');
+            let count = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) count++;
+            });
+            document.getElementById('boughtCount').innerText = `已完成 ${count} / ${checkboxes.length} 項`;
+        }
+
+        function resetChecklist() {
+            const checkboxes = document.querySelectorAll('#souvenirList input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = false);
+            updateProgress();
+            showToast('採買清單已重置');
+        }
+
+        // Checklist progress tracker - Departure Preparation
+        function updatePrepProgress() {
+            const checkboxes = document.querySelectorAll('#prepList input[type="checkbox"]');
+            let count = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) count++;
+            });
+            document.getElementById('prepCount').innerText = `已完成 ${count} / ${checkboxes.length} 項`;
+        }
+
+        function resetPrepChecklist() {
+            const checkboxes = document.querySelectorAll('#prepList input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = false);
+            updatePrepProgress();
+            showToast('出國準備清單已重置');
         }
 
         // Copy outline function
@@ -905,13 +1153,12 @@
 人數：9位成人 + 1位嬰幼兒 (專屬包車)
 住宿：OMO7 關西機場 by 星野集團 (連泊4晚)
 
-Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7飯店Check-in → 泉佐野散策 → 晚餐:鳥貴族串燒 或 泉佐野海鮮居酒屋
-Day 2: 岸和田城八陣之庭 → 五風莊 → 午餐:仙太郎蕎麥麵/五風莊料亭 → 道の駅愛彩ランド → 犬鳴山溫泉溪谷賞楓 → 晚餐:はや魚太郎泉州之鄉 (海鮮/黑豚鍋)
-Day 3: 泉州毛巾館 → 大仙公園日本庭園賞楓 → 8K遊客中心 → 午餐:美々卯堺本店(烏龍麵壽喜燒)/燒肉全 → 大阪堺熱氣球 → 堺傳統產業會館 → 晚餐:海鮮處椿
-Day 4: 伏見稻荷大社千本鳥居 → 清水寺賞楓 → 午餐:清水順正湯豆腐 → 三年坂二年坂 → 祇園花見小路 → 晚餐:がんこ祇園店/和食さと
+Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7 Check-in → 泉佐野散策 → 晚餐:鳥貴族 / 泉佐野海鮮居酒屋
+Day 2: 岸和田城八陣之庭 → 五風莊 → 午餐:仙太郎蕎麥麵/五風莊料亭 → 道の駅愛彩ランド → 犬鳴山賞楓 → 晚餐:はや魚太郎 / 犬鳴山料亭
+Day 3: 泉州毛巾館 → 大仙公園日本庭園賞楓 → 8K遊客中心 → 午餐:美々卯堺本店/燒肉全 → 大阪堺熱氣球 → 堺傳統產業會館 → 晚餐:海鮮處椿/老街割烹
+Day 4: 伏見稻荷大社千本鳥居 → 清水寺賞楓 → 午餐:清水順正/奧丹湯豆腐 → 三年坂二年坂 → 祇園花見小路 → 晚餐:がんこ祇園店/和食さと/天婦羅八坂
 Day 5: 臨空城 Premium Outlets 採購 → 午餐:臨空城美食街 (三田屋豚排/拉麵/烏龍麵/海鮮丼) → 關西機場免稅店 → 回程CX-565(16:15) → 抵達桃園(18:30)`;
 
-            // Create temporary textarea element for execCommand copy
             const tempInput = document.createElement('textarea');
             tempInput.value = summaryText;
             document.body.appendChild(tempInput);
@@ -920,12 +1167,12 @@ Day 5: 臨空城 Premium Outlets 採購 → 午餐:臨空城美食街 (三田屋
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
-                    alert('行程摘要已成功複製至剪貼簿！');
+                    showToast('行程摘要已成功複製至剪貼簿！');
                 } else {
-                    alert('複製失敗，請手動複製。');
+                    showToast('複製失敗，請手動複製。');
                 }
             } catch (err) {
-                alert('複製時發生錯誤：' + err);
+                showToast('複製時發生錯誤：' + err);
             }
             document.body.removeChild(tempInput);
         }
