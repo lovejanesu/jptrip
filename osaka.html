@@ -48,11 +48,7 @@
         .maple-gradient {
             background: linear-gradient(135deg, #78231b 0%, #c0392b 50%, #d35400 100%);
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-        }
-        .custom-checkbox:checked + div {
+        .custom-checkbox:checked + div, .prep-checkbox:checked + div {
             text-decoration: line-through;
             opacity: 0.6;
         }
@@ -144,7 +140,7 @@
                 <div class="text-xs text-gray-600 space-y-1">
                     <h4 class="font-bold text-gray-900 text-sm mb-1">OMO7 關西機場 by 星野集團</h4>
                     <p>4 晚連續入住，無需頻繁搬運大行李與嬰兒推車。</p>
-                    <p class="text-amber-700 font-medium">專屬車輛接送、大浴場放鬆、鄰近臨空城 Outlet。</p>
+                    <p class="text-amber-700 font-medium">專屬車輛接送、大浴場放放松、鄰近臨空城 Outlet。</p>
                 </div>
             </div>
 
@@ -162,28 +158,48 @@
         </div>
     </section>
 
-    <!-- Navigation Bar with Mobile Horizontal Scrolling -->
+    <!-- Navigation Bar with Horizontal Scrolling -->
     <nav class="max-w-6xl mx-auto px-4 mt-8 no-print relative">
-        <div class="flex items-center justify-between mb-1 text-xs text-gray-400 md:hidden">
-            <span><i class="fa-solid fa-hand-pointer mr-1"></i> 左右滑動切換分頁</span>
-            <span class="text-maple-600 font-medium"><i class="fa-solid fa-arrow-right-long animate-pulse"></i></span>
+        <!-- Scroll Indicator Hint for Mobile -->
+        <div class="flex items-center justify-between mb-2 text-xs text-gray-500 font-medium">
+            <span class="flex items-center gap-1.5 text-maple-800 font-bold">
+                <i class="fa-solid fa-compass text-amber-500"></i> 分頁導覽
+            </span>
+            <span class="text-xs text-amber-700 bg-amber-100/80 px-2.5 py-0.5 rounded-full flex items-center gap-1 animate-pulse">
+                <i class="fa-solid fa-arrows-left-right"></i> 左右滑動切換分頁
+            </span>
         </div>
-        <div class="flex border-b border-gray-200 overflow-x-auto space-x-2 md:space-x-4 pb-1 no-scrollbar flex-nowrap scroll-smooth snap-x" id="tabContainer">
-            <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn active shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base border-b-2 border-maple-600 text-maple-700 bg-white shadow-xs whitespace-nowrap flex items-center gap-2">
-                <i class="fa-regular fa-calendar-check"></i> 每日行程與全餐廳規劃
-            </button>
-            <button onclick="switchTab('dietary')" id="tab-dietary" class="tab-btn shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-utensils"></i> 餐廳美食與飲食指南
-            </button>
-            <button onclick="switchTab('souvenir')" id="tab-souvenir" class="tab-btn shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-bag-shopping"></i> 必買伴手禮 Check List
-            </button>
-            <button onclick="switchTab('tips')" id="tab-tips" class="tab-btn shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-baby-carriage"></i> 親子與包車注意事項
-            </button>
-            <button onclick="switchTab('prep')" id="tab-prep" class="tab-btn shrink-0 snap-start px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-clipboard-check"></i> 出國準備與登機確認清單
-            </button>
+
+        <!-- Horizontal Scrollable Tab Wrapper -->
+        <div class="relative bg-amber-50/60 p-1.5 rounded-2xl border border-amber-200/70 shadow-xs">
+            <div class="flex items-center space-x-2 overflow-x-auto pb-0.5 no-scrollbar flex-nowrap scroll-smooth snap-x" id="tabContainer">
+                
+                <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn active shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm border border-maple-600/30 text-maple-800 bg-white shadow-sm transition-all duration-200 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check text-maple-600"></i>
+                    <span>每日行程與全餐廳規劃</span>
+                </button>
+
+                <button onclick="switchTab('dietary')" id="tab-dietary" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
+                    <i class="fa-solid fa-utensils text-amber-600"></i>
+                    <span>餐廳美食與飲食指南</span>
+                </button>
+
+                <button onclick="switchTab('souvenir')" id="tab-souvenir" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
+                    <i class="fa-solid fa-bag-shopping text-emerald-600"></i>
+                    <span>必買伴手禮 Check List</span>
+                </button>
+
+                <button onclick="switchTab('tips')" id="tab-tips" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
+                    <i class="fa-solid fa-baby-carriage text-blue-600"></i>
+                    <span>親子與包車注意事項</span>
+                </button>
+
+                <button onclick="switchTab('prep')" id="tab-prep" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
+                    <i class="fa-solid fa-clipboard-check text-indigo-600"></i>
+                    <span>出國準備與登機確認清單</span>
+                </button>
+
+            </div>
         </div>
     </nav>
 
@@ -252,6 +268,7 @@
                 </div>
             </div>
 
+            <!-- Day 2 Card -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-maple-700 to-amberGlow text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -322,6 +339,7 @@
                 </div>
             </div>
 
+            <!-- Day 3 Card -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-emerald-800 to-teal-700 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -392,6 +410,7 @@
                 </div>
             </div>
 
+            <!-- Day 4 Card -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-maple-800 via-maple-600 to-amber-600 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -463,6 +482,7 @@
                 </div>
             </div>
 
+            <!-- Day 5 Card -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -1082,8 +1102,8 @@
 
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => {
-                btn.classList.remove('active', 'border-b-2', 'border-maple-600', 'text-maple-700', 'bg-white', 'shadow-xs');
-                btn.classList.add('text-gray-500');
+                btn.classList.remove('active', 'border-maple-600/30', 'text-maple-800', 'bg-white', 'shadow-sm');
+                btn.classList.add('text-gray-600', 'border-transparent');
             });
 
             const targetContent = document.getElementById('view-' + tabName);
@@ -1093,10 +1113,10 @@
 
             const targetBtn = document.getElementById('tab-' + tabName);
             if (targetBtn) {
-                targetBtn.classList.add('active', 'border-b-2', 'border-maple-600', 'text-maple-700', 'bg-white', 'shadow-xs');
-                targetBtn.classList.remove('text-gray-500');
+                targetBtn.classList.add('active', 'border-maple-600/30', 'text-maple-800', 'bg-white', 'shadow-sm');
+                targetBtn.classList.remove('text-gray-600', 'border-transparent');
                 
-                // Smooth scroll tab button into view on mobile
+                // Smooth scroll tab button into view in the horizontal navigation bar
                 targetBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
         }
