@@ -45,17 +45,11 @@
             background-color: #faf7f2;
             color: #2d3748;
         }
-        .bg-pattern {
-            background-image: radial-gradient(#e74c3c 0.5px, transparent 0.5px), radial-gradient(#e74c3c 0.5px, #faf7f2 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            background-opacity: 0.05;
-        }
         .maple-gradient {
             background: linear-gradient(135deg, #78231b 0%, #c0392b 50%, #d35400 100%);
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
         }
         @media print {
@@ -150,9 +144,9 @@
                     <i class="fa-solid fa-heart-pulse"></i>
                 </div>
                 <div class="text-xs text-gray-600 space-y-1">
-                    <h4 class="font-bold text-gray-900 text-sm mb-1">團員貼心照顧</h4>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">團員飲食照顧規劃</h4>
                     <p><span class="inline-block bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-medium">不吃牛羊</span> 備妥豚肉/若雞/天婦羅/海鮮/湯豆腐。</p>
-                    <p><span class="inline-block bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">不吃鰻魚</span> 備有海鮮御膳/釜飯/刺身替代。</p>
+                    <p><span class="inline-block bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">不吃鰻魚</span> 備有海鮮御膳/釜飯/刺身/壽司替代。</p>
                 </div>
             </div>
         </div>
@@ -162,16 +156,16 @@
     <nav class="max-w-6xl mx-auto px-4 mt-8 no-print">
         <div class="flex border-b border-gray-200 overflow-x-auto space-x-2 md:space-x-4 pb-1 scrollbar-none" id="tabContainer">
             <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn active px-4 py-3 rounded-t-xl font-bold text-sm md:text-base border-b-2 border-maple-600 text-maple-700 bg-white shadow-xs whitespace-nowrap flex items-center gap-2">
-                <i class="fa-regular fa-calendar-check"></i> 每日行程明細
+                <i class="fa-regular fa-calendar-check"></i> 每日行程與全餐廳規劃
             </button>
             <button onclick="switchTab('dietary')" id="tab-dietary" class="tab-btn px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-utensils"></i> 餐廳飲食指南
+                <i class="fa-solid fa-utensils"></i> 餐廳美食與飲食指南
             </button>
             <button onclick="switchTab('souvenir')" id="tab-souvenir" class="tab-btn px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-bag-shopping"></i> 伴手禮必買清單
+                <i class="fa-solid fa-bag-shopping"></i> 必買伴手禮 Check List
             </button>
             <button onclick="switchTab('tips')" id="tab-tips" class="tab-btn px-4 py-3 rounded-t-xl font-bold text-sm md:text-base text-gray-500 hover:text-maple-600 hover:bg-white/60 transition whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-baby-carriage"></i> 親子包車注意事項
+                <i class="fa-solid fa-baby-carriage"></i> 親子與包車注意事項
             </button>
         </div>
     </nav>
@@ -199,21 +193,21 @@
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 11:15 - 14:55</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">國泰航空 CX-564 啟程前往關西機場</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">搭乘長程優質航班，享有舒適座位與優質機上服務。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">搭乘國泰航空，機上享有精緻午餐與視聽娛樂。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 15:30 - 16:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">專車接機 & 飯店入住辦理</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">專屬包車司機於關西機場接機，直接協助裝載行李與嬰兒車，輕鬆前往 OMO7 關西機場。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">專車接機 & OMO7 關西機場 Check-in</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">包車司機關西機場接機，行李與嬰兒車直接上車，輕鬆前往 OMO7 關西機場辦理入住。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 17:30 - 20:00</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">泉佐野市區散策與在地晚餐</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">第一天輕鬆放鬆，周邊漫步適應環境，補充嬰幼兒備品與水果。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">泉佐野市區散策與在地美味晚餐</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">第一天適應環境，周邊購物中心與商店街散步，採買嬰幼兒備品與當季水果。</p>
                                 </div>
                             </div>
                         </div>
@@ -223,19 +217,20 @@
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
                             </h4>
-                            <div class="text-xs space-y-2">
-                                <p><span class="font-semibold text-gray-700">早餐：</span> 自理 / 機場簡餐</p>
-                                <p><span class="font-semibold text-gray-700">午餐：</span> 機上精緻餐點</p>
-                                <div>
-                                    <span class="font-semibold text-gray-700">晚餐【推薦】：</span>
-                                    <p class="text-maple-700 font-medium mt-0.5">鳥貴族 串燒居酒屋 或 泉佐野海鮮居酒屋</p>
-                                    <p class="text-[11px] text-gray-500 mt-1">💡 <span class="text-emerald-700">飲食友善：</span>提供豐富雞肉串燒、烤豬肉串、野菜、釜飯，不吃牛羊與鰻魚團員皆能開心享用。</p>
+                            <div class="text-xs space-y-2.5">
+                                <p><span class="font-semibold text-gray-700">早餐：</span> 自理 / 桃園機場簡餐</p>
+                                <p><span class="font-semibold text-gray-700">午餐：</span> 國泰機上精緻餐點</p>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
+                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>鳥貴族 (泉佐野站前店) — 串燒/釜飯</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>泉佐野海鮮居酒屋 — 刺身/天婦羅/海鮮鍋</p>
+                                    <p class="text-[11px] text-emerald-700 font-medium mt-1">💡 避開牛羊與鰻魚：提供豐富烤雞/烤豬肉串、釜飯、野菜、海鮮，點餐無壓力。</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-                            <div class="bg-white/80 rounded-lg p-2.5 border border-amber-200 text-xs">
-                                <span class="font-bold text-amber-800 block mb-1"><i class="fa-solid fa-bag-shopping"></i> 今日採買提醒：</span>
-                                飯店周邊藥妝店 / 超商採買嬰幼兒副食品與當季日本水果 (麝香葡萄、蜜柑)。
+                            <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
+                                <span class="font-bold text-amber-900"><i class="fa-solid fa-basket-shopping"></i> 購物行程：</span>
+                                飯店周邊藥妝店採買嬰兒奶粉/副食品，超商採買麝香葡萄與蜜柑。
                             </div>
                         </div>
                     </div>
@@ -258,29 +253,29 @@
                             <div class="flex gap-4 items-start">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:00 - 11:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">岸和田城 & 八陣之庭 & 五風莊</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">欣賞重森三玲名作庭園「八陣之庭」，天守閣與周邊近代名園「五風莊」散策，幽靜平坦極適合推車。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">岸和田城 & 八陣之庭 & 五風莊庭園</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">欣賞重森三玲名作庭園「八陣之庭」，天守閣與周邊近代名園「五風莊」散策，路面平坦極度適合推車。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 12:00 - 13:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">午餐：手打ち蕎麥 仙太郎 / 五風莊料亭</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">享用石磨手工蕎麥麵配現炸時令野菜與海老天婦羅。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">午餐：仙太郎蕎麥麵 或 五風莊庭園料亭</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">享用石磨手工蕎麥麵配現炸時令野菜與海老天婦羅，或於日式庭園內享用會席御膳。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">道の駅 愛彩ランド & 犬鳴山溫泉溪谷賞楓</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">先逛農產直銷市集，再前往大阪著名紅葉名所「犬鳴山溪谷」，感受幽境溪流與紅葉映襯景色。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">採買農產直銷市集，隨後前往大阪知名賞楓勝地「犬鳴山溪谷」，感受幽境溪流與楓紅交織的美景。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 17:00 - 18:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">紀州街道老街漫步 & 返回飯店休息</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">漫步於保留城下町特色的紀州街道，感受泉州地底蘊。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">漫步於保留城下町特色的紀州街道，購買傳統糕點伴手禮。</p>
                                 </div>
                             </div>
                         </div>
@@ -290,21 +285,23 @@
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
                             </h4>
-                            <div class="text-xs space-y-2">
+                            <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內精緻自助早餐</p>
-                                <p><span class="font-semibold text-gray-700">午餐【推薦】：</span> 手打ち蕎麥 仙太郎 (蕎麥麵/天婦羅)</p>
-                                <div>
-                                    <span class="font-semibold text-gray-700">晚餐【推薦】：</span>
-                                    <p class="text-maple-700 font-medium mt-0.5">はや 魚太郎 泉州の鄉 (海鮮與黑豚鍋物)</p>
-                                    <p class="text-[11px] text-gray-500 mt-1">💡 <span class="text-emerald-700">飲食友善：</span>主打泉州海鮮涮涮鍋與在地黑豚鍋，避開牛羊，無鰻魚品項負擔。</p>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐推薦選擇：</span>
+                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>手打ち蕎麥 仙太郎 (蕎麥/天婦羅)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>五風莊 庭園料亭 (日式會席御膳)</p>
+                                </div>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
+                                    <p class="text-gray-800 font-medium"><b>推薦：</b>はや 魚太郎 泉州の鄉 (海鮮/黑豚鍋物)</p>
+                                    <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：主打泉州新鮮海鮮與鹿兒島黑豚涮涮鍋，不含牛羊鰻魚爭議。</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-                            <div class="bg-white/80 rounded-lg p-2.5 border border-amber-200 text-xs space-y-1">
-                                <span class="font-bold text-amber-800 block mb-1"><i class="fa-solid fa-gift"></i> 必買伴手禮 (道の駅 & 老街)：</span>
-                                <p>🍆 <b>泉州水茄子漬物：</b>甘甜多汁名物</p>
-                                <p>🍊 <b>愛彩ランド農家果醬：</b>柑橘水果乾</p>
-                                <p>🍡 <b>村雨饅頭 (だんじり屋)：</b>傳統紅豆蒸菓子</p>
+                            <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
+                                <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
+                                愛彩ランド採買「泉州水茄子漬物」、「果醬」，老街採買「村雨饅頭」。
                             </div>
                         </div>
                     </div>
@@ -328,28 +325,28 @@
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:15 - 10:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">泉州毛巾館 (工廠見學與採購)</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">參觀日本毛巾發源地，體驗親膚柔軟的「後曬毛巾」，非常適合幼童肌膚。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">參觀日本毛巾發源地，體驗親膚柔軟的「後曬毛巾」，無化學殘留非常適合嬰幼兒使用。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 10:45 - 13:00</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">大仙公園日本庭園賞楓 & 8K 遊客中心</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">漫步大仙公園日本庭園，欣賞優美池泉迴遊式紅葉景致，並透過遊客中心 8K 劇場了解仁德天皇陵。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">漫步大仙公園日本庭園，欣賞優美池泉迴遊式紅葉景致，並透過遊客中心 8K 劇場了解仁德天皇陵歷史。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 13:00 - 14:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">午餐：美々卯 堺本店 (或 燒肉 全)</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">享用創始老店「烏龍麵壽喜燒 (うどんすき)」，高湯鮮美，配料豐富。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">午餐：美々卯 堺本店 或 燒肉 全 (Yakiniku Zen)</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">享用創始老店「烏龍麵壽喜燒 (うどんすき)」鮮美高湯，或選擇優質燒肉店享用黑豚與海鮮拼盤。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 15:00 - 17:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">大阪堺熱氣球 (Sakai Balloon) & 堺傳統產業會館</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">搭乘熱氣球升空 100 公尺，鳥瞰龐大的前方後圓墳全貌；隨後造訪傳統產業館觀賞職人刀具工藝。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">搭乘熱氣球升空 100 公尺，俯瞰巨大前方後圓陵墓全貌；隨後造訪傳統產業館參觀職人鍛造刀具工藝。</p>
                                 </div>
                             </div>
                         </div>
@@ -359,21 +356,23 @@
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
                             </h4>
-                            <div class="text-xs space-y-2">
+                            <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內早餐</p>
-                                <p><span class="font-semibold text-gray-700">午餐【推薦】：</span> 美々卯 堺本店 (烏龍麵壽喜燒 / 土雞海鮮高湯)</p>
-                                <div>
-                                    <span class="font-semibold text-gray-700">晚餐【推薦】：</span>
-                                    <p class="text-maple-700 font-medium mt-0.5">海鮮處 椿 (Tsubaki)</p>
-                                    <p class="text-[11px] text-gray-500 mt-1">💡 <span class="text-emerald-700">飲食友善：</span>嚴選產地直送新鮮刺身、特上握壽司、天婦羅御膳與烤魚定食，無牛羊鰻魚爭議。</p>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐推薦選擇：</span>
+                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>美々卯 堺本店 (烏龍麵壽喜燒/土雞柴魚高湯)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>燒肉 全 (特選黑豚/若雞/海鮮燒烤)</p>
+                                </div>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
+                                    <p class="text-gray-800 font-medium"><b>推薦：</b>海鮮處 椿 (Tsubaki) (特上握壽司/烤魚/天婦羅)</p>
+                                    <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：美々卯湯頭極鮮無牛羊；海鮮處椿嚴選產地直送鮮魚，無鰻魚負擔。</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-                            <div class="bg-white/80 rounded-lg p-2.5 border border-amber-200 text-xs space-y-1">
-                                <span class="font-bold text-amber-800 block mb-1"><i class="fa-solid fa-gift"></i> 必買伴手禮 (毛巾館 & 傳統館)：</span>
-                                <p>🥢 <b>泉州後曬毛巾：</b>吸水力極佳嬰兒友善</p>
-                                <p>🔪 <b>堺市手工料理刀具 / 指甲剪：</b>百年鍛造極致工藝</p>
-                                <p>🍵 <b>八角堂生仙貝 / 千利休抹茶餅：</b>茶道之鄉美味</p>
+                            <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
+                                <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
+                                採買「泉州後曬毛巾」、堺傳統產業會館「手工刀具/指甲剪」、老街「生仙貝/抹茶餅」。
                             </div>
                         </div>
                     </div>
@@ -418,7 +417,7 @@
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 17:00 - 19:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">京都晚餐與包車返回 OMO7 飯店</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">晚餐享用豐富和食御膳，餐後專車舒舒服服接送返回關西機場飯店。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">晚餐享用豐富和食御膳，餐後專車舒舒服服接送返回關西機場 OMO7 飯店。</p>
                                 </div>
                             </div>
                         </div>
@@ -428,22 +427,23 @@
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
                             </h4>
-                            <div class="text-xs space-y-2">
+                            <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內早餐</p>
-                                <p><span class="font-semibold text-gray-700">午餐【推薦】：</span> 清水 順正 (湯豆腐料理 / 時令野菜)</p>
-                                <div>
-                                    <span class="font-semibold text-gray-700">晚餐【推薦】：</span>
-                                    <p class="text-maple-700 font-medium mt-0.5">がんこ (Ganko 祇園店) 或 和食さと</p>
-                                    <p class="text-[11px] text-gray-500 mt-1">💡 <span class="text-emerald-700">飲食友善：</span>菜單極多元！有黑豚鍋、刺身天婦羅御膳；欲吃鰻魚者可加點，不吃鰻魚者有數十種餐點替換。</p>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐推薦選擇：</span>
+                                    <p class="text-gray-800 font-medium"><b>推薦：</b>清水 順正 (湯豆腐/胡麻豆腐/時令炊飯)</p>
+                                </div>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
+                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>がんこ Ganko 祇園店 (和食御膳/黑豚/刺身)</p>
+                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>和食さと (Washoku Sato) (鍋物/天婦羅/和食)</p>
+                                    <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：菜單選項超豐富，想吃鰻魚者可單點，不吃鰻魚者有黑豚/刺身/天婦羅配套。</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-                            <div class="bg-white/80 rounded-lg p-2.5 border border-amber-200 text-xs space-y-1">
-                                <span class="font-bold text-amber-800 block mb-1"><i class="fa-solid fa-gift"></i> 必買伴手禮 (清水坂 & 伏見)：</span>
-                                <p>🍡 <b>生八橋 (おたべ / 聖護院)：</b>秋季限定栗子口味</p>
-                                <p>🍵 <b>辻利 / 伊藤久右衛門：</b>抹茶夾心餅乾/費南雪</p>
-                                <p>🌶️ <b>七味家本舖：</b>香氣濃郁七味唐辛子</p>
-                                <p>🦊 <b>寶玉堂：</b>伏見狐狸造型煎餅</p>
+                            <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
+                                <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
+                                產寧坂採買「生八橋」、「七味家唐辛子」，祇園採買「辻利抹茶」，伏見採買「狐狸煎餅」。
                             </div>
                         </div>
                     </div>
@@ -467,14 +467,14 @@
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:30 - 10:00</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">飯店退房 & 辦理寄行李/包車上車</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">優雅在 OMO7 享用早餐後退房，行李上車直接出發前往臨空城。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">優雅在 OMO7 享用早餐後辦理退房，行李直接上車出發前往臨空城。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 10:00 - 13:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">臨空城 Premium Outlets & Seacle 購物</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">最後衝刺採買品牌服飾、母嬰用品 (西松屋/Mikihouse) 與生活雜貨，並於美食街自由享用午餐。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">最後衝刺採買品牌服飾、母嬰用品 (西松屋/Mikihouse) 與生活雜貨，並於美食街享用多樣化午餐。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
@@ -498,17 +498,21 @@
                             <h4 class="font-bold text-xs uppercase tracking-wider text-amber-900 border-b border-amber-200 pb-2">
                                 <i class="fa-solid fa-utensils mr-1"></i> 今日餐飲與住宿
                             </h4>
-                            <div class="text-xs space-y-2">
+                            <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內早餐</p>
-                                <p><span class="font-semibold text-gray-700">午餐【推薦】：</span> 臨空城美食街 (拉麵/烏龍麵/三田屋豚排)</p>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐美食街推薦選擇：</span>
+                                    <p class="text-gray-800 font-medium"><b>選擇 1：</b>三田屋 (Mitaya) 豚排/鐵板定食</p>
+                                    <p class="text-gray-800 font-medium"><b>選擇 2：</b>神戶拉麵 (雞白湯/豚骨)</p>
+                                    <p class="text-gray-800 font-medium"><b>選擇 3：</b>讚岐烏龍麵 / 天婦羅</p>
+                                    <p class="text-gray-800 font-medium"><b>選擇 4：</b>臨空城鮮魚海鮮丼專賣</p>
+                                </div>
                                 <p><span class="font-semibold text-gray-700">晚餐：</span> 機上輕食點心</p>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> 溫馨的家</p>
                             </div>
-                            <div class="bg-white/80 rounded-lg p-2.5 border border-amber-200 text-xs space-y-1">
-                                <span class="font-bold text-amber-800 block mb-1"><i class="fa-solid fa-plane"></i> 關西機場免稅店必買：</span>
-                                <p>🍪 <b>白色戀人 / Royce' 生巧克力</b></p>
-                                <p>🍟 <b>Jaga Pokkuru 薯條三兄弟</b></p>
-                                <p>🍰 <b>堂島蛋糕捲 / Bâton d'or 奢華 Pocky</b></p>
+                            <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
+                                <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
+                                臨空城採買母嬰用品，關西機場免稅店採買「白色戀人/Royce/薯條三兄弟/堂島蛋糕捲/Bâton d'or」。
                             </div>
                         </div>
                     </div>
@@ -517,91 +521,175 @@
 
         </div>
 
-        <!-- TAB 2: DIETARY GUIDE -->
+        <!-- TAB 2: DIETARY & RESTAURANT OPTIONS GUIDE -->
         <div id="view-dietary" class="tab-content hidden space-y-6">
             <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100">
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-4 mb-6">
                     <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-bold">
-                        <i class="fa-solid fa-wheat-awn-circle-exclamation"></i>
+                        <i class="fa-solid fa-utensils"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold text-gray-900">飲食需求對應與餐廳推薦指南</h2>
-                        <p class="text-xs text-gray-500">團員包含：1位不吃牛羊、1位不吃鰻魚。所有推薦餐廳皆具備彈性且美味的替代方案。</p>
+                        <h2 class="text-xl font-bold text-gray-900">全程各餐推薦餐廳與飲食配套清單</h2>
+                        <p class="text-xs text-gray-500">完美照顧 1 位不吃牛羊、1 位不吃鰻魚的團員需求，每餐皆有彈性且美味的替代方案！</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Restaurant 1 -->
-                    <div class="border border-gray-100 rounded-xl p-4 bg-amber-50/30 hover:border-amber-300 transition">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-gray-800 text-base">Day 1 晚餐：鳥貴族 或 海鮮居酒屋</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">泉佐野站前</span>
+
+                    <!-- Day 1 Dinner Card -->
+                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
+                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
+                            <h3 class="font-bold text-maple-900 text-base">Day 1 晚餐推薦 (泉佐野站/飯店周邊)</h3>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">泉佐野市</span>
                         </div>
-                        <div class="space-y-2 text-xs text-gray-600">
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-emerald-700">🚫 避開牛羊：</strong> 菜單 90% 為優質嫩雞串燒、豚肉串燒、釜飯、高麗菜絲與薯條，牛肉品項極少且可完全避開。</p>
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-blue-700">🚫 避開鰻魚：</strong> 無鰻魚料理，完全無誤食風險。</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 A：鳥貴族 (泉佐野站前店)</div>
+                                <p class="text-gray-600 mt-1">均一價串燒名店。主打烤雞肉串、烤豬肉串、起司雞肉丸、金牌釜飯、高麗菜（可免費續）。</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 B：泉佐野站前海鮮居酒屋</div>
+                                <p class="text-gray-600 mt-1">享用大阪灣港口直送地場鮮魚刺身、海鮮天婦羅御膳與烤地魚。</p>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
+                                <strong>💡 飲食友善說明：</strong>雞肉、豚肉、海鮮與野菜為主角，完全避開牛羊與鰻魚。
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Restaurant 2 -->
-                    <div class="border border-gray-100 rounded-xl p-4 bg-amber-50/30 hover:border-amber-300 transition">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-gray-800 text-base">Day 2 午餐：手打ち蕎麥 仙太郎</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">岸和田周邊</span>
+                    <!-- Day 2 Lunch Card -->
+                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
+                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
+                            <h3 class="font-bold text-maple-900 text-base">Day 2 午餐推薦 (岸和田周邊)</h3>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">岸和田市</span>
                         </div>
-                        <div class="space-y-2 text-xs text-gray-600">
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-emerald-700">🚫 避開牛羊：</strong> 手工蕎麥麵配高湯醬汁，搭配炸蝦與季節野菜天婦羅，清爽純粹。</p>
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-blue-700">🚫 避開鰻魚：</strong> 店內以蕎麥麵與天婦羅為主，完全無鰻魚負擔。</p>
-                        </div>
-                    </div>
-
-                    <!-- Restaurant 3 -->
-                    <div class="border border-gray-100 rounded-xl p-4 bg-amber-50/30 hover:border-amber-300 transition">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-gray-800 text-base">Day 2 晚餐：はや 魚太郎 泉州の鄉</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">泉州地區</span>
-                        </div>
-                        <div class="space-y-2 text-xs text-gray-600">
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-emerald-700">🚫 避開牛羊：</strong> 主打泉州海鮮鍋物與鹿兒島黑豚涮涮鍋，桌位可分鍋或選海鮮/豚肉湯底。</p>
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-blue-700">🚫 避開鰻魚：</strong> 提供新鮮生魚片、烤魚、炸物等，無需點鰻魚。</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 A：手打ち蕎麥 仙太郎</div>
+                                <p class="text-gray-600 mt-1">石磨手工蕎麥麵配特製鰹魚醬汁，搭配現炸時令野菜與大蝦天婦羅。</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 B：五風莊 庭園料亭</div>
+                                <p class="text-gray-600 mt-1">於迴遊式歷史庭園內欣賞美景，享用精緻日式會席御膳與和食定食。</p>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
+                                <strong>💡 飲食友善說明：</strong>以蕎麥、海鮮天婦羅與和食食材為主，不含牛羊鰻魚。
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Restaurant 4 -->
-                    <div class="border border-gray-100 rounded-xl p-4 bg-amber-50/30 hover:border-amber-300 transition">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-gray-800 text-base">Day 3 午餐：美々卯 堺本店</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">堺市老街</span>
+                    <!-- Day 2 Dinner Card -->
+                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
+                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
+                            <h3 class="font-bold text-maple-900 text-base">Day 2 晚餐推薦 (泉州地區)</h3>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">泉州名物</span>
                         </div>
-                        <div class="space-y-2 text-xs text-gray-600">
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-emerald-700">🚫 避開牛羊：</strong> 招牌「烏龍麵壽喜燒 (うどんすき)」採用特製鰹魚柴魚高湯、活蝦、土雞肉與百合根，極度鮮美且完全無牛羊。</p>
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-blue-700">🚫 避開鰻魚：</strong> 主打烏龍麵與天婦羅，不含鰻魚。</p>
-                        </div>
-                    </div>
-
-                    <!-- Restaurant 5 -->
-                    <div class="border border-gray-100 rounded-xl p-4 bg-amber-50/30 hover:border-amber-300 transition">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-gray-800 text-base">Day 4 午餐：清水 順正 湯豆腐</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">京都清水寺前</span>
-                        </div>
-                        <div class="space-y-2 text-xs text-gray-600">
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-emerald-700">🚫 避開牛羊：</strong> 傳統京都精進/湯豆腐料理，包含手工豆腐、胡麻豆腐、蔬菜天婦羅與炊飯，全要素食/和食友善。</p>
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-blue-700">🚫 避開鰻魚：</strong> 無鰻魚成分。</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">推薦：はや 魚太郎 泉州の鄉</div>
+                                <p class="text-gray-600 mt-1">專營泉州地場海鮮鍋物與鹿兒島黑豚涮涮鍋，桌位可分鍋或選擇海鮮/豚肉昆布湯底。</p>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
+                                <strong>💡 飲食友善說明：</strong>主打海鮮與黑豚，可完全排除牛肉與鰻魚品項。
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Restaurant 6 -->
-                    <div class="border border-gray-100 rounded-xl p-4 bg-amber-50/30 hover:border-amber-300 transition">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-gray-800 text-base">Day 4 晚餐：がんこ (Ganko 祇園店)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">京都祇園</span>
+                    <!-- Day 3 Lunch Card -->
+                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
+                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
+                            <h3 class="font-bold text-maple-900 text-base">Day 3 午餐推薦 (堺市老街)</h3>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">堺市老店</span>
                         </div>
-                        <div class="space-y-2 text-xs text-gray-600">
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-emerald-700">🚫 避開牛羊：</strong> 菜單選項極廣，包含黑豚定食、海鮮天婦羅御膳、握壽司拼盤與雞肉釜飯。</p>
-                            <p class="bg-white p-2 rounded border border-gray-100"><strong class="text-blue-700">🚫 避開鰻魚：</strong> 想吃鰻魚的團員可單點鰻魚重，不吃的團員選擇可挑選綜合壽司或豚排定食，完美兼容！</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 A：美々卯 (堺本店)</div>
+                                <p class="text-gray-600 mt-1">烏龍麵壽喜燒 (うどんすき) 發源地！採用特製柴魚高湯、活蝦、土雞肉與百合根，極度鮮美。</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 B：燒肉 全 (Yakiniku Zen)</div>
+                                <p class="text-gray-600 mt-1">除牛肉外，備有特選黑豚肉盤、若雞肉盤與大蝦干貝燒烤，不吃牛羊者亦能盡情享用燒烤。</p>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
+                                <strong>💡 飲食友善說明：</strong>美々卯高湯無牛羊成分；燒肉店有黑豚與海鮮獨立套餐。
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Day 3 Dinner Card -->
+                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
+                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
+                            <h3 class="font-bold text-maple-900 text-base">Day 3 晚餐推薦 (堺市/臨空區)</h3>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">港口海鮮</span>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">推薦：海鮮處 椿 (Tsubaki)</div>
+                                <p class="text-gray-600 mt-1">嚴選產地直送新鮮刺身拼盤、特上握壽司、天婦羅御膳與烤時令鮮魚定食。</p>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
+                                <strong>💡 飲食友善說明：</strong>純海鮮與和食料理，完全避開牛羊與鰻魚。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 Lunch Card -->
+                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
+                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
+                            <h3 class="font-bold text-maple-900 text-base">Day 4 午餐推薦 (京都清水寺前)</h3>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">京都名物</span>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">推薦：清水 順正 (Junsei) 湯豆腐</div>
+                                <p class="text-gray-600 mt-1">百年迴遊庭園內享用手工胡麻豆腐、熱氣騰騰湯豆腐、蔬菜天婦羅與時令炊飯。</p>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
+                                <strong>💡 飲食友善說明：</strong>傳統京都和食，清淡滋養，全體團員（含長輩與嬰幼兒）皆極合適。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 Dinner Card -->
+                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
+                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
+                            <h3 class="font-bold text-maple-900 text-base">Day 4 晚餐推薦 (京都祇園)</h3>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">祇園和食</span>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 A：がんこ (Ganko 祇園店)</div>
+                                <p class="text-gray-600 mt-1">菜單極廣！有黑豚定食、海鮮天婦羅御膳、握壽司；想吃鰻魚者可單點鰻魚重，不吃的團員選擇非常豐富。</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
+                                <div class="font-bold text-gray-800 text-sm text-amber-800">選項 B：和食さと (Washoku Sato)</div>
+                                <p class="text-gray-600 mt-1">連鎖和食家庭餐廳，提供黑豚涮涮鍋、天婦羅、烏龍麵與各式刺身御膳。</p>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
+                                <strong>💡 飲食友善說明：</strong>點餐自由度最高，可靈活單點或選擇特定主餐。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 Lunch Card -->
+                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
+                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
+                            <h3 class="font-bold text-maple-900 text-base">Day 5 午餐推薦 (臨空城美食街)</h3>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">臨空城 Outlet</span>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-100 space-y-1">
+                                <p class="text-gray-800"><b>1. 三田屋 (Mitaya)：</b>炸黑豚排定食與鐵板豬排</p>
+                                <p class="text-gray-800"><b>2. 神戶拉麵：</b>香濃雞白湯拉麵與豚骨拉麵</p>
+                                <p class="text-gray-800"><b>3. 讚岐烏龍麵：</b>溫熱烏龍麵與各式現炸天婦羅</p>
+                                <p class="text-gray-800"><b>4. 臨空城海鮮丼：</b>產地直送極鮮海鮮丼飯</p>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
+                                <strong>💡 飲食友善說明：</strong>美食街分開點餐，每位團員可依自身喜好挑選最適餐點。
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -616,7 +704,7 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-gray-900">必買伴手禮與採買景點對照表</h2>
-                            <p class="text-xs text-gray-500">點擊核取方塊可記錄購買進度，行程中不漏買！</p>
+                            <p class="text-xs text-gray-500">勾選核取方塊可記錄採買進度，隨行程輕鬆順手採買！</p>
                         </div>
                     </div>
                     <span class="text-xs bg-maple-50 text-maple-700 border border-maple-200 px-3 py-1.5 rounded-full font-semibold">
@@ -630,7 +718,7 @@
                         <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">泉州水茄子漬物 (水なす)</div>
-                            <p class="text-gray-500">泉州地區特產，汁多甘甜如水果般口感。</p>
+                            <p class="text-gray-500">泉州地區獨特名物，多汁甘甜如水果般鮮爽口感。</p>
                             <span class="inline-block bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px] font-medium">📍 Day 2 道の駅 愛彩ランド</span>
                         </div>
                     </label>
@@ -640,7 +728,7 @@
                         <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">岸和田 Danjiri 村雨饅頭</div>
-                            <p class="text-gray-500">傳統紅豆蒸豆沙糕點，口感細緻鬆軟。</p>
+                            <p class="text-gray-500">傳統紅豆蒸豆沙糕點，入口即化，甜而不膩。</p>
                             <span class="inline-block bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px] font-medium">📍 Day 2 岸和田紀州街道老街</span>
                         </div>
                     </label>
@@ -650,7 +738,7 @@
                         <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">泉州後曬毛巾 (Senshu Towel)</div>
-                            <p class="text-gray-500">日本毛巾發源地，吸水性極佳、無化學殘留，適合嬰幼兒。</p>
+                            <p class="text-gray-500">日本毛巾發源地，吸水性極佳、無化學殘留，最適合嬰幼兒使用。</p>
                             <span class="inline-block bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded text-[10px] font-medium">📍 Day 3 泉州毛巾館</span>
                         </div>
                     </label>
@@ -660,7 +748,7 @@
                         <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">堺市手工料理刀具 / 指甲剪</div>
-                            <p class="text-gray-500">享譽全日本的傳統鍛造工藝，三德刀與精緻指甲剪極實用。</p>
+                            <p class="text-gray-500">享譽全日本的傳統鍛造工藝，三德刀與精緻指甲剪極實用且具紀念價值。</p>
                             <span class="inline-block bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded text-[10px] font-medium">📍 Day 3 堺傳統產業會館</span>
                         </div>
                     </label>
@@ -710,7 +798,7 @@
                         <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">母嬰服飾用品 (西松屋 / Mikihouse)</div>
-                            <p class="text-gray-500">臨空城商場內齊全的嬰幼兒童裝與生活雜貨。</p>
+                            <p class="text-gray-500">臨空城商場內齊全的嬰幼兒童裝、鞋履與生活雜貨。</p>
                             <span class="inline-block bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-[10px] font-medium">📍 Day 5 臨空城 Seacle</span>
                         </div>
                     </label>
@@ -720,7 +808,7 @@
                         <input type="checkbox" class="mt-1 w-4 h-4 text-maple-600 rounded focus:ring-maple-500">
                         <div class="text-xs space-y-1">
                             <div class="font-bold text-gray-800 text-sm">關西機場免稅零食 (白色戀人/Royce/Bâton d'or)</div>
-                            <p class="text-gray-500">登機前免稅採買生巧克力、奢華 Pocky 與堂島蛋糕捲。</p>
+                            <p class="text-gray-500">登機前免稅採買生巧克力、奢華 Pocky、薯條三兄弟與堂島蛋糕捲。</p>
                             <span class="inline-block bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-[10px] font-medium">📍 Day 5 關西機場 KIX 出境免稅店</span>
                         </div>
                     </label>
@@ -747,7 +835,7 @@
                             <i class="fa-solid fa-van-shuttle"></i> 包車連泊優勢
                         </h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
-                            全程 4 晚連泊 OMO7 關西機場，每日出門行李與推車直接放包車後車廂，免去每天退房、拉行李換飯店與等電車的疲累，非常適合有長輩與嬰幼兒的家族旅行。
+                            全程 4 晚連泊 OMO7 關西機場，每日出門行李與推車直接放包車後車廂，免去天天退房、拉行李換飯店與擠電車的疲累，非常適合有長輩與嬰幼兒的家族旅行。
                         </p>
                     </div>
 
@@ -817,11 +905,11 @@
 人數：9位成人 + 1位嬰幼兒 (專屬包車)
 住宿：OMO7 關西機場 by 星野集團 (連泊4晚)
 
-Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7飯店Check-in → 泉佐野散策 → 晚餐:鳥貴族串燒
-Day 2: 岸和田城八陣之庭 → 五風莊 → 午餐:仙太郎蕎麥麵 → 道の駅愛彩ランド → 犬鳴山溫泉溪谷賞楓 → 晚餐:はや魚太郎泉州之鄉
-Day 3: 泉州毛巾館 → 大仙公園日本庭園賞楓 → 8K遊客中心 → 午餐:美々卯堺本店(烏龍麵壽喜燒) → 大阪堺熱氣球 → 堺傳統產業會館 → 晚餐:海鮮處椿
-Day 4: 伏見稻荷大社千本鳥居 → 清水寺賞楓 → 午餐:清水順正湯豆腐 → 三年坂二年坂 → 祇園花見小路 → 晚餐:がんこ祇園店
-Day 5: 臨空城 Premium Outlets 採購 → 關西機場免稅店 → 回程CX-565(16:15) → 抵達桃園(18:30)`;
+Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7飯店Check-in → 泉佐野散策 → 晚餐:鳥貴族串燒 或 泉佐野海鮮居酒屋
+Day 2: 岸和田城八陣之庭 → 五風莊 → 午餐:仙太郎蕎麥麵/五風莊料亭 → 道の駅愛彩ランド → 犬鳴山溫泉溪谷賞楓 → 晚餐:はや魚太郎泉州之鄉 (海鮮/黑豚鍋)
+Day 3: 泉州毛巾館 → 大仙公園日本庭園賞楓 → 8K遊客中心 → 午餐:美々卯堺本店(烏龍麵壽喜燒)/燒肉全 → 大阪堺熱氣球 → 堺傳統產業會館 → 晚餐:海鮮處椿
+Day 4: 伏見稻荷大社千本鳥居 → 清水寺賞楓 → 午餐:清水順正湯豆腐 → 三年坂二年坂 → 祇園花見小路 → 晚餐:がんこ祇園店/和食さと
+Day 5: 臨空城 Premium Outlets 採購 → 午餐:臨空城美食街 (三田屋豚排/拉麵/烏龍麵/海鮮丼) → 關西機場免稅店 → 回程CX-565(16:15) → 抵達桃園(18:30)`;
 
             // Create temporary textarea element for execCommand copy
             const tempInput = document.createElement('textarea');
