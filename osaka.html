@@ -60,7 +60,6 @@
             text-decoration: line-through;
             opacity: 0.6;
         }
-        /* Custom scrollbar for mobile tab bar */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -76,6 +75,14 @@
             background-color: #f0f9ff !important;
             box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
         }
+        .restaurant-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .restaurant-card.selected {
+            border-color: #e74c3c !important;
+            background-color: #fff9f8 !important;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.18);
+        }
         @media print {
             .no-print { display: none !important; }
             .print-full { width: 100% !important; margin: 0 !important; }
@@ -84,14 +91,13 @@
 </head>
 <body class="font-sans antialiased leading-relaxed min-h-screen flex flex-col">
 
-    <!-- Header / Hero Section -->
     <header class="maple-gradient text-white relative shadow-xl overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="max-w-6xl mx-auto px-4 py-8 md:py-12 relative z-10">
             <div class="flex flex-wrap items-center justify-between gap-4">
                 <div>
                     <span class="inline-block px-3 py-1 bg-amber-400 text-maple-900 rounded-full text-xs font-bold tracking-wide uppercase mb-2 shadow-sm">
-                        <i class="fa-solid fa-leaf mr-1"></i> 大阪賞楓深度之旅
+                        <i class="fa-solid fa-leaf mr-1"></i> 秋季賞楓 5 日包車深度客製遊
                     </span>
                     <h1 class="text-3xl md:text-5xl font-extrabold font-serif tracking-tight leading-tight">
                         大阪賞楓深度之旅
@@ -102,16 +108,18 @@
                 </div>
                 <!-- Action Buttons & Rain Toggle -->
                 <div class="flex flex-wrap items-center gap-2.5 no-print">
-                    <!-- Weather Mode Toggle Button -->
                     <button onclick="toggleRainMode()" id="rainToggleBtn" class="bg-sky-500 hover:bg-sky-400 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition shadow-md flex items-center gap-2 border border-sky-300">
                         <i class="fa-solid fa-cloud-showers-heavy"></i>
                         <span id="rainBtnText">切換為【☔雨天備案模式】</span>
+                    </button>
+                    <button onclick="openSelectionModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2 rounded-xl text-xs font-bold transition shadow-md flex items-center gap-1.5 border border-emerald-400">
+                        <i class="fa-solid fa-check-to-slot"></i> 查看團員選餐統計
                     </button>
                     <button onclick="window.print()" class="bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-xl text-xs font-medium transition backdrop-blur-sm border border-white/30 flex items-center gap-1.5">
                         <i class="fa-solid fa-print"></i> 列印
                     </button>
                     <button onclick="copyItineraryOutline()" class="bg-amber-400 hover:bg-amber-300 text-maple-900 px-3 py-2 rounded-xl text-xs font-bold transition shadow-md flex items-center gap-1.5">
-                        <i class="fa-solid fa-copy"></i> 複製摘要
+                        <i class="fa-solid fa-copy"></i> 複製行程摘要
                     </button>
                 </div>
             </div>
@@ -137,12 +145,11 @@
         </div>
     </header>
 
-    <!-- Global Rain Mode Active Alert Banner (Hidden by default) -->
     <div id="rainBanner" class="hidden max-w-6xl mx-auto px-4 mt-4 no-print">
         <div class="bg-sky-600 text-white p-3.5 rounded-2xl shadow-lg flex items-center justify-between gap-3 text-xs md:text-sm animate-bounce">
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-cloud-showers-heavy text-lg text-sky-200"></i>
-                <span><strong>☔ 目前已開啟【雨天備案模式】：</strong>戶外景點已自動調換為全室內、平坦無障礙與推車友善的備案地點！</span>
+                <span><strong>☔ 目前已開啟【雨天備案模式】：</strong>戶外景點已自動調換為全室內、平坦無障礙與推車友善的地點！</span>
             </div>
             <button onclick="toggleRainMode()" class="bg-white/20 hover:bg-white/30 text-white px-2.5 py-1 rounded-lg font-bold text-xs shrink-0">
                 切回晴天模式
@@ -150,7 +157,6 @@
         </div>
     </div>
 
-    <!-- Quick Trip Key Info Card -->
     <section class="max-w-6xl mx-auto px-4 mt-4 relative z-20">
         <div class="bg-white rounded-2xl shadow-lg border border-amber-100 p-4 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Flight Info -->
@@ -174,7 +180,7 @@
                 </div>
                 <div class="text-xs text-gray-600 space-y-1">
                     <h4 class="font-bold text-gray-900 text-sm mb-1">OMO7 關西機場 by 星野集團</h4>
-                    <p>4 晚連續入住，無需頻繁搬運大行李與嬰兒推車。</p>
+                    <p>4 晚連續入住，免去搬遷大行李與推車困擾。</p>
                     <p class="text-amber-700 font-medium">專屬車輛接送、大浴場放鬆、鄰近臨空城 Outlet。</p>
                 </div>
             </div>
@@ -186,14 +192,13 @@
                 </div>
                 <div class="text-xs text-gray-600 space-y-1">
                     <h4 class="font-bold text-gray-900 text-sm mb-1">團員特殊飲食貼心規劃</h4>
-                    <p><span class="inline-block bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-medium">不吃牛羊</span> 備妥豚肉/若雞/天婦羅/海鮮/湯豆腐。</p>
-                    <p><span class="inline-block bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">不吃鰻魚</span> 備有海鮮御膳/釜飯/刺身/壽司替代。</p>
+                    <p><span class="inline-block bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-medium">1位不吃牛羊</span> 備妥豚肉/若雞/天婦羅/海鮮/湯豆腐。</p>
+                    <p><span class="inline-block bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">1位不吃鰻魚</span> 備有海鮮御膳/釜飯/刺身/壽司替代。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Navigation Bar with Horizontal Scrolling -->
     <nav class="max-w-6xl mx-auto px-4 mt-6 no-print relative">
         <div class="flex items-center justify-between mb-2 text-xs text-gray-500 font-medium">
             <span class="flex items-center gap-1.5 text-maple-800 font-bold">
@@ -204,33 +209,32 @@
             </span>
         </div>
 
-        <!-- Main Tab Navigation Bar -->
         <div class="relative bg-amber-50/60 p-1.5 rounded-2xl border border-amber-200/70 shadow-xs">
             <div class="flex items-center space-x-2 overflow-x-auto pb-0.5 no-scrollbar flex-nowrap scroll-smooth snap-x" id="tabContainer">
                 
                 <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn active shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm border border-maple-600/30 text-maple-800 bg-white shadow-sm transition-all duration-200 flex items-center gap-2">
                     <i class="fa-regular fa-calendar-check text-maple-600"></i>
-                    <span>每日行程</span>
+                    <span>每日行程與景點規劃</span>
                 </button>
 
-                <button onclick="switchTab('dietary')" id="tab-dietary" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
-                    <i class="fa-solid fa-utensils text-amber-600"></i>
-                    <span>餐廳美食推薦</span>
+                <button onclick="switchTab('voting')" id="tab-voting" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
+                    <i class="fa-solid fa-check-to-slot text-maple-600"></i>
+                    <span>🍽️ 團員美食點選與評分表</span>
                 </button>
 
                 <button onclick="switchTab('souvenir')" id="tab-souvenir" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
                     <i class="fa-solid fa-bag-shopping text-emerald-600"></i>
-                    <span>必買伴手禮</span>
+                    <span>必買伴手禮 Check List</span>
                 </button>
 
                 <button onclick="switchTab('tips')" id="tab-tips" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
                     <i class="fa-solid fa-baby-carriage text-blue-600"></i>
-                    <span>注意事項</span>
+                    <span>親子與包車注意事項</span>
                 </button>
 
                 <button onclick="switchTab('prep')" id="tab-prep" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
                     <i class="fa-solid fa-clipboard-check text-indigo-600"></i>
-                    <span>出國確認清單</span>
+                    <span>出國準備與登機確認清單</span>
                 </button>
 
             </div>
@@ -312,11 +316,15 @@
                             <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 自理 / 桃園機場簡餐</p>
                                 <p><span class="font-semibold text-gray-700">午餐：</span> 國泰機上精緻餐點</p>
-                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
-                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>鳥貴族 (泉佐野站前店) — 串燒/釜飯</p>
-                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>泉佐野海鮮居酒屋 — 刺身/天婦羅/海鮮鍋</p>
-                                    <p class="text-[11px] text-emerald-700 font-medium mt-1">💡 避開牛羊與鰻魚：提供豐富烤雞/烤豬肉串、釜飯、野菜、海鮮，點餐無壓力。</p>
+                                <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-maple-800 text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐勾選：</span>
+                                        <span id="badge-day1-dinner" class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">未選擇</span>
+                                    </div>
+                                    <p id="selected-day1-dinner" class="text-xs font-bold text-gray-800">鳥貴族 泉佐野店 (旅行社預設)</p>
+                                    <button onclick="switchTab('voting')" class="text-[11px] text-maple-600 hover:text-maple-800 font-bold underline flex items-center gap-1">
+                                        <i class="fa-solid fa-pen-to-square"></i> 前往【美食評分表】更換選項
+                                    </button>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
@@ -334,7 +342,7 @@
                 <div class="bg-gradient-to-r from-maple-700 to-amberGlow text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
                         <span class="bg-amber-400 text-slate-900 text-xs font-black px-3 py-1.5 rounded-lg uppercase">DAY 2</span>
-                        <h2 class="text-lg md:text-xl font-bold">11/10 (二) 岸和田歷史名城・犬鳴山楓谷與溫泉散策</h2>
+                        <h2 class="text-lg md:text-xl font-bold">11/10 (二) 岸和田歷史名城・水間寺祈福與名園散策</h2>
                     </div>
                     <span class="text-xs bg-black/20 px-3 py-1 rounded-full text-amber-100"><i class="fa-solid fa-leaf"></i> 自然秋楓 ‧ 名城庭園 ‧ 地場海鮮</span>
                 </div>
@@ -345,26 +353,26 @@
                             <div class="flex gap-4 items-start">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:00 - 11:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">岸和田城 & 八陣之庭 & 五風莊庭園</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">欣賞重森三玲名作庭園「八陣之庭」，天守閣與周邊近代名園「五風莊」散策，路面平坦極度適合推車。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">岸和田城 & 八陣之庭 & 岸和田地車會館</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">欣賞重森三玲名作庭園「八陣之庭」，天守閣與周邊地車會館 3D 體驗，路面平坦極度適合推車。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 12:00 - 13:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">午餐：仙太郎蕎麥麵 或 五風莊庭園料亭</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">享用石磨手工蕎麥麵配現炸時令野菜與海老天婦羅，或於日式庭園內享用會席御膳。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">午餐：五風莊庭園料亭 或 仙太郎蕎麥麵</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">於文化財日式庭園內享用會席彩御膳，或享用石磨手工蕎麥麵配現炸天婦羅。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm flex items-center gap-1.5">
-                                        <span class="normal-schedule">道の駅 愛彩ランド & 犬鳴山溫泉溪谷賞楓</span>
-                                        <span class="rain-schedule hidden text-sky-700">☔【雨天切換】岸和田地車會館 (Danjiri Museum) & 犬鳴山室內泡湯</span>
+                                        <span class="normal-schedule">道の駅 愛彩ランド & 水間觀音 (水間寺)</span>
+                                        <span class="rain-schedule hidden text-sky-700">☔【雨天切換】岸和田地車會館深度體驗 & 犬鳴山室內泡湯</span>
                                     </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">採買農產直銷市集，隨後前往大阪知名賞楓勝地「犬鳴山溪谷」，感受幽境溪流與楓紅交織的美景。</p>
-                                    <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">避開山路泥濘，改為全室內參觀巨型地車祭典山車與 3D 體驗，隨後直達犬鳴山溫泉飯店享用室內天然溫泉。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">採買農產直銷市集，隨後前往關西名剎「水間寺」參拜檜木三重塔與美麗境內景致。</p>
+                                    <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">避開山路泥濘，改為全室內參觀巨型地車祭典山車與 3D 展演，隨後直達犬鳴山溫泉飯店享用室內天然溫泉。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
@@ -383,27 +391,22 @@
                             <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內精緻自助早餐</p>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
-                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>手打ち蕎麥 仙太郎 (蕎麥/天婦羅)</p>
-                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>五風莊 庭園料亭 (★★★★★ 庭園文化財首選)</p>
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐已選：</span>
+                                    <p id="selected-day2-lunch" class="text-xs font-bold text-gray-800">五風莊 庭園料亭 (旅行社預設)</p>
                                 </div>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
-                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>はや 魚太郎 泉州の鄉 (海鮮/黑豚鍋物)</p>
-                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>犬鳴山溫泉料亭 (山海會席/黑豚/海鮮)</p>
-                                    <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：主打泉州新鮮海鮮與鹿兒島黑豚涮涮鍋，不含牛羊鰻魚爭議。</p>
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐已選：</span>
+                                    <p id="selected-day2-dinner" class="text-xs font-bold text-gray-800">はや 魚太郎 泉州の鄉 (旅行社預設)</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-                            
-                            <!-- Rain plan callout inside card -->
+                            <!-- Rain plan callout -->
                             <div class="rain-plan-box bg-sky-50 rounded-lg p-2.5 border border-sky-200 text-[11px] text-sky-900 space-y-1">
                                 <span class="font-bold block text-sky-800 flex items-center gap-1">
-                                    <i class="fa-solid fa-cloud-showers-heavy text-sky-600"></i> ☔ 雨天備案（替代犬鳴山步道）：
+                                    <i class="fa-solid fa-cloud-showers-heavy text-sky-600"></i> ☔ 雨天備案：
                                 </span>
-                                <p>改造訪【岸和田地車會館 (Danjiri Museum)】體驗巨型地車與 3D 展演，設有無障礙坡道；下午接續犬鳴山溫泉日歸室內泡湯。</p>
+                                <p>改造訪全室內【岸和田地車會館】，設有無障礙坡道；接續犬鳴山溫泉日歸室內泡湯。</p>
                             </div>
-
                             <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
                                 <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
                                 愛彩ランド採買「泉州水茄子漬物」、「果醬」，老街採買「村雨饅頭」。
@@ -429,8 +432,8 @@
                             <div class="flex gap-4 items-start">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:15 - 10:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">泉州毛巾館 (工廠見學與採購)</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">參觀日本毛巾發源地，體驗親膚柔軟的「後曬毛巾」，無化學殘留非常適合嬰幼兒使用。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">泉州毛巾工廠 & 泉穴師神社</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">參觀後曬純棉毛巾，親膚柔軟極適合嬰幼兒；前往泉穴師神社參拜古木群與幼兒祈福。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
@@ -443,15 +446,15 @@
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 13:00 - 14:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">午餐：美々卯 堺本店 或 ICOROBA 景觀咖啡</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">享用創始老店「烏龍麵壽喜燒 (うどんすき)」鮮美高湯，或在大仙公園露天咖啡廳享用熱壓吐司與抹茶。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">午餐：地雞陶板燒 / 美々卯烏龍麵 / ICOROBA 咖啡</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">享用在地地雞定食或美々卯高湯烏龍麵壽喜燒，或在大仙公園露天咖啡廳享用熱壓吐司與抹茶。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 15:00 - 17:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm flex items-center gap-1.5">
-                                        <span class="normal-schedule">大阪堺熱氣球 (Sakai Balloon) & 堺傳統產業會館</span>
+                                        <span class="normal-schedule">大阪堺熱氣球 (Sakai Balloon) & 堺傳統產業館</span>
                                         <span class="rain-schedule hidden text-sky-700">☔【雨天切換】堺市利晶之杜 (茶道體驗) 或 Big Bang 兒童樂園</span>
                                     </h4>
                                     <p class="text-xs text-gray-500 mt-0.5 normal-schedule">搭乘熱氣球升空 100 公尺俯瞰仁德天皇陵，隨後造訪傳統產業館參觀職人鍛造刀具工藝。</p>
@@ -467,31 +470,21 @@
                             <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內早餐</p>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
-                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐推薦選擇 (正式 vs 彈性輕食)：</span>
-                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>美々卯 堺本店 (烏龍麵壽喜燒/土雞柴魚高湯)</p>
-                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>燒肉 全 (特選黑豚/若雞/海鮮燒烤)</p>
-                                    <div class="bg-emerald-50 p-1.5 rounded border border-emerald-100 mt-1">
-                                        <p class="text-[11px] text-emerald-800 font-bold"><i class="fa-solid fa-coffee"></i> ☕ 免預約替代：</p>
-                                        <p class="text-[11px] text-emerald-700">大仙公園 ICOROBA Cafe 熱壓吐司 & 文化財「伸庵」抹茶和菓子。</p>
-                                    </div>
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐已選：</span>
+                                    <p id="selected-day3-lunch" class="text-xs font-bold text-gray-800">地雞和風陶板燒 定食 (旅行社預設)</p>
                                 </div>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
-                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>海鮮處 椿 (Tsubaki) (特上握壽司/烤魚/天婦羅)</p>
-                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>堺市老街 割烹和食 (時令海鮮/海老/炊飯)</p>
-                                    <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：美々卯湯頭極鮮無牛羊；海鮮處椿嚴選產地直送鮮魚，無鰻魚負擔。</p>
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐已選：</span>
+                                    <p id="selected-day3-dinner" class="text-xs font-bold text-gray-800">鮨人 壽司會席料理 (旅行社預設)</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-
-                            <!-- Rain plan callout inside card -->
                             <div class="rain-plan-box bg-sky-50 rounded-lg p-2.5 border border-sky-200 text-[11px] text-sky-900 space-y-1">
                                 <span class="font-bold block text-sky-800 flex items-center gap-1">
                                     <i class="fa-solid fa-cloud-showers-heavy text-sky-600"></i> ☔ 雨天備案（熱氣球停飛時）：
                                 </span>
-                                <p>轉往【堺市利晶之杜】體驗千利休茶道文化，或至【堺市立 Big Bang 兒童樂園】享有幼兒室內安全放電空間。</p>
+                                <p>轉往【堺市利晶之杜】體驗千利休茶道文化，或至【堺市立 Big Bang 兒童樂園】。</p>
                             </div>
-
                             <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
                                 <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
                                 採買「泉州後曬毛巾」、堺傳統產業會館「手工刀具/指甲剪」、老街「生仙貝/抹茶餅」。
@@ -555,29 +548,21 @@
                             <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內早餐</p>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
-                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐推薦選擇 (邊走邊吃 vs 正式)：</span>
-                                    <p class="text-gray-800 font-medium"><b>★ 最推薦方案：</b>清水坂老街散策邊走邊吃</p>
-                                    <p class="text-[11px] text-amber-900">（奧丹豆腐饅頭、藤菜美醬油糰子、京ばあむ年輪蛋糕、星巴克榻榻米店）</p>
-                                    <p class="text-gray-800 font-medium mt-1"><b>正式選項：</b>清水 順正 / 奧丹 清水 (湯豆腐御膳)</p>
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐已選：</span>
+                                    <p id="selected-day4-lunch" class="text-xs font-bold text-gray-800">梅山堂 湯豆腐定食 (旅行社預設)</p>
                                 </div>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
-                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>選項 A：</b>がんこ Ganko 祇園店 (和食御膳/黑豚/刺身)</p>
-                                    <p class="text-gray-800 font-medium"><b>選項 B：</b>和食さと (Washoku Sato) (鍋物/天婦羅/和食)</p>
-                                    <p class="text-gray-800 font-medium"><b>選項 C：</b>祇園天婦羅八坂 (時令海鮮野菜天婦羅)</p>
-                                    <p class="text-[11px] text-emerald-700 font-medium">💡 避開牛羊與鰻魚：菜單選項超豐富，想吃鰻魚者可單點，不吃鰻魚者有黑豚/刺身/天婦羅配套。</p>
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐已選：</span>
+                                    <p id="selected-day4-dinner" class="text-xs font-bold text-gray-800">和食さと 鰻魚飯/牛肉鍋 (旅行社預設)</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-
-                            <!-- Rain plan callout inside card -->
                             <div class="rain-plan-box bg-sky-50 rounded-lg p-2.5 border border-sky-200 text-[11px] text-sky-900 space-y-1">
                                 <span class="font-bold block text-sky-800 flex items-center gap-1">
-                                    <i class="fa-solid fa-cloud-showers-heavy text-sky-600"></i> ☔ 雨天備案（替代清水坂斜坡）：
+                                    <i class="fa-solid fa-cloud-showers-heavy text-sky-600"></i> ☔ 雨天備案：
                                 </span>
-                                <p>改往【三十三間堂 ＋ 京都國立博物館】（全室內平坦推車極順），或至【錦市場】（全拱廊屋頂商店街）安心享用在地美食。</p>
+                                <p>改往【三十三間堂 ＋ 京都國立博物館】（全室內平坦），或至【錦市場】（全拱廊頂棚）。</p>
                             </div>
-
                             <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
                                 <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
                                 產寧坂採買「生八橋」、「七味家唐辛子」，祇園採買「辻利抹茶」，伏見採買「狐狸煎餅」。
@@ -637,14 +622,11 @@
                             <div class="text-xs space-y-2.5">
                                 <p><span class="font-semibold text-gray-700">早餐：</span> 飯店內早餐</p>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
-                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐美食街推薦選擇：</span>
-                                    <p class="text-gray-800 font-medium"><b>選擇 1：</b>三田屋 (Mitaya) 豚排/鐵板定食</p>
-                                    <p class="text-gray-800 font-medium"><b>選擇 2：</b>神戶拉麵 (雞白湯/豚骨)</p>
-                                    <p class="text-gray-800 font-medium"><b>選擇 3：</b>讚岐烏龍麵 / 天婦羅</p>
-                                    <p class="text-gray-800 font-medium"><b>選擇 4：</b>臨空城鮮魚海鮮丼專賣</p>
+                                    <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 午餐已選：</span>
+                                    <p id="selected-day5-lunch" class="text-xs font-bold text-gray-800">臨空城 Outlet 美食街自理 (旅行社預設)</p>
                                 </div>
                                 <p><span class="font-semibold text-gray-700">晚餐：</span> 機上輕食點心</p>
-                                <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> 溫馨的家</p>
+                                <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> 溫暖的家</p>
                             </div>
                             <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
                                 <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
@@ -657,195 +639,413 @@
 
         </div>
 
-        <!-- TAB 2: DIETARY & RESTAURANT OPTIONS GUIDE -->
-        <div id="view-dietary" class="tab-content hidden space-y-6">
+        <!-- TAB 2: INTERACTIVE RESTAURANT VOTING & SELECTION PANEL -->
+        <div id="view-voting" class="tab-content hidden space-y-6">
             <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100">
-                <div class="flex items-center gap-3 border-b border-gray-100 pb-4 mb-6">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-bold">
-                        <i class="fa-solid fa-utensils"></i>
+                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-check-to-slot"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-900">團員美食點選與 Tabelog / Google 評分對照表</h2>
+                            <p class="text-xs text-gray-500">點選您喜好的餐廳，系統會即時更新團員選單，並附上 Google 評論連結供查閱！</p>
+                        </div>
                     </div>
-                    <div>
-                        <h2 class="text-xl font-bold text-gray-900">各餐推薦餐廳</h2>
-                        <p class="text-xs text-gray-500">完美照顧 1 位不吃牛羊、1 位不吃鰻魚的團員需求，每餐皆有彈性且美味的替代方案！</p>
-                    </div>
+                    <button onclick="openSelectionModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-list-check"></i> 產出團員選餐統計
+                    </button>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-8">
 
-                    <!-- Day 1 Dinner Card -->
-                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 1 晚餐推薦 (泉佐野站/飯店周邊)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">泉佐野市</span>
+                    <!-- DAY 1 DINNER -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 border-l-4 border-slate-700 pl-3">
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 1 晚餐：泉佐野地區</h3>
+                            <span class="text-xs text-gray-400">（11/09 星期一）</span>
                         </div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 A：鳥貴族 (泉佐野站前店)</div>
-                                <p class="text-gray-600 mt-1">均一價串燒名店。主打烤雞肉串、烤豬肉串、起司雞肉丸、金牌釜飯、高麗菜（可免費續）。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Preset Option -->
+                            <div onclick="selectRestaurant('day1', 'dinner', '鳥貴族 泉佐野店', 'https://www.google.com/maps/search/?api=1&query=鳥貴族+泉佐野店')" id="card-day1-dinner-preset" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded">旅行社預設</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.05</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.0</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">鳥貴族 泉佐野店</h4>
+                                <p class="text-xs text-gray-500 mt-1">均一價燒鳥居酒屋。烤雞串、烤豬肉串、金牌釜飯、野菜。無牛羊與鰻魚負擔。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=鳥貴族+泉佐野店" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 B：泉佐野站前海鮮居酒屋</div>
-                                <p class="text-gray-600 mt-1">享用大阪灣港口直送地場鮮魚刺身、海鮮天婦羅御膳與烤地魚。</p>
-                            </div>
-                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
-                                <strong>💡 飲食友善說明：</strong>雞肉、豚肉、海鮮與野菜為主角，完全避開牛羊與鰻魚。
+
+                            <!-- Alternative Option -->
+                            <div onclick="selectRestaurant('day1', 'dinner', '活魚料理 いづも (Izumo)', 'https://www.google.com/maps/search/?api=1&query=活魚料理+いづも+泉佐野')" id="card-day1-dinner-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.42</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.2</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">活魚料理 いづも (Izumo)</h4>
+                                <p class="text-xs text-gray-500 mt-1">泉州地場海鮮名店。產地直送鮮魚刺身、海老天婦羅御膳、握壽司。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=活魚料理+いづも+泉佐野" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 2 Lunch Card -->
-                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 2 午餐推薦 (岸和田周邊)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">岸和田市</span>
+                    <!-- DAY 2 LUNCH & DINNER -->
+                    <div class="space-y-3 pt-4 border-t border-gray-100">
+                        <div class="flex items-center gap-2 border-l-4 border-amber-600 pl-3">
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 2 午餐：岸和田歷史名城區</h3>
+                            <span class="text-xs text-gray-400">（11/10 星期二）</span>
                         </div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 A：手打ち蕎麥 仙太郎</div>
-                                <p class="text-gray-600 mt-1">石磨手工蕎麥麵配特製鰹魚醬汁，搭配現炸時令野菜與大蝦天婦羅。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div onclick="selectRestaurant('day2', 'lunch', '五風莊 庭園料亭', 'https://www.google.com/maps/search/?api=1&query=五風荘+岸和田')" id="card-day2-lunch-preset" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded">旅行社預設 ★★★★★</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.46</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.2</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">五風莊 庭園料亭</h4>
+                                <p class="text-xs text-gray-500 mt-1">岸和田市指定文化財，2,500 坪日本庭園。享用彩御膳懷石、天婦羅、季節炊飯。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=五風荘+岸和田" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 B：五風莊 庭園料亭 (★★★★★ 庭園文化財首選)</div>
-                                <p class="text-gray-600 mt-1">於 2,500 坪歷史迴遊式庭園內享用會席御膳與和食定食，無縫對接岸和田城動線。</p>
-                            </div>
-                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
-                                <strong>💡 飲食友善說明：</strong>以蕎麥、海鮮天婦羅與和食食材為主，不含牛羊鰻魚。
+
+                            <div onclick="selectRestaurant('day2', 'lunch', '手打ち蕎麥 仙太郎', 'https://www.google.com/maps/search/?api=1&query=手打ち蕎麦+仙太郎+岸和田')" id="card-day2-lunch-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.48</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.3</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">手打ち蕎麥 仙太郎</h4>
+                                <p class="text-xs text-gray-500 mt-1">自家製石磨十割/二八蕎麥麵，現炸時令野菜與大蝦天婦羅定食。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=手打ち蕎麦+仙太郎+岸和田" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 2 Dinner Card -->
-                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 2 晚餐推薦 (泉州/犬鳴山地區)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">泉州名物</span>
+                    <!-- DAY 2 DINNER -->
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-2 border-l-4 border-amber-600 pl-3">
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 2 晚餐：泉州海鮮/鍋物區</h3>
                         </div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 A：はや 魚太郎 泉州の鄉</div>
-                                <p class="text-gray-600 mt-1">專營泉州地場海鮮鍋物與鹿兒島黑豚涮涮鍋，桌位可分鍋或選擇海鮮/豚肉昆布湯底。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div onclick="selectRestaurant('day2', 'dinner', 'はや 魚太郎 泉州の鄉', 'https://www.google.com/maps/search/?api=1&query=はや+魚太郎+泉州の郷')" id="card-day2-dinner-preset" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded">旅行社預設</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.12</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.0</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">はや 魚太郎 泉州の鄉</h4>
+                                <p class="text-xs text-gray-500 mt-1">泉州地場海鮮與牛肉/黑豚涮涮鍋。不吃牛肉者可換為特選豚肉鍋或海鮮鍋。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=はや+魚太郎+泉州の郷" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 B：犬鳴山溫泉料亭 (不動口館/周邊)</div>
-                                <p class="text-gray-600 mt-1">享用犬鳴山溪谷時令山海會席料理、黑豚寶樂燒與鮮魚刺身。</p>
-                            </div>
-                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
-                                <strong>💡 飲食友善說明：</strong>主打海鮮與黑豚，可完全排除牛肉與鰻魚品項。
+
+                            <div onclick="selectRestaurant('day2', 'dinner', '青木松風庵 岬茶屋', 'https://www.google.com/maps/search/?api=1&query=青木松風庵+岬茶屋')" id="card-day2-dinner-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.35</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.2</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">青木松風庵 岬茶屋</h4>
+                                <p class="text-xs text-gray-500 mt-1">泉州名物和食料理。柴魚高湯海鮮烏龍麵、釜飯定食與精緻日式甜品。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=青木松風庵+岬茶屋" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 3 Lunch Card -->
-                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 3 午餐推薦 (堺市/大仙公園)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">堺市老店 & 景觀咖啡</span>
+                    <!-- DAY 3 LUNCH & DINNER -->
+                    <div class="space-y-3 pt-4 border-t border-gray-100">
+                        <div class="flex items-center gap-2 border-l-4 border-emerald-700 pl-3">
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 3 午餐：堺市/大仙公園區</h3>
+                            <span class="text-xs text-gray-400">（11/11 星期三）</span>
                         </div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">正式選項 A：美々卯 (堺本店)</div>
-                                <p class="text-gray-600 mt-1">烏龍麵壽喜燒 (うどんすき) 發源地！採用特製柴魚高湯、活蝦、土雞肉與百合根，極度鮮美。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div onclick="selectRestaurant('day3', 'lunch', '地雞和風陶板燒 定食', 'https://www.google.com/maps/search/?api=1&query=堺市+地鶏+陶板焼+定食')" id="card-day3-lunch-preset" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded">旅行社預設</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.15</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.0</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">地雞和風陶板燒 定食</h4>
+                                <p class="text-xs text-gray-500 mt-1">在地產土雞與新鮮高山蔬菜和風陶板加熱，醬香濃郁，附飲料與白飯。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=堺市+地鶏+陶板焼+定食" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">正式選項 B：燒肉 全 (Yakiniku Zen)</div>
-                                <p class="text-gray-600 mt-1">除牛肉外，備有特選黑豚肉盤、若雞肉盤與大蝦干貝燒烤，不吃牛羊者亦能盡情享用燒烤。</p>
+
+                            <div onclick="selectRestaurant('day3', 'lunch', '美々卯 堺本店 (烏龍麵壽喜燒)', 'https://www.google.com/maps/search/?api=1&query=美々卯+堺本店')" id="card-day3-lunch-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.45</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.3</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">美々卯 堺本店</h4>
+                                <p class="text-xs text-gray-500 mt-1">烏龍麵壽喜燒 (うどんすき) 創始店。極致柴魚高湯、土雞肉、活蝦與時蔬。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=美々卯+堺本店" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-emerald-100/70 p-2.5 rounded-xl border border-emerald-200">
-                                <div class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-mug-hot"></i> ☕ 免趕預約時間替代：大仙公園 ICOROBA Cafe</div>
-                                <p class="text-emerald-800 mt-1">若早餐吃太飽免趕訂位！在公園露天咖啡廳享用熱壓吐司與輕食，亦可在園內「伸庵」茶室品嚐和菓子與抹茶。</p>
-                            </div>
-                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
-                                <strong>💡 飲食友善說明：</strong>美々卯高湯無牛羊成分；燒肉店有黑豚與海鮮獨立套餐。
+
+                            <div onclick="selectRestaurant('day3', 'lunch', 'ICOROBA Cafe Terrace (輕食/咖啡)', 'https://www.google.com/maps/search/?api=1&query=ICOROBA+Cafe+Terrace+大仙公園')" id="card-day3-lunch-alt2" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">免趕時間輕食</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.20</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.4</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">ICOROBA Cafe (大仙公園)</h4>
+                                <p class="text-xs text-gray-500 mt-1">早餐吃太飽免受預約限制！公園草坪露天咖啡廳，熱壓吐司、咖啡與抹茶甜點。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=ICOROBA+Cafe+Terrace+大仙公園" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 3 Dinner Card -->
-                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 3 晚餐推薦 (堺市/臨空區)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">港口海鮮</span>
+                    <!-- DAY 3 DINNER -->
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-2 border-l-4 border-emerald-700 pl-3">
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 3 晚餐：堺市海鮮區</h3>
                         </div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 A：海鮮處 椿 (Tsubaki)</div>
-                                <p class="text-gray-600 mt-1">嚴選產地直送新鮮刺身拼盤、特上握壽司、天婦羅御膳與烤時令鮮魚定食。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div onclick="selectRestaurant('day3', 'dinner', '鮨人 壽司會席料理', 'https://www.google.com/maps/search/?api=1&query=鮨人+堺市+寿司')" id="card-day3-dinner-preset" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded">旅行社預設</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.30</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.1</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">鮨人 壽司會席料理</h4>
+                                <p class="text-xs text-gray-500 mt-1">特上握壽司會席、天婦羅、茶碗蒸與鮮魚料理。完全避開牛羊與鰻魚限制。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=鮨人+堺市+寿司" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 B：堺市老街割烹和食</div>
-                                <p class="text-gray-600 mt-1">精緻季節旬味和食，提供豐富海老天婦羅、季節炊飯與蒸蛋。</p>
-                            </div>
-                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
-                                <strong>💡 飲食友善說明：</strong>純海鮮與和食料理，完全避開牛羊與鰻魚。
+
+                            <div onclick="selectRestaurant('day3', 'dinner', '玄品 堺 (虎河豚火鍋)', 'https://www.google.com/maps/search/?api=1&query=玄品+堺')" id="card-day3-dinner-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.38</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.4</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">玄品 堺 (Guenpin Fugu)</h4>
+                                <p class="text-xs text-gray-500 mt-1">日本連鎖第一虎河豚料理。刺身、炸河豚、清甜河豚火鍋與鮮美雜炊粥。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=玄品+堺" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 4 Lunch Card -->
-                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 4 午餐推薦 (京都清水寺前)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">京都名物 & 邊走邊吃</span>
+                    <!-- DAY 4 LUNCH & DINNER -->
+                    <div class="space-y-3 pt-4 border-t border-gray-100">
+                        <div class="flex items-center gap-2 border-l-4 border-maple-700 pl-3">
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 4 午餐：京都清水寺參道區</h3>
+                            <span class="text-xs text-gray-400">（11/12 星期四）</span>
                         </div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-emerald-100/70 p-2.5 rounded-xl border border-emerald-200">
-                                <div class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-cookie-bite"></i> ★ 最推薦彈性方案：清水坂老街邊走邊吃</div>
-                                <p class="text-emerald-800 mt-1">奧丹現蒸豆腐饅頭、藤菜美醬油烤糰子、京ばあむ抹茶年輪蛋糕、二寧坂榻榻米星巴克喝咖啡歇腳，免預約免趕時間。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div onclick="selectRestaurant('day4', 'lunch', '梅山堂 湯豆腐定食', 'https://www.google.com/maps/search/?api=1&query=梅山堂+京都+湯豆腐')" id="card-day4-lunch-preset" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded">旅行社預設</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.22</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.0</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">梅山堂 湯豆腐定食</h4>
+                                <p class="text-xs text-gray-500 mt-1">清水寺門前老字號。清爽湯豆腐、野菜天婦羅與和風時令炊飯。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=梅山堂+京都+湯豆腐" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">正式選項 A：清水 順正 (Junsei) 湯豆腐</div>
-                                <p class="text-gray-600 mt-1">百年迴遊庭園內享用手工胡麻豆腐、熱氣騰騰湯豆腐、蔬菜天婦羅與時令炊飯。</p>
+
+                            <div onclick="selectRestaurant('day4', 'lunch', '總本家 奧丹清水 (百年湯豆腐)', 'https://www.google.com/maps/search/?api=1&query=総本家+奥丹清水')" id="card-day4-lunch-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.52</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.2</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">總本家 奧丹清水</h4>
+                                <p class="text-xs text-gray-500 mt-1">380年江戶時期創立庭園老店。絹/木棉豆腐御膳、胡麻豆腐與田樂燒。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=総本家+奥丹清水" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">正式選項 B：奧丹 清水 (Okutan)</div>
-                                <p class="text-gray-600 mt-1">京都最悠久湯豆腐名店之一，滑嫩豆腐搭配特製醬汁與季節小菜。</p>
-                            </div>
-                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
-                                <strong>💡 飲食友善說明：</strong>傳統京都和食與輕食點心，清淡滋養，全體團員（含長輩與嬰幼兒）皆極合適。
+
+                            <div onclick="selectRestaurant('day4', 'lunch', '清水坂老街邊走邊吃小吃散策', 'https://www.google.com/maps/search/?api=1&query=清水寺+三年坂+二年坂')" id="card-day4-lunch-alt2" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">★ 達人最推散策</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.3+</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">清水坂老街散策吃點心</h4>
+                                <p class="text-xs text-gray-500 mt-1">奧丹豆腐饅頭、藤菜美烤醬油糰子、京ばあむ年輪蛋糕、二寧坂榻榻米星巴克。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=清水寺+三年坂+二年坂" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 4 Dinner Card -->
-                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 4 晚餐推薦 (京都祇園)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">祇園和食</span>
+                    <!-- DAY 4 DINNER -->
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-2 border-l-4 border-maple-700 pl-3">
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 4 晚餐：京都祇園區</h3>
                         </div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 A：がんこ (Ganko 祇園店)</div>
-                                <p class="text-gray-600 mt-1">菜單極廣！有黑豚定食、海鮮天婦羅御膳、握壽司；想吃鰻魚者可單點鰻魚重，不吃的團員選擇非常豐富。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div onclick="selectRestaurant('day4', 'dinner', '和食さと (鰻魚飯/牛肉鍋/黑豚鍋)', 'https://www.google.com/maps/search/?api=1&query=和食さと+京都')" id="card-day4-dinner-preset" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded">旅行社預設</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.08</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.0</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">和食さと (Washoku Sato)</h4>
+                                <p class="text-xs text-gray-500 mt-1">連鎖和食家庭餐廳。不吃鰻魚可現場換牛肉/黑豚鍋，菜單選擇極豐富。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=和食さと+京都" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 B：和食さと (Washoku Sato)</div>
-                                <p class="text-gray-600 mt-1">連鎖和食家庭餐廳，提供黑豚涮涮鍋、天婦羅、烏龍麵與各式刺身御膳。</p>
+
+                            <div onclick="selectRestaurant('day4', 'dinner', '京都 祇園 権兵衛 (名物親子丼)', 'https://www.google.com/maps/search/?api=1&query=祇園+権兵衛')" id="card-day4-dinner-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.55</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.3</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">京都 祇園 権兵衛</h4>
+                                <p class="text-xs text-gray-500 mt-1">70年老字號名店。滑嫩濃郁土雞蛋香親子丼、鴨肉與海老天婦羅蕎麥麵。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=祇園+権兵衛" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100">
-                                <div class="font-bold text-amber-800 text-sm">選項 C：祇園天婦羅 八坂 (Yasaka)</div>
-                                <p class="text-gray-600 mt-1">嚴選新鮮海老、穴子與時令京都野菜酥炸天婦羅定食。</p>
-                            </div>
-                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
-                                <strong>💡 飲食友善說明：</strong>點餐自由度最高，可靈活單點或選擇特定主餐。
+
+                            <div onclick="selectRestaurant('day4', 'dinner', 'がんこ (Ganko) 祇園店', 'https://www.google.com/maps/search/?api=1&query=がんこ+祇園店')" id="card-day4-dinner-alt2" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.32</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.1</span>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">がんこ Ganko 祇園店</h4>
+                                <p class="text-xs text-gray-500 mt-1">和食御膳。黑豚涮涮鍋、海鮮刺身御膳、天婦羅，單點品項極多。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=がんこ+祇園店" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 5 Lunch Card -->
-                    <div class="border border-amber-200/80 rounded-2xl p-4 bg-amber-50/20 hover:border-amber-400 transition space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-100 pb-2">
-                            <h3 class="font-bold text-maple-900 text-base">Day 5 午餐推薦 (臨空城美食街)</h3>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">臨空城 Outlet</span>
+                    <!-- DAY 5 LUNCH -->
+                    <div class="space-y-3 pt-4 border-t border-gray-100">
+                        <div class="flex items-center gap-2 border-l-4 border-blue-800 pl-3">
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 5 午餐：臨空城 Outlet 美食街區</h3>
+                            <span class="text-xs text-gray-400">（11/13 星期五）</span>
                         </div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-white p-2.5 rounded-xl border border-gray-100 space-y-1">
-                                <p class="text-gray-800"><b>1. 三田屋 (Mitaya)：</b>炸黑豚排定食與鐵板豬排</p>
-                                <p class="text-gray-800"><b>2. 神戶拉麵：</b>香濃雞白湯拉麵與豚骨拉麵</p>
-                                <p class="text-gray-800"><b>3. 讚岐烏龍麵：</b>溫熱烏龍麵與各式現炸天婦羅</p>
-                                <p class="text-gray-800"><b>4. 臨空城海鮮丼：</b>產地直送極鮮海鮮丼飯</p>
-                            </div>
-                            <div class="bg-emerald-50 p-2 rounded-lg text-emerald-800 border border-emerald-100">
-                                <strong>💡 飲食友善說明：</strong>美食街分開點餐，每位團員可依自身喜好挑選最適餐點。
+                        <div class="grid grid-cols-1 gap-4">
+                            <div id="card-day5-lunch-preset" class="restaurant-card border border-amber-300 rounded-2xl p-4 bg-amber-50/30 relative">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded">旅行社預設</span>
+                                    <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200 text-xs"><i class="fa-solid fa-g"></i> Google 4.0+</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">臨空城 Premium Outlets & Seacle 美食街自理</h4>
+                                <p class="text-xs text-gray-500 mt-1">方便逛街採買，自由選擇：三田屋炸豬排定食、神戶雞白湯拉麵、讚岐烏龍麵與極鮮海鮮丼。</p>
+                                <div class="mt-3 flex justify-between items-center text-xs">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Rinku+Pleasure+Town+Seacle" target="_blank" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
+                                    </a>
+                                    <span class="text-xs font-bold text-emerald-700"><i class="fa-solid fa-circle-check"></i> 自由彈性採購用餐</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -863,8 +1063,8 @@
                             <i class="fa-solid fa-gift"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-gray-900">必買伴手禮與採買景點</h2>
-                            <p class="text-xs text-gray-500">勾選核取方塊可記錄採買進度，自動記錄於本機瀏覽器！</p>
+                            <h2 class="text-xl font-bold text-gray-900">必買伴手禮與採買景點 Check List</h2>
+                            <p class="text-xs text-gray-500">勾選核取方塊可記錄採買進度，自動存檔於本機瀏覽器！</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
@@ -1034,7 +1234,6 @@
                     </div>
                 </div>
 
-                <!-- Crucial Precautions Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                     <div class="bg-rose-50 border border-rose-200 rounded-xl p-4 space-y-2">
                         <h4 class="font-bold text-rose-900 text-sm flex items-center gap-1.5">
@@ -1064,7 +1263,6 @@
                     </div>
                 </div>
 
-                <!-- Interactive Departure Checklist -->
                 <h3 class="font-bold text-gray-800 text-sm mb-3 flex items-center gap-2">
                     <i class="fa-solid fa-list-check text-indigo-600"></i> 出發前必備物品與手續確認表
                 </h3>
@@ -1171,6 +1369,28 @@
 
     </main>
 
+    <!-- Selection Result Summary Modal -->
+    <div id="selectionModal" class="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden no-print">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl relative border border-amber-100">
+            <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                <h3 class="font-bold text-gray-900 text-base flex items-center gap-2">
+                    <i class="fa-solid fa-square-poll-vertical text-emerald-600"></i> 團員餐廳點選結果統計
+                </h3>
+                <button onclick="closeSelectionModal()" class="text-gray-400 hover:text-gray-600 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="selectionModalContent" class="text-xs space-y-2.5 max-h-80 overflow-y-auto no-scrollbar p-1">
+                <!-- Dynamic Content Insertion -->
+            </div>
+            <div class="pt-3 border-t border-gray-100 flex justify-end gap-2">
+                <button onclick="copySelectionText()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-copy"></i> 複製選餐清單貼給 LINE 群
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-8 mt-12 border-t border-slate-800 text-center text-xs no-print">
         <div class="max-w-6xl mx-auto px-4 space-y-2">
@@ -1187,6 +1407,120 @@
 
     <script>
         let isRainMode = false;
+
+        // Default restaurant selections state
+        let currentSelections = {
+            day1_dinner: { name: '鳥貴族 泉佐野店 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=鳥貴族+泉佐野店' },
+            day2_lunch: { name: '五風莊 庭園料亭 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=五風荘+岸和田' },
+            day2_dinner: { name: 'はや 魚太郎 泉州の鄉 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=はや+魚太郎+泉州の郷' },
+            day3_lunch: { name: '地雞和風陶板燒 定食 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=堺市+地鶏+陶板焼+定食' },
+            day3_dinner: { name: '鮨人 壽司會席料理 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=鮨人+堺市+寿司' },
+            day4_lunch: { name: '梅山堂 湯豆腐定食 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=梅山堂+京都+湯豆腐' },
+            day4_dinner: { name: '和食さと 鰻魚飯/牛肉鍋 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=和食さと+京都' },
+            day5_lunch: { name: '臨空城 Outlet 美食街自理 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=Rinku+Pleasure+Town+Seacle' },
+        };
+
+        // Restaurant Selection Handler
+        function selectRestaurant(day, meal, name, link) {
+            const key = `${day}_${meal}`;
+            currentSelections[key] = { name, link };
+
+            // Save to local storage
+            localStorage.setItem('osaka_restaurant_selections', JSON.stringify(currentSelections));
+
+            // Update UI elements
+            updateSelectionUI();
+            showToast(`已成功點選：${name}`);
+        }
+
+        // Sync Selection state to UI
+        function updateSelectionUI() {
+            // Update Day Itinerary badges & labels
+            Object.keys(currentSelections).forEach(key => {
+                const dayMeal = key.replace('_', '-');
+                const targetText = document.getElementById(`selected-${dayMeal}`);
+                const badge = document.getElementById(`badge-${dayMeal}`);
+
+                if (targetText) {
+                    targetText.innerText = currentSelections[key].name;
+                }
+                if (badge) {
+                    badge.innerText = '已勾選';
+                    badge.className = 'text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded';
+                }
+            });
+
+            // Highlight selected cards in Tab 2
+            document.querySelectorAll('.restaurant-card').forEach(card => card.classList.remove('selected'));
+
+            // Match cards by checking text content or onclick attributes
+            Object.keys(currentSelections).forEach(key => {
+                const name = currentSelections[key].name;
+                document.querySelectorAll('.restaurant-card').forEach(card => {
+                    if (card.innerText.includes(name) || (card.getAttribute('onclick') && card.getAttribute('onclick').includes(name))) {
+                        card.classList.add('selected');
+                    }
+                });
+            });
+        }
+
+        // Open Selection Summary Modal
+        function openSelectionModal() {
+            const container = document.getElementById('selectionModalContent');
+            let html = `
+                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 mb-2">
+                    <strong>9 大 1 嬰幼兒團員目前點選結果：</strong>
+                </div>
+            `;
+
+            const labels = {
+                day1_dinner: 'Day 1 晚餐 (泉佐野)',
+                day2_lunch: 'Day 2 午餐 (岸和田)',
+                day2_dinner: 'Day 2 晚餐 (泉州海鮮)',
+                day3_lunch: 'Day 3 午餐 (堺市/大仙公園)',
+                day3_dinner: 'Day 3 晚餐 (堺市/臨空)',
+                day4_lunch: 'Day 4 午餐 (京都清水寺)',
+                day4_dinner: 'Day 4 晚餐 (京都祇園)',
+                day5_lunch: 'Day 5 午餐 (臨空城 Outlet)'
+            };
+
+            Object.keys(currentSelections).forEach(key => {
+                html += `
+                    <div class="flex items-center justify-between p-2.5 bg-gray-50 rounded-xl border border-gray-100">
+                        <span class="font-bold text-gray-700">${labels[key]}：</span>
+                        <span class="font-bold text-maple-800">${currentSelections[key].name}</span>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            document.getElementById('selectionModal').classList.remove('hidden');
+        }
+
+        function closeSelectionModal() {
+            document.getElementById('selectionModal').classList.add('hidden');
+        }
+
+        function copySelectionText() {
+            let text = `【大阪賞楓 5 日遊 團員美食點選結果統計】\n`;
+            const labels = {
+                day1_dinner: 'Day 1 晚餐',
+                day2_lunch: 'Day 2 午餐',
+                day2_dinner: 'Day 2 晚餐',
+                day3_lunch: 'Day 3 午餐',
+                day3_dinner: 'Day 3 晚餐',
+                day4_lunch: 'Day 4 午餐',
+                day4_dinner: 'Day 4 晚餐',
+                day5_lunch: 'Day 5 午餐'
+            };
+
+            Object.keys(currentSelections).forEach(key => {
+                text += `${labels[key]}：${currentSelections[key].name}\n`;
+            });
+
+            copyToClipboard(text, '已複製團員選餐清單，可直接貼至 LINE 群組！');
+            closeSelectionModal();
+        }
 
         // Toggle Rainy Day Mode
         function toggleRainMode() {
@@ -1209,7 +1543,7 @@
                 normalSchedules.forEach(el => el.classList.add('hidden'));
                 rainSchedules.forEach(el => el.classList.remove('hidden'));
 
-                showToast('已切換為☔雨天備案模式！行程已更換為全室內景點。');
+                showToast('已切換為☔雨天備案模式！行程已自動調整為全室內景點。');
             } else {
                 body.classList.remove('rain-mode');
                 rainBanner.classList.add('hidden');
@@ -1226,13 +1560,11 @@
 
         // Single Day Selector Filter
         function filterDay(dayNum) {
-            // Make sure we are in the daily itinerary view
             switchTab('daily');
 
             const allDayCards = document.querySelectorAll('.day-card-item');
             const filterBtns = document.querySelectorAll('.day-filter-btn');
 
-            // Update filter button styling
             filterBtns.forEach(btn => {
                 btn.classList.remove('bg-amber-500', 'text-white', 'shadow-xs');
                 btn.classList.add('text-gray-600', 'border-gray-100');
@@ -1244,7 +1576,6 @@
                 activeBtn.classList.remove('text-gray-600', 'border-gray-100');
             }
 
-            // Show / Hide Day Cards
             if (dayNum === 'all') {
                 allDayCards.forEach(card => card.classList.remove('hidden'));
             } else {
@@ -1277,7 +1608,6 @@
             if (targetBtn) {
                 targetBtn.classList.add('active', 'border-maple-600/30', 'text-maple-800', 'bg-white', 'shadow-sm');
                 targetBtn.classList.remove('text-gray-600', 'border-transparent');
-                
                 targetBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
         }
@@ -1291,6 +1621,26 @@
             setTimeout(() => {
                 toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
             }, 3000);
+        }
+
+        // Helper for copying clipboard text
+        function copyToClipboard(text, successMsg) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast(successMsg || '文字已成功複製至剪貼簿！');
+                } else {
+                    showToast('複製失敗，請手動複製。');
+                }
+            } catch (err) {
+                showToast('複製時發生錯誤：' + err);
+            }
+            document.body.removeChild(tempInput);
         }
 
         // LocalStorage save for checklists
@@ -1308,8 +1658,13 @@
             localStorage.setItem('osaka_prep_checks', JSON.stringify(prepStates));
         }
 
-        function loadChecklistState() {
+        function loadSavedState() {
             try {
+                const savedRestaurants = JSON.parse(localStorage.getItem('osaka_restaurant_selections'));
+                if (savedRestaurants) {
+                    currentSelections = { ...currentSelections, ...savedRestaurants };
+                }
+
                 const souvenirStates = JSON.parse(localStorage.getItem('osaka_souvenir_checks') || '{}');
                 Object.keys(souvenirStates).forEach(id => {
                     const el = document.getElementById(id);
@@ -1322,8 +1677,9 @@
                     if (el) el.checked = prepStates[id];
                 });
             } catch (e) {
-                console.error("Local storage error:", e);
+                console.error("Local storage reading error:", e);
             }
+            updateSelectionUI();
             updateProgress();
             updatePrepProgress();
         }
@@ -1364,41 +1720,26 @@
             showToast('出國準備清單已重置');
         }
 
-        // Copy outline function
+        // Copy Full Itinerary Outline
         function copyItineraryOutline() {
-            const modeText = isRainMode ? '【☔目前切換為雨天備案模式】\n' : '';
+            const modeText = isRainMode ? '【☔目前已切換為雨天備案模式】\n' : '';
             const summaryText = `【大阪泉州・堺市・京都賞楓 5 日包車深度遊】
 ${modeText}日期：11/09(一) - 11/13(五)
 人數：9位成人 + 1位嬰幼兒 (專屬包車)
 住宿：OMO7 關西機場 by 星野集團 (連泊4晚)
 
-Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7 Check-in → 泉佐野散策 → 晚餐:鳥貴族 / 泉佐野海鮮居酒屋
-Day 2: 岸和田城八陣之庭 → 五風莊庭園 → 午餐:仙太郎蕎麥麵/五風莊料亭 → 道の駅愛彩ランド(雨天:地車會館) → 犬鳴山賞楓(雨天:室內溫泉) → 晚餐:はや魚太郎 / 犬鳴山料亭
-Day 3: 泉州毛巾館 → 大仙公園日本庭園賞楓 → 8K遊客中心 → 午餐:美々卯堺本店/ICOROBA咖啡 → 大阪堺熱氣球(雨天:利晶之杜/BigBang) → 堺傳統產業會館 → 晚餐:海鮮處椿/老街割烹
-Day 4: 伏見稻荷大社千本鳥居 → 清水寺賞楓(雨天:三十三間堂/錦市場) → 午餐:清水坂邊走邊吃小吃 / 順正湯豆腐 → 三年坂二年坂 → 祇園花見小路 → 晚餐:がんこ祇園店/和食さと/天婦羅八坂
-Day 5: 臨空城 Premium Outlets 採購 → 午餐:臨空城美食街 (三田屋豚排/拉麵/烏龍麵/海鮮丼) → 關西機場免稅店 → 回程CX-565(16:15) → 抵達桃園(18:30)`;
+Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7 Check-in → 泉佐野散策 → 晚餐: ${currentSelections.day1_dinner.name}
+Day 2: 岸和田城八陣之庭 → 五風莊庭園 → 午餐: ${currentSelections.day2_lunch.name} → 水間寺(雨天:地車會館) → 晚餐: ${currentSelections.day2_dinner.name}
+Day 3: 泉州毛巾館 → 大仙公園賞楓 → 8K遊客中心 → 午餐: ${currentSelections.day3_lunch.name} → 大阪堺熱氣球(雨天:利晶之杜/BigBang) → 堺傳統產業館 → 晚餐: ${currentSelections.day3_dinner.name}
+Day 4: 伏見稻荷千本鳥居 → 清水寺賞楓(雨天:三十三間堂/錦市場) → 午餐: ${currentSelections.day4_lunch.name} → 三年坂二年坂 → 祇園花見小路 → 晚餐: ${currentSelections.day4_dinner.name}
+Day 5: 臨空城 Premium Outlets 採購 → 午餐: ${currentSelections.day5_lunch.name} → 關西機場免稅店 → 回程CX-565(16:15) → 抵達桃園(18:30)`;
 
-            const tempInput = document.createElement('textarea');
-            tempInput.value = summaryText;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            
-            try {
-                const successful = document.execCommand('copy');
-                if (successful) {
-                    showToast('行程摘要已成功複製至剪貼簿！');
-                } else {
-                    showToast('複製失敗，請手動複製。');
-                }
-            } catch (err) {
-                showToast('複製時發生錯誤：' + err);
-            }
-            document.body.removeChild(tempInput);
+            copyToClipboard(summaryText, '行程摘要已成功複製至剪貼簿！');
         }
 
-        // Initialize checklist state on window load
+        // Initialize state on load
         window.onload = function() {
-            loadChecklistState();
+            loadSavedState();
         };
     </script>
 </body>
