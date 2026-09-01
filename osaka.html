@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大阪賞楓深度之旅</title>
+    <title>大阪泉州・堺市・京都賞楓 5 日包車深度遊</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -100,10 +100,10 @@
                         <i class="fa-solid fa-leaf mr-1"></i> 秋季賞楓 5 日包車深度客製遊
                     </span>
                     <h1 class="text-3xl md:text-5xl font-extrabold font-serif tracking-tight leading-tight">
-                        大阪賞楓深度之旅
+                        大阪泉州・堺市・京都賞楓 5 日遊
                     </h1>
                     <p class="mt-2 text-maple-100 text-sm md:text-base max-w-2xl font-light">
-                        專屬包車專車服務 ‧ OMO7 關西機場連泊 ‧ 友善飲食全規劃 ‧ 親子長輩慢遊
+                        專屬包車服務 ‧ OMO7 連泊 ‧ UNIQLO & 藥妝自由血拚 ‧ 友善飲食全規劃
                     </p>
                 </div>
                 <!-- Action Buttons & Rain Toggle -->
@@ -145,6 +145,7 @@
         </div>
     </header>
 
+    <!-- Rainy Day Mode Banner -->
     <div id="rainBanner" class="hidden max-w-6xl mx-auto px-4 mt-4 no-print">
         <div class="bg-sky-600 text-white p-3.5 rounded-2xl shadow-lg flex items-center justify-between gap-3 text-xs md:text-sm animate-bounce">
             <div class="flex items-center gap-2">
@@ -157,6 +158,7 @@
         </div>
     </div>
 
+    <!-- Overview Highlights Grid -->
     <section class="max-w-6xl mx-auto px-4 mt-4 relative z-20">
         <div class="bg-white rounded-2xl shadow-lg border border-amber-100 p-4 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Flight Info -->
@@ -173,15 +175,15 @@
                 </div>
             </div>
 
-            <!-- Hotel Info -->
+            <!-- Hotel & Shopping Info -->
             <div class="flex items-start gap-4 border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
                 <div class="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 font-bold">
-                    <i class="fa-solid fa-bed"></i>
+                    <i class="fa-solid fa-bag-shopping"></i>
                 </div>
                 <div class="text-xs text-gray-600 space-y-1">
-                    <h4 class="font-bold text-gray-900 text-sm mb-1">OMO7 關西機場 by 星野集團</h4>
-                    <p>4 晚連續入住，免去搬遷大行李與推車困擾。</p>
-                    <p class="text-amber-700 font-medium">專屬車輛接送、大浴場放鬆、鄰近臨空城 Outlet。</p>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">OMO7 關西機場 ＆ 自由血拚</h4>
+                    <p>4 晚連泊不搬家，2F空橋直達 Seacle 商場與藥妝。</p>
+                    <p class="text-amber-700 font-medium">Day 2 傍晚特別安排 AEON 臨空泉南（UNIQLO大型店）。</p>
                 </div>
             </div>
 
@@ -191,9 +193,9 @@
                     <i class="fa-solid fa-heart-pulse"></i>
                 </div>
                 <div class="text-xs text-gray-600 space-y-1">
-                    <h4 class="font-bold text-gray-900 text-sm mb-1">團員特殊飲食貼心規劃</h4>
-                    <p><span class="inline-block bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-medium">1位不吃牛羊</span> 備妥豚肉/若雞/天婦羅/海鮮/湯豆腐。</p>
-                    <p><span class="inline-block bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">1位不吃鰻魚</span> 備有海鮮御膳/釜飯/刺身/壽司替代。</p>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">特殊飲食 100% 友善</h4>
+                    <p><span class="inline-block bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-medium">1位不吃牛羊</span> 備妥豚肉/若雞/海鮮/天婦羅/湯豆腐。</p>
+                    <p><span class="inline-block bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">1位不吃鰻魚</span> 備妥刺身會席/釜飯/握壽司/涮涮鍋替代。</p>
                 </div>
             </div>
         </div>
@@ -214,7 +216,7 @@
                 
                 <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn active shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm border border-maple-600/30 text-maple-800 bg-white shadow-sm transition-all duration-200 flex items-center gap-2">
                     <i class="fa-regular fa-calendar-check text-maple-600"></i>
-                    <span>每日行程與景點規劃</span>
+                    <span>每日行程規劃</span>
                 </button>
 
                 <button onclick="switchTab('voting')" id="tab-voting" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
@@ -222,19 +224,24 @@
                     <span>🍽️ 團員美食點選與評分表</span>
                 </button>
 
+                <button onclick="switchTab('shopping')" id="tab-shopping" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
+                    <i class="fa-solid fa-shirt text-rose-600"></i>
+                    <span>🛍️ UNIQLO・藥妝自由逛指南</span>
+                </button>
+
                 <button onclick="switchTab('souvenir')" id="tab-souvenir" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
-                    <i class="fa-solid fa-bag-shopping text-emerald-600"></i>
-                    <span>必買伴手禮</span>
+                    <i class="fa-solid fa-gift text-emerald-600"></i>
+                    <span>必買伴手禮 Check List</span>
                 </button>
 
                 <button onclick="switchTab('tips')" id="tab-tips" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
                     <i class="fa-solid fa-baby-carriage text-blue-600"></i>
-                    <span>注意事項</span>
+                    <span>親子與包車注意事項</span>
                 </button>
 
                 <button onclick="switchTab('prep')" id="tab-prep" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
                     <i class="fa-solid fa-clipboard-check text-indigo-600"></i>
-                    <span>準備與登機確認清單</span>
+                    <span>出國準備確認清單</span>
                 </button>
 
             </div>
@@ -278,13 +285,12 @@
                 <div class="bg-gradient-to-r from-slate-800 to-slate-700 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
                         <span class="bg-amber-400 text-slate-900 text-xs font-black px-3 py-1.5 rounded-lg uppercase">DAY 1</span>
-                        <h2 class="text-lg md:text-xl font-bold">11/09 (一) 啟程抵達・泉佐野在地之夜</h2>
+                        <h2 class="text-lg md:text-xl font-bold">11/09 (一) 啟程抵達・臨空商圈與泉佐野在地之夜</h2>
                     </div>
-                    <span class="text-xs bg-slate-600 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-route"></i> 機場專車接送 &rarr; 飯店 Check-in &rarr; 泉佐野</span>
+                    <span class="text-xs bg-slate-600 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-route"></i> 機場專車接送 &rarr; 飯店 Check-in &rarr; 藥妝採買</span>
                 </div>
                 <div class="p-4 md:p-6 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Timeline Section -->
                         <div class="md:col-span-2 space-y-4">
                             <div class="flex gap-4 items-start">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 11:15 - 14:55</div>
@@ -297,14 +303,24 @@
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 15:30 - 16:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">專車接機 & OMO7 關西機場 Check-in</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">包車司機關西機場接機，行李與嬰兒推車直接上車，輕鬆前往 OMO7 關西機場辦理入住。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">包車司機關西機場接機，行李與嬰兒推車直接上車，專車直達 OMO7 關西機場辦理入住。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
-                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 17:30 - 20:00</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-rose-600 pt-0.5"><i class="fa-solid fa-bag-shopping"></i> 16:45 - 18:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">泉佐野市區散策與在地美味晚餐</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">第一天適應環境，周邊購物中心與商店街散步，採買嬰幼兒備品與當季水果。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm flex items-center gap-2">
+                                        <span>【團員自由逛街】Rinku Seacle 商場 ＆ Cosmos / 松本清藥妝店</span>
+                                        <span class="bg-rose-100 text-rose-700 text-[10px] font-bold px-2 py-0.5 rounded-full">自由分散採買</span>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">從 OMO7 飯店 2 樓空橋直通 Seacle 商場，團員可自由分散採買日本最新藥妝、零食、嬰幼兒副食品與日系服飾。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
+                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 18:30 - 20:30</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 text-sm">泉佐野美味晚餐（鳥貴族 / 漁師家 侍）</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">享受道地大阪燒鳥串燒居酒屋，或港口直送鮮魚刺身海鮮定食。</p>
                                 </div>
                             </div>
                         </div>
@@ -318,7 +334,7 @@
                                 <p><span class="font-semibold text-gray-700">午餐：</span> 國泰機上精緻餐點</p>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-2">
                                     <div class="flex items-center justify-between">
-                                        <span class="font-bold text-maple-800 text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐勾選：</span>
+                                        <span class="font-bold text-maple-800 text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐已選：</span>
                                         <span id="badge-day1-dinner" class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">未選擇</span>
                                     </div>
                                     <p id="selected-day1-dinner" class="text-xs font-bold text-gray-800">鳥貴族 泉佐野店 (旅行社預設)</p>
@@ -328,9 +344,9 @@
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-                            <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
-                                <span class="font-bold text-amber-900"><i class="fa-solid fa-basket-shopping"></i> 購物行程：</span>
-                                飯店周邊藥妝店採買嬰兒奶粉/副食品，超商採買麝香葡萄與蜜柑。
+                            <div class="bg-rose-50 rounded-lg p-2 border border-rose-200 text-[11px] text-rose-900">
+                                <span class="font-bold"><i class="fa-solid fa-store"></i> 自由採購：</span>
+                                Seacle 2F 松本清/大國藥妝、Cosmos 臨空店（免稅退稅方便）。
                             </div>
                         </div>
                     </div>
@@ -342,44 +358,54 @@
                 <div class="bg-gradient-to-r from-maple-700 to-amberGlow text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
                         <span class="bg-amber-400 text-slate-900 text-xs font-black px-3 py-1.5 rounded-lg uppercase">DAY 2</span>
-                        <h2 class="text-lg md:text-xl font-bold">11/10 (二) 岸和田歷史名城・水間寺祈福與名園散策</h2>
+                        <h2 class="text-lg md:text-xl font-bold">11/10 (二) 岸和田名城・名園散策 ＆ AEON MALL UNIQLO 血拚</h2>
                     </div>
-                    <span class="text-xs bg-black/20 px-3 py-1 rounded-full text-amber-100"><i class="fa-solid fa-leaf"></i> 自然秋楓 ‧ 名城庭園 ‧ 地場海鮮</span>
+                    <span class="text-xs bg-black/20 px-3 py-1 rounded-full text-amber-100"><i class="fa-solid fa-leaf"></i> 名城庭園 ‧ UNIQLO超大型店 ‧ 泉州海鮮</span>
                 </div>
                 <div class="p-4 md:p-6 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Timeline Section -->
                         <div class="md:col-span-2 space-y-4">
                             <div class="flex gap-4 items-start">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:00 - 11:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">岸和田城 & 八陣之庭 & 岸和田地車會館</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">欣賞重森三玲名作庭園「八陣之庭」，天守閣與周邊地車會館 3D 體驗，路面平坦極度適合推車。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">欣賞重森三玲名作庭園「八陣之庭」，天守閣與地車會館 3D 體驗，平坦好推車。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 12:00 - 13:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">午餐：五風莊庭園料亭 或 仙太郎蕎麥麵</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">於文化財日式庭園內享用會席彩御膳，或享用石磨手工蕎麥麵配現炸天婦羅。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">午餐：五風莊 庭園料亭 (彩御膳懷石) 或 仙太郎蕎麥麵</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">於文化財日式庭園內享用會席御膳，或享用手工蕎麥麵配現炸天婦羅。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
-                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:30</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 14:00 - 16:00</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm flex items-center gap-1.5">
-                                        <span class="normal-schedule">道の駅 愛彩ランド & 水間觀音 (水間寺)</span>
-                                        <span class="rain-schedule hidden text-sky-700">☔【雨天切換】岸和田地車會館深度體驗 & 犬鳴山室內泡湯</span>
+                                        <span class="normal-schedule">道の駅 愛彩ランド & 水間觀音 (水間寺祈福)</span>
+                                        <span class="rain-schedule hidden text-sky-700">☔【雨天切換】岸和田地車會館深度體驗 & 紀州街道漫步</span>
                                     </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">採買農產直銷市集，隨後前往關西名剎「水間寺」參拜檜木三重塔與美麗境內景致。</p>
-                                    <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">避開山路泥濘，改為全室內參觀巨型地車祭典山車與 3D 展演，隨後直達犬鳴山溫泉飯店享用室內天然溫泉。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">採買農產直銷市集，隨後前往關西名剎「水間寺」參拜檜木三重塔與境內紅葉。</p>
+                                    <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">避開戶外濕滑，改為全室內參觀祭典山車與 3D 展演，並於老街採買傳統點心。</p>
+                                </div>
+                            </div>
+                            <!-- Inserted Dedicated UNIQLO & Shopping Block -->
+                            <div class="flex gap-4 items-start border-t border-gray-100 pt-3 bg-rose-50/60 p-2.5 rounded-xl border border-rose-100">
+                                <div class="w-20 shrink-0 text-xs font-bold text-rose-700 pt-0.5"><i class="fa-solid fa-shirt"></i> 16:30 - 18:30</div>
+                                <div>
+                                    <h4 class="font-bold text-rose-900 text-sm flex items-center gap-2">
+                                        <span>【血拚重點】AEON MALL 臨空泉南（UNIQLO超大型店 ＆ 免稅藥妝）</span>
+                                        <span class="bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">自由分散逛街</span>
+                                    </h4>
+                                    <p class="text-xs text-rose-800 mt-0.5">專車直達南大阪最大海景購物中心！包含 <b>UNIQLO 超大型店、GU、無印良品、大型藥妝店、Daiso、AEON 超市</b>，團員可自由解散逛街買齊衣物與藥妝！</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
-                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 17:00 - 18:30</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 18:45 - 20:30</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">紀州街道老街漫步 & 返回飯店休息</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">漫步於保留城下町特色的紀州街道，購買傳統糕點伴手禮。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">晚餐：はや 魚太郎 (涮涮鍋) 或 和食 うお健 (會席料理)</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">享用黑豚涮涮鍋或百年老店海鮮和食會席，餐後專車返回 OMO7 飯店休息泡湯。</p>
                                 </div>
                             </div>
                         </div>
@@ -400,16 +426,15 @@
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-                            <!-- Rain plan callout -->
                             <div class="rain-plan-box bg-sky-50 rounded-lg p-2.5 border border-sky-200 text-[11px] text-sky-900 space-y-1">
                                 <span class="font-bold block text-sky-800 flex items-center gap-1">
                                     <i class="fa-solid fa-cloud-showers-heavy text-sky-600"></i> ☔ 雨天備案：
                                 </span>
-                                <p>改造訪全室內【岸和田地車會館】，設有無障礙坡道；接續犬鳴山溫泉日歸室內泡湯。</p>
+                                <p>地車會館與 AEON MALL 皆為全室內無障礙空間，雨天推車極舒適！</p>
                             </div>
                             <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
                                 <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
-                                愛彩ランド採買「泉州水茄子漬物」、「果醬」，老街採買「村雨饅頭」。
+                                愛彩ランド採買「水茄子漬物」，AEON超市採買「麝香葡萄、當季蜜柑」。
                             </div>
                         </div>
                     </div>
@@ -427,27 +452,26 @@
                 </div>
                 <div class="p-4 md:p-6 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Timeline Section -->
                         <div class="md:col-span-2 space-y-4">
                             <div class="flex gap-4 items-start">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:15 - 10:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">泉州毛巾工廠 & 泉穴師神社</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">參觀後曬純棉毛巾，親膚柔軟極適合嬰幼兒；前往泉穴師神社參拜古木群與幼兒祈福。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">參觀純棉後曬毛巾，親膚柔軟極適合嬰幼兒；參拜泉穴師神社古木群與幼兒祈福。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 10:45 - 13:00</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">大仙公園日本庭園賞楓 & 8K 遊客中心</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">漫步大仙公園日本庭園，欣賞優美池泉迴遊式紅葉景致，並透過遊客中心 8K 劇場了解仁德天皇陵歷史。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">漫步大仙公園日本庭園，欣賞優美池泉迴遊式紅葉景致，並透過 8K 劇場了解仁德天皇陵歷史。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 13:00 - 14:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">午餐：地雞陶板燒 / 美々卯烏龍麵 / ICOROBA 咖啡</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">享用在地地雞定食或美々卯高湯烏龍麵壽喜燒，或在大仙公園露天咖啡廳享用熱壓吐司與抹茶。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">享用在地地雞定食或美々卯高湯烏龍麵壽喜燒，或在大仙公園露天咖啡廳享用熱壓吐司。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
@@ -458,7 +482,7 @@
                                         <span class="rain-schedule hidden text-sky-700">☔【雨天切換】堺市利晶之杜 (茶道體驗) 或 Big Bang 兒童樂園</span>
                                     </h4>
                                     <p class="text-xs text-gray-500 mt-0.5 normal-schedule">搭乘熱氣球升空 100 公尺俯瞰仁德天皇陵，隨後造訪傳統產業館參觀職人鍛造刀具工藝。</p>
-                                    <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">因熱氣球雨天停飛，切換至【堺市利晶之杜】室內茶道點茶體驗，或至【Big Bang 兒童館】享有幼兒安全室內爬行專區。</p>
+                                    <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">因熱氣球雨天停飛，切換至【堺市利晶之杜】室內茶道點茶體驗，或至【Big Bang 兒童館】安全室內爬行放電。</p>
                                 </div>
                             </div>
                         </div>
@@ -481,13 +505,13 @@
                             </div>
                             <div class="rain-plan-box bg-sky-50 rounded-lg p-2.5 border border-sky-200 text-[11px] text-sky-900 space-y-1">
                                 <span class="font-bold block text-sky-800 flex items-center gap-1">
-                                    <i class="fa-solid fa-cloud-showers-heavy text-sky-600"></i> ☔ 雨天備案（熱氣球停飛時）：
+                                    <i class="fa-solid fa-cloud-showers-heavy text-sky-600"></i> ☔ 雨天備案（熱氣球停飛）：
                                 </span>
                                 <p>轉往【堺市利晶之杜】體驗千利休茶道文化，或至【堺市立 Big Bang 兒童樂園】。</p>
                             </div>
                             <div class="bg-amber-100/60 rounded-lg p-2 border border-amber-200 text-[11px]">
                                 <span class="font-bold text-amber-900"><i class="fa-solid fa-gift"></i> 伴手禮行程：</span>
-                                採買「泉州後曬毛巾」、堺傳統產業會館「手工刀具/指甲剪」、老街「生仙貝/抹茶餅」。
+                                採買「泉州後曬毛巾」、堺傳統產業會館「手工料理刀具/指甲剪」、老街「抹茶餅」。
                             </div>
                         </div>
                     </div>
@@ -505,7 +529,6 @@
                 </div>
                 <div class="p-4 md:p-6 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Timeline Section -->
                         <div class="md:col-span-2 space-y-4">
                             <div class="flex gap-4 items-start">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 08:30 - 11:00</div>
@@ -553,7 +576,7 @@
                                 </div>
                                 <div class="bg-white p-2.5 rounded-lg border border-amber-200/80 space-y-1">
                                     <span class="font-bold text-maple-800 block text-xs"><i class="fa-solid fa-star text-amber-500"></i> 晚餐已選：</span>
-                                    <p id="selected-day4-dinner" class="text-xs font-bold text-gray-800">和食さと 鰻魚飯/牛肉鍋 (旅行社預設)</p>
+                                    <p id="selected-day4-dinner" class="text-xs font-bold text-gray-800">和食さと (鰻魚飯/可換豚肉鍋) (旅行社預設)</p>
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
@@ -583,7 +606,6 @@
                 </div>
                 <div class="p-4 md:p-6 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Timeline Section -->
                         <div class="md:col-span-2 space-y-4">
                             <div class="flex gap-4 items-start">
                                 <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:30 - 10:00</div>
@@ -649,7 +671,7 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-gray-900">團員美食點選與 Tabelog / Google 評分對照表</h2>
-                            <p class="text-xs text-gray-500">點選您喜好的餐廳，系統會即時更新團員選單，並附上 Google 評論連結供查閱！</p>
+                            <p class="text-xs text-gray-500">點選喜好的餐廳即可即時更新團員選單，附 Google 評論連結供查閱（均提供無牛羊、無鰻魚方案）！</p>
                         </div>
                     </div>
                     <button onclick="openSelectionModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md transition flex items-center gap-1.5">
@@ -685,19 +707,19 @@
                                 </div>
                             </div>
 
-                            <!-- Alternative Option -->
-                            <div onclick="selectRestaurant('day1', 'dinner', '活魚料理 いづも (Izumo)', 'https://www.google.com/maps/search/?api=1&query=活魚料理+いづも+泉佐野')" id="card-day1-dinner-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                            <!-- New Alternative Option: 漁師家 侍 (Non-eel seafood & izakaya) -->
+                            <div onclick="selectRestaurant('day1', 'dinner', '漁師家 侍 (泉佐野港海鮮居酒屋)', 'https://www.google.com/maps/search/?api=1&query=漁師家+侍+泉佐野')" id="card-day1-dinner-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
                                 <div class="flex justify-between items-start">
-                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分海鮮推薦 (非鰻魚專賣)</span>
                                     <div class="flex gap-2 text-xs">
-                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.42</span>
-                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.2</span>
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.40</span>
+                                        <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.1</span>
                                     </div>
                                 </div>
-                                <h4 class="font-bold text-gray-900 text-base mt-2">活魚料理 いづも (Izumo)</h4>
-                                <p class="text-xs text-gray-500 mt-1">泉州地場海鮮名店。產地直送鮮魚刺身、海老天婦羅御膳、握壽司。</p>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">漁師家 侍 (Ryoshiya Samurai)</h4>
+                                <p class="text-xs text-gray-500 mt-1">泉佐野港直送活魚！鮮魚刺身拼盤、現炸天婦羅、豚肉料理與和風釜飯。完全無鰻魚與牛羊限制。</p>
                                 <div class="mt-3 flex justify-between items-center text-xs">
-                                    <a href="https://www.google.com/maps/search/?api=1&query=活魚料理+いづも+泉佐野" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=漁師家+侍+泉佐野" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
                                     </a>
                                     <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
@@ -754,7 +776,7 @@
                     <!-- DAY 2 DINNER -->
                     <div class="space-y-3 pt-2">
                         <div class="flex items-center gap-2 border-l-4 border-amber-600 pl-3">
-                            <h3 class="font-bold text-gray-900 text-sm">DAY 2 晚餐：泉州海鮮/鍋物區</h3>
+                            <h3 class="font-bold text-gray-900 text-sm">DAY 2 晚餐：泉州海鮮/和食料亭區</h3>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div onclick="selectRestaurant('day2', 'dinner', 'はや 魚太郎 泉州の鄉', 'https://www.google.com/maps/search/?api=1&query=はや+魚太郎+泉州の郷')" id="card-day2-dinner-preset" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
@@ -766,7 +788,7 @@
                                     </div>
                                 </div>
                                 <h4 class="font-bold text-gray-900 text-base mt-2">はや 魚太郎 泉州の鄉</h4>
-                                <p class="text-xs text-gray-500 mt-1">泉州地場海鮮與牛肉/黑豚涮涮鍋。不吃牛肉者可換為特選豚肉鍋或海鮮鍋。</p>
+                                <p class="text-xs text-gray-500 mt-1">泉州地場海鮮與黑豚涮涮鍋。不吃牛肉者可直接選擇特選黑豚鍋或鮮魚海鮮鍋。</p>
                                 <div class="mt-3 flex justify-between items-center text-xs">
                                     <a href="https://www.google.com/maps/search/?api=1&query=はや+魚太郎+泉州の郷" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
@@ -775,18 +797,19 @@
                                 </div>
                             </div>
 
-                            <div onclick="selectRestaurant('day2', 'dinner', '青木松風庵 岬茶屋', 'https://www.google.com/maps/search/?api=1&query=青木松風庵+岬茶屋')" id="card-day2-dinner-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
+                            <!-- New Alternative: 和食 うお健 (Uoken) -->
+                            <div onclick="selectRestaurant('day2', 'dinner', '和食 うお健 (Uoken 泉州料亭)', 'https://www.google.com/maps/search/?api=1&query=和食+うお健+泉州')" id="card-day2-dinner-alt1" class="restaurant-card cursor-pointer border border-gray-200 rounded-2xl p-4 bg-white hover:border-amber-400 relative">
                                 <div class="flex justify-between items-start">
-                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">高分精選推薦</span>
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">百年老字號包廂料亭</span>
                                     <div class="flex gap-2 text-xs">
-                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.35</span>
+                                        <span class="bg-orange-50 text-orange-700 font-bold px-1.5 py-0.5 rounded border border-orange-200"><i class="fa-solid fa-star text-amber-500"></i> Tabelog 3.46</span>
                                         <span class="bg-blue-50 text-blue-700 font-bold px-1.5 py-0.5 rounded border border-blue-200"><i class="fa-solid fa-g"></i> Google 4.2</span>
                                     </div>
                                 </div>
-                                <h4 class="font-bold text-gray-900 text-base mt-2">青木松風庵 岬茶屋</h4>
-                                <p class="text-xs text-gray-500 mt-1">泉州名物和食料理。柴魚高湯海鮮烏龍麵、釜飯定食與精緻日式甜品。</p>
+                                <h4 class="font-bold text-gray-900 text-base mt-2">和食 うお健 (Uoken)</h4>
+                                <p class="text-xs text-gray-500 mt-1">泉州老字號料亭。獨立包廂享用特上旬彩海鮮會席、黑豚陶板燒、海老天婦羅與季節炊飯，全家安靜舒適。</p>
                                 <div class="mt-3 flex justify-between items-center text-xs">
-                                    <a href="https://www.google.com/maps/search/?api=1&query=青木松風庵+岬茶屋" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=和食+うお健+泉州" target="_blank" onclick="event.stopPropagation()" class="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 underline">
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Google 評論
                                     </a>
                                     <span class="select-indicator text-xs font-bold text-maple-600">點擊勾選此項</span>
@@ -1054,7 +1077,98 @@
             </div>
         </div>
 
-        <!-- TAB 3: SOUVENIR CHECKLIST -->
+        <!-- TAB 3: UNIQLO & DRUGSTORE SHOPPING GUIDE -->
+        <div id="view-shopping" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100 space-y-6">
+                <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-900">🛍️ 團員 UNIQLO ＆ 大型藥妝自由採買指南</h2>
+                        <p class="text-xs text-gray-500">特別規劃於行程中，團員可自由解散、按個人步調逛街採買（不需團體綁在一起）！</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Location 1: AEON MALL Rinku Sennan -->
+                    <div class="border-2 border-rose-200 rounded-2xl p-5 bg-rose-50/20 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-lg">
+                                <i class="fa-solid fa-crown mr-1"></i> 【Day 2 傍晚重點】大型購物中心
+                            </span>
+                            <span class="text-xs text-rose-800 font-bold">包車直達 10 分鐘</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">イオンモールりんくう泉南 (AEON MALL 臨空泉南)</h3>
+                        <p class="text-xs text-gray-600">
+                            南大阪最大型的臨海購物中心！集結所有團員最想逛的大型品牌，一站全部買齊。
+                        </p>
+                        <div class="space-y-2 text-xs">
+                            <div class="p-2.5 bg-white rounded-xl border border-rose-100 space-y-1">
+                                <strong class="text-rose-900 flex items-center gap-1.5"><i class="fa-solid fa-shirt text-rose-600"></i> UNIQLO 超大型店 ＆ GU：</strong>
+                                <p class="text-gray-600">全品項發熱衣、輕羽絨、嬰幼兒童裝（Baby/Kids）尺碼齊全，享有免稅服務。</p>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-rose-100 space-y-1">
+                                <strong class="text-emerald-900 flex items-center gap-1.5"><i class="fa-solid fa-pills text-emerald-600"></i> 大型免稅藥妝店：</strong>
+                                <p class="text-gray-600">滿滿的合利他命、EVE止痛藥、合利他命、面膜、保養品，店員中文結帳櫃檯退稅免排長隊。</p>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-rose-100 space-y-1">
+                                <strong class="text-amber-900 flex items-center gap-1.5"><i class="fa-solid fa-cart-shopping text-amber-600"></i> 大型 AEON 生鮮超市 ＆ 無印良品：</strong>
+                                <p class="text-gray-600">可採買當季日本麝香葡萄、草莓、蜜柑、日本鮮奶與限定零食伴手禮。</p>
+                            </div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=イオンモールりんくう泉南" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-800 underline">
+                            <i class="fa-solid fa-map-location-dot"></i> 查看 AEON MALL 臨空泉南 Google 地圖與營業時間
+                        </a>
+                    </div>
+
+                    <!-- Location 2: Rinku Seacle & Cosmos -->
+                    <div class="border-2 border-amber-200 rounded-2xl p-5 bg-amber-50/20 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-lg">
+                                <i class="fa-solid fa-hotel mr-1"></i> 【Day 1 ＆ 每日夜間】飯店步行即達
+                            </span>
+                            <span class="text-xs text-amber-800 font-bold">2F 空橋直通 3 分鐘</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Rinku Pleasure Town Seacle ＆ 臨空藥妝</h3>
+                        <p class="text-xs text-gray-600">
+                            OMO7 關西機場飯店直接連通！晚上回飯店後或第一天辦好 Check-in，隨時想逛就能出發。
+                        </p>
+                        <div class="space-y-2 text-xs">
+                            <div class="p-2.5 bg-white rounded-xl border border-amber-100 space-y-1">
+                                <strong class="text-amber-900 flex items-center gap-1.5"><i class="fa-solid fa-tablets text-blue-600"></i> Cosmos 藥妝店 (ドラッグコスモス 臨空店)：</strong>
+                                <p class="text-gray-600">日本在地超低價連鎖藥妝巨頭，走道寬敞推車極順，藥品與生活用品價格超佛心。</p>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-amber-100 space-y-1">
+                                <strong class="text-amber-900 flex items-center gap-1.5"><i class="fa-solid fa-bag-shopping text-emerald-600"></i> 松本清 (Matsumoto Kiyoshi) ＆ Seacle：</strong>
+                                <p class="text-gray-600">各類熱門化妝品、美妝保養、嬰兒副食品餐包、尿布隨時可應急補貨。</p>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-amber-100 space-y-1">
+                                <strong class="text-amber-900 flex items-center gap-1.5"><i class="fa-solid fa-baby-carriage text-pink-600"></i> 西松屋 ＆ GU (Seacle 2F)：</strong>
+                                <p class="text-gray-600">日本高 CP 值母嬰連鎖店，童裝、奶瓶、圍兜、幼兒零食一應俱全。</p>
+                            </div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rinku+Pleasure+Town+Seacle" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-800 underline">
+                            <i class="fa-solid fa-map-location-dot"></i> 查看 Rinku Seacle 商場 Google 地圖
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tax-free Shopping Tips -->
+                <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 text-xs text-indigo-900 space-y-2">
+                    <h4 class="font-bold text-sm flex items-center gap-2 text-indigo-950">
+                        <i class="fa-solid fa-passport text-indigo-600"></i> 日本購物免稅（Tax-Free 10%）貼心提醒：
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1 text-indigo-800">
+                        <li><b>隨身攜帶護照：</b>在 UNIQLO、GU 及各大藥妝店結帳時，需出示護照正本（包含 Visit Japan Web 上的免稅 QR Code）方可享有 10% 消費稅減免。</li>
+                        <li><b>免稅門檻：</b>同一店家當日「一般物品（衣物等）」或「消耗品（藥品、美妝、食品）」消費滿 5,000 日圓（未稅）即可免稅。</li>
+                        <li><b>消耗品包裝：</b>藥妝店免稅包裝袋於出境日本前<b>不可在境內拆封</b>，託運或手提均可（液體類藥妝必須放入託運行李）。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: SOUVENIR CHECKLIST -->
         <div id="view-souvenir" class="tab-content hidden space-y-6">
             <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100">
                 <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-4 mb-6">
@@ -1169,7 +1283,7 @@
             </div>
         </div>
 
-        <!-- TAB 4: TRAVEL TIPS -->
+        <!-- TAB 5: TRAVEL TIPS -->
         <div id="view-tips" class="tab-content hidden space-y-6">
             <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100">
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-4 mb-6">
@@ -1178,7 +1292,7 @@
                     </div>
                     <div>
                         <h2 class="text-xl font-bold text-gray-900">包車與 1 嬰幼兒同行備忘錄</h2>
-                        <p class="text-xs text-gray-500">讓 10 人大團體輕鬆舒適遊玩貼心叮嚀。</p>
+                        <p class="text-xs text-gray-500">讓 10 人大團體輕鬆舒適遊玩的貼心叮嚀。</p>
                     </div>
                 </div>
 
@@ -1197,7 +1311,7 @@
                             <i class="fa-solid fa-baby-carriage"></i> 嬰幼兒推車與背巾
                         </h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
-                            岸和田城、大仙公園與臨空城 Outlet 地勢平坦，推車順暢；京都清水坂、三年坂為古樸石板階梯，建議攜帶嬰兒背巾輔助，讓爸媽逛街更輕鬆。
+                            岸和田城、大仙公園、AEON MALL 與臨空城 Outlet 地勢平坦，推車順暢；京都清水坂、三年坂為古樸石板階梯，建議攜帶嬰兒背巾輔助，讓爸媽逛街更輕鬆。
                         </p>
                     </div>
 
@@ -1206,14 +1320,14 @@
                             <i class="fa-solid fa-temperature-three-quarters"></i> 11 月中旬賞楓穿著
                         </h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
-                            關西 11 月氣溫約 8°C～17°C，犬鳴山溪谷與京都傍晚體感較涼。建議採取洋蔥式穿法，內層保暖透氣，外加保暖防風外套與小保暖毯（給寶寶用）。
+                            關西 11 月氣溫約 8°C～17°C，京都與臨海傍晚體感較涼。建議採取洋蔥式穿法，內層保暖透氣，外加保暖防風外套與小保暖毯（給寶寶用）。
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 5: PRE-DEPARTURE PRECAUTIONS & BOARDING CHECKLIST -->
+        <!-- TAB 6: PRE-DEPARTURE PRECAUTIONS & BOARDING CHECKLIST -->
         <div id="view-prep" class="tab-content hidden space-y-6">
             <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100">
                 <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-4 mb-6">
@@ -1320,7 +1434,7 @@
                         <input type="checkbox" id="prep-7" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
                         <div class="text-xs space-y-0.5">
                             <div class="font-bold text-gray-800 text-sm">寶寶尿布 / 濕紙巾 / 圍兜餐具</div>
-                            <p class="text-gray-500">預估每日 5-8 片尿布量，隨身包準備 1 天份量（不足可於第一天藥妝補貨）。</p>
+                            <p class="text-gray-500">預估每日 5-8 片尿布量，隨身包準備 1 天份量（第一天可在 Seacle 藥妝補貨）。</p>
                         </div>
                     </label>
 
@@ -1408,7 +1522,7 @@
     <script>
         let isRainMode = false;
 
-        // Default restaurant selections state
+        // Updated default restaurant selections state
         let currentSelections = {
             day1_dinner: { name: '鳥貴族 泉佐野店 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=鳥貴族+泉佐野店' },
             day2_lunch: { name: '五風莊 庭園料亭 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=五風荘+岸和田' },
@@ -1416,7 +1530,7 @@
             day3_lunch: { name: '地雞和風陶板燒 定食 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=堺市+地鶏+陶板焼+定食' },
             day3_dinner: { name: '鮨人 壽司會席料理 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=鮨人+堺市+寿司' },
             day4_lunch: { name: '梅山堂 湯豆腐定食 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=梅山堂+京都+湯豆腐' },
-            day4_dinner: { name: '和食さと 鰻魚飯/牛肉鍋 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=和食さと+京都' },
+            day4_dinner: { name: '和食さと (鰻魚飯/可換豚肉鍋) (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=和食さと+京都' },
             day5_lunch: { name: '臨空城 Outlet 美食街自理 (旅行社預設)', link: 'https://www.google.com/maps/search/?api=1&query=Rinku+Pleasure+Town+Seacle' },
         };
 
@@ -1425,17 +1539,13 @@
             const key = `${day}_${meal}`;
             currentSelections[key] = { name, link };
 
-            // Save to local storage
             localStorage.setItem('osaka_restaurant_selections', JSON.stringify(currentSelections));
-
-            // Update UI elements
             updateSelectionUI();
             showToast(`已成功點選：${name}`);
         }
 
         // Sync Selection state to UI
         function updateSelectionUI() {
-            // Update Day Itinerary badges & labels
             Object.keys(currentSelections).forEach(key => {
                 const dayMeal = key.replace('_', '-');
                 const targetText = document.getElementById(`selected-${dayMeal}`);
@@ -1450,10 +1560,8 @@
                 }
             });
 
-            // Highlight selected cards in Tab 2
             document.querySelectorAll('.restaurant-card').forEach(card => card.classList.remove('selected'));
 
-            // Match cards by checking text content or onclick attributes
             Object.keys(currentSelections).forEach(key => {
                 const name = currentSelections[key].name;
                 document.querySelectorAll('.restaurant-card').forEach(card => {
@@ -1476,7 +1584,7 @@
             const labels = {
                 day1_dinner: 'Day 1 晚餐 (泉佐野)',
                 day2_lunch: 'Day 2 午餐 (岸和田)',
-                day2_dinner: 'Day 2 晚餐 (泉州海鮮)',
+                day2_dinner: 'Day 2 晚餐 (泉州海鮮/料亭)',
                 day3_lunch: 'Day 3 午餐 (堺市/大仙公園)',
                 day3_dinner: 'Day 3 晚餐 (堺市/臨空)',
                 day4_lunch: 'Day 4 午餐 (京都清水寺)',
@@ -1728,8 +1836,8 @@ ${modeText}日期：11/09(一) - 11/13(五)
 人數：9位成人 + 1位嬰幼兒 (專屬包車)
 住宿：OMO7 關西機場 by 星野集團 (連泊4晚)
 
-Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7 Check-in → 泉佐野散策 → 晚餐: ${currentSelections.day1_dinner.name}
-Day 2: 岸和田城八陣之庭 → 五風莊庭園 → 午餐: ${currentSelections.day2_lunch.name} → 水間寺(雨天:地車會館) → 晚餐: ${currentSelections.day2_dinner.name}
+Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7 Check-in → 臨空 Seacle / Cosmos藥妝自由逛 → 晚餐: ${currentSelections.day1_dinner.name}
+Day 2: 岸和田城八陣之庭 → 五風莊庭園 → 午餐: ${currentSelections.day2_lunch.name} → 水間寺(雨天:地車會館) → 【血拚重點】AEON MALL 臨空泉南 (UNIQLO超大型店/免稅藥妝/超市自由逛) → 晚餐: ${currentSelections.day2_dinner.name}
 Day 3: 泉州毛巾館 → 大仙公園賞楓 → 8K遊客中心 → 午餐: ${currentSelections.day3_lunch.name} → 大阪堺熱氣球(雨天:利晶之杜/BigBang) → 堺傳統產業館 → 晚餐: ${currentSelections.day3_dinner.name}
 Day 4: 伏見稻荷千本鳥居 → 清水寺賞楓(雨天:三十三間堂/錦市場) → 午餐: ${currentSelections.day4_lunch.name} → 三年坂二年坂 → 祇園花見小路 → 晚餐: ${currentSelections.day4_dinner.name}
 Day 5: 臨空城 Premium Outlets 採購 → 午餐: ${currentSelections.day5_lunch.name} → 關西機場免稅店 → 回程CX-565(16:15) → 抵達桃園(18:30)`;
