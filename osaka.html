@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>真會存錢大阪賞楓之旅</title>
-    <!-- Tailwind CSS -->
+    <title>大阪賞楓趣</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -92,10 +92,10 @@
                         <i class="fa-solid fa-leaf mr-1"></i> 最新核定客製版 ‧ 團員專屬行程表
                     </span>
                     <h1 class="text-3xl md:text-5xl font-extrabold font-serif tracking-tight leading-tight">
-                        真會存錢大阪賞楓之旅
+                        大阪賞楓趣
                     </h1>
                     <p class="mt-2 text-maple-100 text-sm md:text-base max-w-2xl font-light">
-                        OMO7 連泊 ‧ 專屬包車 ‧ 心齋橋道頓堀逛街夜 ‧ 賞楓
+                        OMO7 連泊 ‧ 專屬包車 ‧ 心齋橋逛街夜 ‧ 賞楓
                     </p>
                 </div>
                 <!-- Action Buttons & Rain Toggle -->
@@ -105,7 +105,7 @@
                         <span id="rainBtnText">切換為【☔雨天備案模式】</span>
                     </button>
                     <button onclick="switchTab('budget')" class="bg-amber-500 hover:bg-amber-400 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition shadow-md flex items-center gap-1.5 border border-amber-300">
-                        <i class="fa-solid fa-scale-balanced"></i> 旅行社行程對照
+                        <i class="fa-solid fa-scale-balanced"></i> 與旅行社原案對照
                     </button>
                     <button onclick="window.print()" class="bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-xl text-xs font-medium transition backdrop-blur-sm border border-white/30 flex items-center gap-1.5">
                         <i class="fa-solid fa-print"></i> 列印
@@ -143,7 +143,7 @@
         <div class="bg-sky-600 text-white p-3.5 rounded-2xl shadow-lg flex items-center justify-between gap-3 text-xs md:text-sm animate-bounce">
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-cloud-showers-heavy text-lg text-sky-200"></i>
-                <span><strong>☔ 目前已開啟【雨天備案模式】：</strong>戶外景點已自動調換為全室內、平坦無障礙與推車友善的避雨名所！</span>
+                <span><strong>☔ 目前已開啟【雨天備案模式】：</strong>戶外景點已自動更換為全室內、平坦無障礙與推車友善的避雨名所！</span>
             </div>
             <button onclick="toggleRainMode()" class="bg-white/20 hover:bg-white/30 text-white px-2.5 py-1 rounded-lg font-bold text-xs shrink-0">
                 切回晴天模式
@@ -168,15 +168,15 @@
                 </div>
             </div>
 
-            <!-- Shopping & Highlights -->
+            <!-- Leisure and Focused Shopping Info -->
             <div class="flex items-start gap-4 border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
                 <div class="w-10 h-10 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 font-bold">
-                    <i class="fa-solid fa-bag-shopping"></i>
+                    <i class="fa-solid fa-couch"></i>
                 </div>
                 <div class="text-xs text-gray-600 space-y-1">
-                    <h4 class="font-bold text-gray-900 text-sm mb-1">心齋橋 ＆ UNIQLO 自由購物</h4>
-                    <p><b>Day 2 傍晚：</b>AEON MALL 臨空泉南（UNIQLO超大型店/大藥妝）。</p>
-                    <p class="text-rose-700 font-bold">Day 3 傍晚：心齋橋・道頓堀商圈（大丸百貨/藥妝自由逛）。</p>
+                    <h4 class="font-bold text-gray-900 text-sm mb-1">節奏舒適 ‧ 集中血拚重點</h4>
+                    <p><b>D1 & D2：</b>刪除趕商場採買，慢步名城名園、享受OMO7大浴場與海灣夕陽。</p>
+                    <p class="text-rose-700 font-bold">Day 3 傍晚：心齋橋・道頓堀旗艦商圈自由逛街購物。</p>
                 </div>
             </div>
 
@@ -188,7 +188,7 @@
                 <div class="text-xs text-gray-600 space-y-1">
                     <h4 class="font-bold text-gray-900 text-sm mb-1">團員全數確認美饌</h4>
                     <p><span class="inline-block bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold">無牛羊/無鰻魚</span> 100% 適配。</p>
-                    <p class="text-gray-700 font-medium">五風莊彩御膳、美々卯烏龍壽喜燒、奧丹380年湯豆腐、D3心齋橋百貨美食街(暫定)。</p>
+                    <p class="text-gray-700 font-medium">五風莊彩御膳、美々卯烏龍壽喜燒、奧丹380年湯豆腐、D3心齋橋美食街(暫定)。</p>
                 </div>
             </div>
         </div>
@@ -219,12 +219,12 @@
 
                 <button onclick="switchTab('restaurants')" id="tab-restaurants" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
                     <i class="fa-solid fa-star text-amber-500"></i>
-                    <span>🍽️ 餐廳清單</span>
+                    <span>🍽️ 團員確認餐廳清單</span>
                 </button>
 
                 <button onclick="switchTab('shopping')" id="tab-shopping" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
-                    <i class="fa-solid fa-shirt text-rose-600"></i>
-                    <span>🛍️ 心齋橋自由逛指南</span>
+                    <i class="fa-solid fa-bag-shopping text-rose-600"></i>
+                    <span>🛍️ 心齋橋 ＆ 臨空城採買指南</span>
                 </button>
 
                 <button onclick="switchTab('souvenir')" id="tab-souvenir" class="tab-btn shrink-0 snap-start px-4 py-2.5 rounded-xl font-bold text-sm text-gray-600 hover:text-maple-700 hover:bg-white/80 transition-all duration-200 flex items-center gap-2 border border-transparent">
@@ -278,9 +278,9 @@
                 <div class="bg-gradient-to-r from-slate-800 to-slate-700 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
                         <span class="bg-amber-400 text-slate-900 text-xs font-black px-3 py-1.5 rounded-lg uppercase">DAY 1</span>
-                        <h2 class="text-lg md:text-xl font-bold">11/09 (一) 啟程抵達・臨空商圈散策與泉佐野在地之夜</h2>
+                        <h2 class="text-lg md:text-xl font-bold">11/09 (一) 啟程抵達・臨空放鬆散策與泉佐野在地之夜</h2>
                     </div>
-                    <span class="text-xs bg-slate-600 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-route"></i> 機場專車接送 &rarr; 飯店 Check-in &rarr; Seacle 藥妝採買</span>
+                    <span class="text-xs bg-slate-600 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-route"></i> 機場專車接送 &rarr; OMO7入住 ‧ 飯店大浴場放鬆</span>
                 </div>
                 <div class="p-4 md:p-6 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -300,13 +300,13 @@
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
-                                <div class="w-20 shrink-0 text-xs font-bold text-rose-600 pt-0.5"><i class="fa-solid fa-bag-shopping"></i> 16:45 - 18:30</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-maple-600 pt-0.5"><i class="fa-solid fa-hot-tub-person"></i> 16:45 - 18:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                                        <span>【自由逛街採買】Rinku Seacle 商場 ＆ Cosmos / 松本清藥妝</span>
-                                        <span class="bg-rose-100 text-rose-700 text-[10px] font-bold px-2 py-0.5 rounded-full">空橋直達</span>
+                                        <span>【悠閒慢遊】OMO7 飯店特色公共空間、大浴場放鬆 ＆ 臨海夕陽散步</span>
+                                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">身心放鬆</span>
                                     </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">從 OMO7 飯店 2 樓空橋直通 Seacle 商場，團員可自由分散採買日本必備藥妝、零食、嬰兒副食品、尿布與當季新鮮水果。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">不急於出門血拚，團員可在 OMO7 內寬敞的交誼空間休息，或前往專屬大浴場、半露天風呂泡湯洗去飛行疲憊；亦可步行至臨海公園遠眺關西機場聯絡橋日落海景，享受愜意家庭時光。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
@@ -340,9 +340,9 @@
                                 </div>
                                 <p class="border-t border-amber-200/60 pt-2"><span class="font-semibold text-gray-700">住宿：</span> OMO7 關西機場 by 星野集團</p>
                             </div>
-                            <div class="bg-rose-50 rounded-lg p-2 border border-rose-200 text-[11px] text-rose-900">
-                                <span class="font-bold"><i class="fa-solid fa-store"></i> 採購便利：</span>
-                                Seacle 內 Cosmos 大型藥妝店走道超寬，推車無障礙極佳。
+                            <div class="bg-emerald-50 rounded-lg p-2.5 border border-emerald-200 text-[11px] text-emerald-900">
+                                <span class="font-bold"><i class="fa-solid fa-spa"></i> 慢活提示：</span>
+                                第一天不排購物，長輩與小寶寶能先調適作息，提早泡湯入眠，為後續行程儲備充足體力！
                             </div>
                         </div>
                     </div>
@@ -354,9 +354,9 @@
                 <div class="bg-gradient-to-r from-maple-700 to-amberGlow text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
                         <span class="bg-amber-400 text-slate-900 text-xs font-black px-3 py-1.5 rounded-lg uppercase">DAY 2</span>
-                        <h2 class="text-lg md:text-xl font-bold">11/10 (二) 岸和田名城・五風莊名園 ＆ AEON MALL UNIQLO 自由購物</h2>
+                        <h2 class="text-lg md:text-xl font-bold">11/10 (二) 岸和田歷史名城・五風莊名園 ＆ 水間寺祈福散策</h2>
                     </div>
-                    <span class="text-xs bg-black/20 px-3 py-1 rounded-full text-amber-100"><i class="fa-solid fa-leaf"></i> 名城庭園 ‧ UNIQLO超大型店 ‧ 泉州海鮮涮涮鍋</span>
+                    <span class="text-xs bg-black/20 px-3 py-1 rounded-full text-amber-100"><i class="fa-solid fa-leaf"></i> 名城庭園 ‧ 產地農市 ‧ 泉州海鮮涮涮鍋</span>
                 </div>
                 <div class="p-4 md:p-6 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -382,23 +382,23 @@
                                         <span class="normal-schedule">道の駅 愛彩ランド & 水間觀音 (水間寺祈福)</span>
                                         <span class="rain-schedule hidden text-sky-700">☔【雨天切換】岸和田地車會館深度體驗 & 室內茶道休閒</span>
                                     </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">採買農產直銷市集，隨後前往關西名剎「水間寺」參拜檜木三重塔與境內秋楓。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">走訪農產直銷市集品嚐在地水果點心，隨後前往關西名剎「水間寺」參拜檜木三重塔、境內秋楓與龍之爪傳說。</p>
                                     <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">避開戶外濕滑，改為全室內參觀祭典山車與 3D 展演，並採買傳統點心。</p>
                                 </div>
                             </div>
-                            <!-- Inserted Dedicated UNIQLO & Shopping Block -->
-                            <div class="flex gap-4 items-start border-t border-gray-100 pt-3 bg-rose-50/60 p-3 rounded-xl border border-rose-100">
-                                <div class="w-20 shrink-0 text-xs font-bold text-rose-700 pt-0.5"><i class="fa-solid fa-shirt"></i> 16:00 - 18:30</div>
+                            <!-- Afternoon relaxing cultural stroll (Replacing AEON Mall shopping) -->
+                            <div class="flex gap-4 items-start border-t border-gray-100 pt-3 bg-amber-50/50 p-3 rounded-xl border border-amber-100">
+                                <div class="w-20 shrink-0 text-xs font-bold text-amber-800 pt-0.5"><i class="fa-solid fa-tree"></i> 16:00 - 18:00</div>
                                 <div>
-                                    <h4 class="font-bold text-rose-900 text-sm flex items-center gap-2">
-                                        <span>【自由採買重點】AEON MALL 臨空泉南（UNIQLO超大型店 ＆ 免稅藥妝）</span>
-                                        <span class="bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">自由分散逛街</span>
+                                    <h4 class="font-bold text-amber-950 text-sm flex items-center gap-2">
+                                        <span>【古風城下町】岸和田紀州街道古色散策 ＆ 悠閒返回飯店小憩</span>
+                                        <span class="bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">步調放慢</span>
                                     </h4>
-                                    <p class="text-xs text-rose-800 mt-0.5">專車直達南大阪最大購物中心！包含 <b>UNIQLO 超大型店、GU、無印良品、大型藥妝店、Daiso、AEON 超市</b>，團員可自由解散買齊衣物與藥妝！</p>
+                                    <p class="text-xs text-amber-900 mt-0.5">漫步於保有江戶與明治時期特色的紀州街道老街，欣賞歷史町家景觀；隨後由包車接送返回 OMO7 飯店讓長輩與幼兒休息，免受擁擠商場疲勞轟炸。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
-                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 18:45 - 20:30</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 18:30 - 20:30</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">晚餐：はや 魚太郎 泉州の鄉 (海鮮/黑豚涮涮鍋)</h4>
                                     <p class="text-xs text-gray-500 mt-0.5">享用特選黑豚涮涮鍋或鮮魚海鮮鍋，餐後專車返回 OMO7 飯店休息泡湯。</p>
@@ -451,55 +451,68 @@
                 <div class="bg-gradient-to-r from-emerald-800 via-teal-800 to-rose-700 text-white p-4 md:p-5 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-3">
                         <span class="bg-amber-400 text-slate-900 text-xs font-black px-3 py-1.5 rounded-lg uppercase">DAY 3</span>
-                        <h2 class="text-lg md:text-xl font-bold">11/11 (三) 堺市世遺工藝・美々卯名店 ＆ 心齋橋・道頓堀自由購物夜</h2>
+                        <h2 class="text-lg md:text-xl font-bold">11/11 (三) 堺市世遺工藝・美々卯名店・大仙熱氣球 ＆ 心齋橋自由購物夜</h2>
                     </div>
-                    <span class="text-xs bg-black/20 px-3 py-1 rounded-full text-rose-200"><i class="fa-solid fa-bag-shopping"></i> 工藝世界遺產 ‧ 美々卯 ‧ 心齋橋道頓堀</span>
+                    <span class="text-xs bg-black/20 px-3 py-1 rounded-full text-rose-200"><i class="fa-solid fa-bag-shopping"></i> 熱氣球同區整合 ‧ 美々卯 ‧ 心齋橋道頓堀</span>
                 </div>
                 <div class="p-4 md:p-6 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="md:col-span-2 space-y-4">
                             <div class="flex gap-4 items-start">
-                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:15 - 10:30</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 09:15 - 10:15</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">泉州毛巾工廠 & 泉穴師神社</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">參觀親膚無化學殘留的「後曬純棉毛巾」；參拜泉穴師神社千年古樟樹林（大阪綠色百選）與幼兒驅蟲祈福。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">泉州毛巾工廠見學與採購</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">參觀親膚無化學殘留的「後曬純棉毛巾」，吸水力極佳，非常適合小寶寶與家人。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
-                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 10:45 - 12:15</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 10:30 - 11:15</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">大仙公園日本庭園賞楓 & 8K 遊客中心</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">漫步大仙公園日本庭園，欣賞優美池泉迴遊式紅葉景致，並透過 8K 劇場了解仁德天皇陵歷史。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">泉穴師神社 (大阪綠色百選・幼兒驅蟲祈福)</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">參拜國家重要文化財神殿、漫步 800 年古樟樹森林「泉穴師神社之森」，為隨行幼兒祈求健康平安。</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
-                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 12:30 - 14:00</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 11:30 - 13:00</div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 text-sm">午餐：美々卯 堺本店 (烏龍麵壽喜燒創始店)</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">品嚐百年老店的極上柴魚高湯、活蝦、土雞與手工彈牙烏龍麵，清甜無負擔、長幼皆宜。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">近 200 年發源老字號！極上柴魚昆布高湯、活蝦、土雞與手工彈牙烏龍麵，清甜無負擔、長幼皆宜。</p>
+                                </div>
+                            </div>
+                            <!-- MERGED DAISEN PARK AND SAKAI BALLOON SECTION -->
+                            <div class="flex gap-4 items-start border-t border-gray-100 pt-3 bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200">
+                                <div class="w-20 shrink-0 text-xs font-bold text-emerald-800 pt-0.5"><i class="fa-solid fa-hot-air-balloon text-emerald-600"></i> 13:15 - 15:00</div>
+                                <div>
+                                    <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 inline-block">同園區一併完成 ‧ 零折返</span>
+                                    <h4 class="font-bold text-emerald-950 text-sm flex items-center gap-1.5">
+                                        <span class="normal-schedule">大仙公園日本庭園賞楓 ＆ 大阪堺熱氣球 (Sakai Balloon) 升空俯瞰</span>
+                                        <span class="rain-schedule hidden text-sky-700">☔【雨天切換】堺市利晶之杜 (茶道體驗) 或 Big Bang 兒童館</span>
+                                    </h4>
+                                    <p class="text-xs text-emerald-900 mt-0.5 normal-schedule leading-relaxed">
+                                        專車直達大仙公園：先於遊客中心欣賞 8K 劇場，漫步日本庭園欣賞池泉迴遊式秋楓景致；隨後直接前往同園區 Dora 池南側搭乘「大阪堺熱氣球」，升空 100 公尺 360 度俯瞰仁德天皇陵古墳全景！
+                                    </p>
+                                    <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">
+                                        若遇雨熱氣球停飛，專車改往【堺市利晶之杜】室內茶道點茶體驗，或至【Big Bang 兒童館】安全室內爬行放電。
+                                    </p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start border-t border-gray-100 pt-3">
-                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 14:15 - 16:00</div>
+                                <div class="w-20 shrink-0 text-xs font-bold text-gray-400 pt-0.5"><i class="fa-regular fa-clock"></i> 15:15 - 16:15</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm flex items-center gap-1.5">
-                                        <span class="normal-schedule">大阪堺熱氣球 (Sakai Balloon) & 堺傳統產業館</span>
-                                        <span class="rain-schedule hidden text-sky-700">☔【雨天切換】堺市利晶之杜 (茶道體驗) 或 Big Bang 兒童樂園</span>
-                                    </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">搭乘熱氣球升空 100 公尺俯瞰仁德天皇陵，隨後造訪傳統產業館參觀職人鍛造刀具工藝。</p>
-                                    <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">因熱氣球雨天停飛，切換至【堺市利晶之杜】室內茶道體驗，或至【Big Bang 兒童館】安全室內爬行放電。</p>
+                                    <h4 class="font-bold text-gray-800 text-sm">堺傳統產業會館 (刀具見學與工藝採買)</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">參觀世界聞名的堺市手工料理刀具鍛造工藝，選購三德廚刀、線香與指甲剪等實用紀念名物（需託運）。</p>
                                 </div>
                             </div>
-                            <!-- Major Highlight: Dedicated Shinsaibashi & Dotonbori section -->
-                            <div class="flex gap-4 items-start border-t border-gray-100 pt-3 bg-amber-50/80 p-3 rounded-xl border border-amber-200">
+                            <!-- SHINSAIBASHI SHOPPING NIGHT -->
+                            <div class="flex gap-4 items-start border-t border-gray-100 pt-3 bg-amber-50/80 p-3.5 rounded-xl border border-amber-200">
                                 <div class="w-20 shrink-0 text-xs font-bold text-amber-800 pt-0.5"><i class="fa-solid fa-cart-shopping"></i> 16:30 - 20:30</div>
                                 <div>
                                     <h4 class="font-bold text-maple-900 text-sm flex items-center gap-2">
                                         <span>【市區旗艦逛街夜】專車直達「心齋橋・道頓堀」自由逛街採買 ＆ 晚餐</span>
-                                        <span class="bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">包車直達30分</span>
+                                        <span class="bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">集中血拚時段</span>
                                     </h4>
                                     <p class="text-xs text-gray-700 mt-0.5 leading-relaxed">
-                                        包車專車自堺市開往心齋橋（約 30 分鐘高速直達）！團員自由解散：想逛街的可盡情採買<b>心齋橋筋商店街、松本清旗艦店、PARCO 動漫精品</b>；長輩與嬰兒可於<b>大丸心齋橋百貨（7-9F 寬敞休息室/高級哺乳室）</b>悠閒歇腳！
+                                        包車專車自堺市開往心齋橋（約 30 分鐘高速直達）！團員自由解散：想逛街的可盡情採買<b>心齋橋筋商店街、松本清旗艦店、PARCO 動漫精品、大丸百貨專櫃</b>；長輩與嬰兒可於<b>大丸心齋橋百貨（7-9F 寬敞休息室/高級哺乳室）</b>悠閒歇腳！
                                     </p>
                                     <p class="text-xs text-amber-900 font-bold mt-1">
                                         晚餐：【暫定】大丸心齋橋店 本館 10F 美食街（手打蕎麥/天婦羅/海鮮/和食洋食自由選，推車友善免吹風排隊）。20:30 包車專車原車接送，一路睡回 OMO7 飯店，戰利品免手提搭電車！
@@ -581,7 +594,7 @@
                                         <span class="normal-schedule">清水寺 (清水舞台賞楓) ＆ 三年坂、二年坂老街漫步</span>
                                         <span class="rain-schedule hidden text-sky-700">☔【雨天切換】三十三間堂 ＆ 京都國立博物館 / 錦市場</span>
                                     </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">站在清水舞台眺望錦繡楓紅，隨後散步產寧坂與二寧坂，可品嚐藤菜美醬油糰子或二寧坂榻榻米星巴克。</p>
+                                    <p class="text-xs text-gray-500 mt-0.5 normal-schedule">站在清水舞台眺望錦繡楓紅，隨後散步產寧坂與二寧坂，品嚐藤菜美醬油糰子或二寧坂榻榻米星巴克。</p>
                                     <p class="text-xs text-sky-800 mt-0.5 rain-schedule hidden">避開清水坂陡坡雨天濕滑，轉往【三十三間堂 + 博物館】（全室內平坦）或【錦市場】（全拱廊頂棚）。</p>
                                 </div>
                             </div>
@@ -705,7 +718,7 @@
                     </div>
                     <div>
                         <h2 class="text-xl font-bold text-gray-900">客製行程與旅行社原案差異 ＆ 預算對照表</h2>
-                        <p class="text-xs text-gray-500">清楚核對景點亮點增補、餐飲升級與預算估算（以 9 位大人核算）！</p>
+                        <p class="text-xs text-gray-500">前兩天刪除繁瑣購物，精簡步調；Day 3 大仙公園熱氣球同區整合，傍晚安排心齋橋道頓堀自由逛街！</p>
                     </div>
                 </div>
 
@@ -717,14 +730,14 @@
                         <p class="text-xs text-emerald-800">換掉原案中平價連鎖家庭餐廳與牛肉陶板燒，升級為美々卯烏龍壽喜燒、奧丹湯豆腐與祇園精緻和食。</p>
                     </div>
                     <div class="bg-rose-50 border border-rose-200 rounded-xl p-4 space-y-1.5">
-                        <span class="text-[10px] font-bold uppercase bg-rose-200 text-rose-900 px-2 py-0.5 rounded">購物願望實現</span>
-                        <h4 class="font-bold text-rose-950 text-sm">新增心齋橋 ＆ UNIQLO大店</h4>
-                        <p class="text-xs text-rose-800">Day 2 插入南大阪最大 AEON 臨空泉南；Day 3 傍晚包車直達心齋橋道頓堀自由購物，長輩幼兒有大丸百貨可歇腳。</p>
+                        <span class="text-[10px] font-bold uppercase bg-rose-200 text-rose-900 px-2 py-0.5 rounded">購物重點集中</span>
+                        <h4 class="font-bold text-rose-950 text-sm">專注心齋橋 ＆ 臨空城</h4>
+                        <p class="text-xs text-rose-800">刪除 D1 及 D2 的零碎商場採買，Day 3 傍晚包車專車直達心齋橋道頓堀集中採購，大丸百貨更提供長幼舒適歇腳空間。</p>
                     </div>
                     <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 space-y-1.5">
                         <span class="text-[10px] font-bold uppercase bg-amber-200 text-amber-900 px-2 py-0.5 rounded">超高性價比</span>
                         <h4 class="font-bold text-amber-950 text-sm">每人餐費僅增約 NT$ 1,050</h4>
-                        <p class="text-xs text-amber-800">升級美々卯、奧丹與祇園御膳，D3晚餐暫定百貨美食街，全團每位大人僅需補約 ¥4,800 日圓！</p>
+                        <p class="text-xs text-amber-800">升級美々卯、奧丹與祇園御膳，D3 晚餐暫定百貨美食街自由選，全團每位大人僅需補約 ¥4,800 日圓！</p>
                     </div>
                 </div>
 
@@ -736,7 +749,7 @@
                                 <th class="p-3">天數 / 餐別</th>
                                 <th class="p-3">旅行社合約原案 (PDF標示餐費)</th>
                                 <th class="p-3">團員客製核定餐廳</th>
-                                <th class="p-3">每人預算差額 (日幣)</th>
+                                <th class="p-3">預算差額 (日幣)</th>
                                 <th class="p-3">升級效益說明</th>
                             </tr>
                         </thead>
@@ -772,9 +785,9 @@
                             <tr class="hover:bg-amber-50/40 bg-amber-50/30">
                                 <td class="p-3 font-bold text-amber-900">Day 3 晚餐</td>
                                 <td class="p-3 text-gray-600">鮨人 壽司會席 (¥4,400)</td>
-                                <td class="p-3 font-bold text-amber-800">大丸心齋橋 10F 美食街 (暫定自選)</td>
+                                <td class="p-3 font-bold text-amber-800">大丸10F美食街 (暫定)</td>
                                 <td class="p-3 font-bold text-emerald-700">約 -¥1,400 ~ ±¥0</td>
-                                <td class="p-3 text-gray-600"><b>【暫定自選】</b>百貨美食街多樣和食/蕎麥/洋食自由選（約¥2,000~¥3,000），無預算追加負擔。</td>
+                                <td class="p-3 text-gray-600"><b>【暫定】</b>百貨美食街多樣和食/蕎麥/洋食自由選（約¥2,000~¥3,000），無預算追加負擔。</td>
                             </tr>
                             <tr class="hover:bg-amber-50/40 bg-emerald-50/30">
                                 <td class="p-3 font-bold text-emerald-900">Day 4 午餐</td>
@@ -983,73 +996,53 @@
             <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100 space-y-6">
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
                     <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-xl font-bold">
-                        <i class="fa-solid fa-shirt"></i>
+                        <i class="fa-solid fa-bag-shopping"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold text-gray-900">🛍️ 心齋橋 ＆ UNIQLO・藥妝自由採買攻略</h2>
-                        <p class="text-xs text-gray-500">行程中規劃充足的分散逛街時段，不需團體綁在一起，各取所需！</p>
+                        <h2 class="text-xl font-bold text-gray-900">🛍️ 心齋橋 ＆ 臨空城 Outlet 精選採買指南</h2>
+                        <p class="text-xs text-gray-500">前兩天刪除零星商場奔波，採買火力集中於 Day 3 心齋橋旗艦店與 Day 5 臨空城名品！</p>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                    <!-- Spot 1: Shinsaibashi & Dotonbori -->
+                    <!-- Main Spot: Shinsaibashi & Dotonbori -->
                     <div class="border-2 border-rose-300 rounded-2xl p-5 bg-rose-50/20 space-y-3">
                         <div class="flex items-center justify-between">
                             <span class="bg-rose-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">
                                 <i class="fa-solid fa-fire mr-1"></i> 【Day 3 傍晚】市區旗艦商圈
                             </span>
                         </div>
-                        <h3 class="text-base font-bold text-gray-900">心齋橋・道頓堀商圈</h3>
+                        <h3 class="text-lg font-bold text-gray-900">心齋橋・道頓堀商圈</h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
-                            大阪首屈一指的繁華商圈！大丸心齋橋百貨（寶可夢中心/JUMP SHOP/專櫃品牌）、心齋橋筋商店街、大型松本清與大國藥妝旗艦店。
+                            大阪最具代表性的熱鬧商圈！匯集<b>大丸心齋橋百貨（寶可夢中心/JUMP SHOP/專櫃品牌）、心齋橋筋商店街、大型松本清、大國藥妝旗艦店、UNIQLO心齋橋店</b>。
                         </p>
-                        <div class="bg-white p-2.5 rounded-xl border border-rose-100 text-xs space-y-1">
-                            <strong class="text-rose-900 block"><i class="fa-solid fa-baby text-rose-500"></i> 長幼友善休息據點：</strong>
-                            <p class="text-gray-600">以<b>大丸心齋橋店 本館 7 樓</b>為據點，設有冷氣休憩區、頂級哺集乳室與飲水機，長輩與嬰兒可在此吹冷氣休息。</p>
+                        <div class="bg-white p-3 rounded-xl border border-rose-100 text-xs space-y-1.5">
+                            <strong class="text-rose-900 block flex items-center gap-1"><i class="fa-solid fa-baby text-rose-500"></i> 長幼友善休息據點：</strong>
+                            <p class="text-gray-600">以<b>大丸心齋橋店 本館 7 樓</b>為據點，設有舒適空調休憩區、頂級哺集乳室、熱水機與親子洗手間，長輩與小寶寶可在此吹冷氣休息，血拚成員分頭行動。</p>
                         </div>
                         <a href="https://www.google.com/maps/search/?api=1&query=大丸心斎橋店" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-800 underline">
                             <i class="fa-solid fa-map-location-dot"></i> 查看大丸心齋橋 Google 地圖
                         </a>
                     </div>
 
-                    <!-- Spot 2: AEON MALL Rinku Sennan -->
-                    <div class="border-2 border-amber-200 rounded-2xl p-5 bg-amber-50/20 space-y-3">
+                    <!-- Final Spot: Rinku Outlets & Seacle -->
+                    <div class="border-2 border-blue-200 rounded-2xl p-5 bg-blue-50/20 space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="bg-amber-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">
-                                <i class="fa-solid fa-crown mr-1"></i> 【Day 2 傍晚】大型購物中心
+                            <span class="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">
+                                <i class="fa-solid fa-plane-departure mr-1"></i> 【Day 5 上午】登機前最終衝刺
                             </span>
                         </div>
-                        <h3 class="text-base font-bold text-gray-900">AEON MALL 臨空泉南</h3>
+                        <h3 class="text-lg font-bold text-gray-900">臨空城 Premium Outlets ＆ Seacle</h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
-                            南大阪最大型的臨海購物中心！設有 <b>UNIQLO 超大型店、GU、無印良品、免稅大型藥妝、Daiso、AEON 生鮮超市</b>，全家衣物一次買齊。
+                            關西最大規模海濱 Outlet！登機前專車直接載運行李抵達，採買國際運動品牌、日系服飾，並可在 Seacle 商場採購母嬰用品（西松屋、Mikihouse）。
                         </p>
-                        <div class="bg-white p-2.5 rounded-xl border border-amber-100 text-xs space-y-1">
-                            <strong class="text-amber-900 block"><i class="fa-solid fa-shirt text-amber-600"></i> UNIQLO 超大型店特點：</strong>
-                            <p class="text-gray-600">發熱衣（HEATTECH）、輕羽絨、童裝 Baby/Kids 尺碼極齊全，享有外國人 10% 退稅服務。</p>
+                        <div class="bg-white p-3 rounded-xl border border-blue-100 text-xs space-y-1.5">
+                            <strong class="text-blue-900 block flex items-center gap-1"><i class="fa-solid fa-suitcase text-blue-600"></i> 行李收納無壓力：</strong>
+                            <p class="text-gray-600">買完的所有戰利品直接放進包車後車廂，10分鐘專車直達關西機場托運，免提大包小包搭電車！</p>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=イオンモールりんくう泉南" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-800 underline">
-                            <i class="fa-solid fa-map-location-dot"></i> 查看 AEON MALL Google 地圖
-                        </a>
-                    </div>
-
-                    <!-- Spot 3: Rinku Seacle & Cosmos -->
-                    <div class="border-2 border-slate-200 rounded-2xl p-5 bg-slate-50/50 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="bg-slate-700 text-white text-xs font-bold px-2.5 py-1 rounded-lg">
-                                <i class="fa-solid fa-hotel mr-1"></i> 【Day 1 ＆ 每日夜間】飯店旁
-                            </span>
-                        </div>
-                        <h3 class="text-base font-bold text-gray-900">Rinku Seacle ＆ 藥妝店</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">
-                            OMO7 飯店 2F 空橋步行 3 分鐘直通！第一天抵達或每晚回飯店後，隨時想補貨就能出發。
-                        </p>
-                        <div class="bg-white p-2.5 rounded-xl border border-slate-200 text-xs space-y-1">
-                            <strong class="text-slate-800 block"><i class="fa-solid fa-tablets text-blue-600"></i> Cosmos 臨空店 / 西松屋：</strong>
-                            <p class="text-gray-600">日本低價藥妝巨頭，走道寬敞推車極順；Seacle 內西松屋可補齊嬰幼兒副食品與備品。</p>
-                        </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Rinku+Pleasure+Town+Seacle" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-800 underline">
-                            <i class="fa-solid fa-map-location-dot"></i> 查看 Seacle Google 地圖
+                        <a href="https://www.google.com/maps/search/?api=1&query=りんくうプレミアム・アウトレット" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-800 underline">
+                            <i class="fa-solid fa-map-location-dot"></i> 查看臨空城 Outlet Google 地圖
                         </a>
                     </div>
 
@@ -1287,7 +1280,7 @@
                         <input type="checkbox" id="prep-7" onchange="updatePrepProgress()" class="prep-checkbox mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
                         <div class="text-xs space-y-0.5">
                             <div class="font-bold text-gray-800 text-sm">寶寶尿布 / 濕紙巾 / 圍兜餐具</div>
-                            <p class="text-gray-500">預估每日 5-8 片尿布量，隨身包準備 1 天份（第一天可在 Seacle 藥妝補貨）。</p>
+                            <p class="text-gray-500">預估每日 5-8 片尿布量，隨身包準備充足備品。</p>
                         </div>
                     </label>
 
@@ -1479,24 +1472,24 @@
             document.querySelectorAll('#souvenirList input[type="checkbox"]').forEach(cb => {
                 if (cb.id) souvenirStates[cb.id] = cb.checked;
             });
-            localStorage.setItem('osaka_souvenir_checks_v2', JSON.stringify(souvenirStates));
+            localStorage.setItem('osaka_souvenir_checks_v4', JSON.stringify(souvenirStates));
 
             const prepStates = {};
             document.querySelectorAll('#prepList input[type="checkbox"]').forEach(cb => {
                 if (cb.id) prepStates[cb.id] = cb.checked;
             });
-            localStorage.setItem('osaka_prep_checks_v2', JSON.stringify(prepStates));
+            localStorage.setItem('osaka_prep_checks_v4', JSON.stringify(prepStates));
         }
 
         function loadSavedState() {
             try {
-                const souvenirStates = JSON.parse(localStorage.getItem('osaka_souvenir_checks_v2') || '{}');
+                const souvenirStates = JSON.parse(localStorage.getItem('osaka_souvenir_checks_v4') || '{}');
                 Object.keys(souvenirStates).forEach(id => {
                     const el = document.getElementById(id);
                     if (el) el.checked = souvenirStates[id];
                 });
 
-                const prepStates = JSON.parse(localStorage.getItem('osaka_prep_checks_v2') || '{}');
+                const prepStates = JSON.parse(localStorage.getItem('osaka_prep_checks_v4') || '{}');
                 Object.keys(prepStates).forEach(id => {
                     const el = document.getElementById(id);
                     if (el) el.checked = prepStates[id];
@@ -1552,9 +1545,9 @@ ${modeText}日期：11/09(一) - 11/13(五)
 人數：9位成人 + 1位嬰幼兒 (專屬包車)
 住宿：OMO7 關西機場 by 星野集團 (連泊4晚)
 
-Day 1: 桃園(11:15) → 關西機場(14:55) → OMO7 Check-in → 2F空橋直通 Seacle / Cosmos藥妝自由逛 → 晚餐: 鳥貴族 泉佐野店
-Day 2: 岸和田城八陣之庭 → 午餐: 五風莊庭園料亭 (彩御膳懷石) → 水間寺祈福(雨天:地車會館) → 【採買重點】AEON MALL 臨空泉南 (UNIQLO超大型店/大藥妝自由逛) → 晚餐: はや 魚太郎 (黑豚/海鮮涮涮鍋)
-Day 3: 泉州毛巾館 → 大仙公園賞楓 → 午餐: 美々卯 堺本店 (烏龍麵壽喜燒創始店) → 堺熱氣球(雨天:利晶之杜/BigBang) → 堺傳統產業館 → 【市區逛街夜】專車直達「心齋橋・道頓堀」(大丸百貨/藥妝自由逛) → 晚餐: 【暫定】大丸心齋橋店 本館 10F 美食街自由選
+Day 1: 桃園(11:15) → 關西機場(14:55) → 專車接機至 OMO7 Check-in → 飯店大浴場放鬆 / 海灣夕陽散步 → 晚餐: 鳥貴族 泉佐野店
+Day 2: 岸和田城八陣之庭 & 地車會館 → 午餐: 五風莊庭園料亭 (彩御膳懷石) → 道の駅愛彩ランド & 水間寺祈福(雨天:地車會館深度體驗) → 紀州街道城下町散步 / 返回飯店小憩 → 晚餐: はや 魚太郎 (黑豚/海鮮涮涮鍋)
+Day 3: 泉州毛巾工廠 → 泉穴師神社 → 午餐: 美々卯 堺本店 (烏龍麵壽喜燒創始店) → 大仙公園日本庭園賞楓 ＆ 大阪堺熱氣球(雨天:利晶之杜/BigBang) → 堺傳統產業館 → 【市區集中逛街夜】專車直達「心齋橋・道頓堀」(大丸百貨/藥妝/服飾自由逛) → 晚餐: 【暫定】大丸心齋橋店 本館 10F 美食街自由選
 Day 4: 伏見稻荷千本鳥居 → 午餐: 總本家 奧丹清水 (380年庭園湯豆腐) → 清水寺賞楓 ＆ 產寧坂二年坂散策(雨天:三十三間堂/錦市場) → 祇園花見小路 → 晚餐: がんこ (Ganko) 祇園店
 Day 5: 臨空城 Premium Outlets 採購 → 午餐: Outlet 美食街自理 → 關西機場免稅店 → 回程CX-565(16:15) → 抵達桃園(18:30)`;
 
